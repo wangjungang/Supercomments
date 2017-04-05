@@ -13,6 +13,8 @@
 		53AEBE251E948A2500280F70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53AEBE231E948A2500280F70 /* Main.storyboard */; };
 		53AEBE271E948A2500280F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AEBE261E948A2500280F70 /* Assets.xcassets */; };
 		53AEBE2A1E948A2500280F70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53AEBE281E948A2500280F70 /* LaunchScreen.storyboard */; };
+		53AEBE371E948D6500280F70 /* NSString+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE341E948D6500280F70 /* NSString+Extend.m */; };
+		53AEBE381E948D6500280F70 /* UIColor+WJColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE361E948D6500280F70 /* UIColor+WJColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,11 @@
 		53AEBE261E948A2500280F70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53AEBE291E948A2500280F70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53AEBE2B1E948A2500280F70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53AEBE311E948ADC00280F70 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		53AEBE331E948D6500280F70 /* NSString+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extend.h"; sourceTree = "<group>"; };
+		53AEBE341E948D6500280F70 /* NSString+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extend.m"; sourceTree = "<group>"; };
+		53AEBE351E948D6500280F70 /* UIColor+WJColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WJColor.h"; sourceTree = "<group>"; };
+		53AEBE361E948D6500280F70 /* UIColor+WJColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WJColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +81,22 @@
 		53AEBE1A1E948A2500280F70 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				53AEBE321E948D6500280F70 /* class */,
 				53AEBE1B1E948A2500280F70 /* main.m */,
+				53AEBE311E948ADC00280F70 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		53AEBE321E948D6500280F70 /* class */ = {
+			isa = PBXGroup;
+			children = (
+				53AEBE331E948D6500280F70 /* NSString+Extend.h */,
+				53AEBE341E948D6500280F70 /* NSString+Extend.m */,
+				53AEBE351E948D6500280F70 /* UIColor+WJColor.h */,
+				53AEBE361E948D6500280F70 /* UIColor+WJColor.m */,
+			);
+			path = class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,7 +130,7 @@
 				TargetAttributes = {
 					53AEBE161E948A2500280F70 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 3637W6NRU9;
+						DevelopmentTeam = 23GQX4X34D;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -153,7 +173,9 @@
 			files = (
 				53AEBE221E948A2500280F70 /* ViewController.m in Sources */,
 				53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */,
+				53AEBE381E948D6500280F70 /* UIColor+WJColor.m in Sources */,
 				53AEBE1C1E948A2500280F70 /* main.m in Sources */,
+				53AEBE371E948D6500280F70 /* NSString+Extend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +297,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3637W6NRU9;
+				DEVELOPMENT_TEAM = 23GQX4X34D;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Supercomments/PrefixHeader.pch;
 				INFOPLIST_FILE = Supercomments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Supercomments;
@@ -287,7 +311,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3637W6NRU9;
+				DEVELOPMENT_TEAM = 23GQX4X34D;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Supercomments/PrefixHeader.pch;
 				INFOPLIST_FILE = Supercomments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Supercomments;
@@ -314,6 +340,7 @@
 				53AEBE301E948A2500280F70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
