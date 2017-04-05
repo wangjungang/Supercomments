@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "homeViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    //设置导航控制器 并添加firstViewController
+    //     FirstViewController *firstNavigationController=[[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
+    
+    homeViewController *homevc = [[homeViewController alloc] init];
+    UINavigationController *navigationController=[[UINavigationController alloc] initWithRootViewController:homevc];
+    self.window.rootViewController=navigationController;
+    
+    navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    navigationController.navigationBar.translucent = NO;
+    navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"008CCF"];
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 

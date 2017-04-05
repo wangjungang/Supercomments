@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  infoViewController.h
 //  Supercomments
 //
 //  Created by 王俊钢 on 2017/4/5.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface infoViewController : UIViewController
 
-@property (nonatomic, assign) NSInteger index;
 @end
-

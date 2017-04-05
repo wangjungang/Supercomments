@@ -30,9 +30,9 @@
 #define serviseId  @"192.168.1.4"
 #endif /* PrefixHeader_pch */
 
-//#import <MBProgressHUD.h>
+#import <MBProgressHUD.h>
 //
 #import "UIColor+WJColor.h"
-//#import "UIImageView+WebCache.h"
+#import "UIImageView+WebCache.h"
 #ifdef __OBJC__
 #endif
