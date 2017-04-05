@@ -7,9 +7,11 @@
 //
 
 #import "infoViewController.h"
-
+#import "infoCell.h"
 @interface infoViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *infotableview;
+@property (nonatomic,strong) NSArray *imgarr;
+@property (nonatomic,strong) NSArray *textarr;
 @end
 static NSString *infocellidentfid = @"infocellidentfid";
 
@@ -24,6 +26,10 @@ static NSString *infocellidentfid = @"infocellidentfid";
     
     self.title = @"个人";
     
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"F5F5F5"];
+    [self.view addSubview:self.infotableview];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,7 +45,6 @@ static NSString *infocellidentfid = @"infocellidentfid";
 
 #pragma mark - getters
 
-
 -(UITableView *)infotableview
 {
     if(!_infotableview)
@@ -51,17 +56,42 @@ static NSString *infocellidentfid = @"infocellidentfid";
     return _infotableview;
 }
 
+-(NSArray *)imgarr
+{
+    if(!_imgarr)
+    {
+        _imgarr = [[NSArray alloc] init];
+        _imgarr = @[@"矩形-39",@"帮助与反馈",@"矩形-39"];
+    }
+    return _imgarr;
+}
+
+-(NSArray *)textarr
+{
+    if(!_textarr)
+    {
+        _textarr = [[NSArray alloc] init];
+        _textarr = @[@"消息通知",@"意见反馈",@"设置"];
+    }
+    return _textarr;
+}
+
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    return nil;
+    infoCell *cell = [tableView dequeueReusableCellWithIdentifier:infocellidentfid];
+    if (!cell) {
+        cell = [[infoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infocellidentfid];
+    }
+    cell.leftimg.image = [UIImage imageNamed:self.imgarr[indexPath.row]];
+    cell.textlab.text = self.textarr[indexPath.row];
+    return cell;
 }
 
 #pragma mark - 实现方法

@@ -26,6 +26,7 @@
 		53AEBE671E94D8A100280F70 /* newViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE661E94D8A100280F70 /* newViewController.m */; };
 		53AEBE6A1E94D96A00280F70 /* hotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE691E94D96A00280F70 /* hotViewController.m */; };
 		53AEBE6F1E94F80400280F70 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE6E1E94F80400280F70 /* loginViewController.m */; };
+		53AEBE721E95014B00280F70 /* infoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE711E95014B00280F70 /* infoCell.m */; };
 		95F412879000247E7AD6332D /* libPods-Supercomments.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 786A0F9C77F8BEA8D1747BFF /* libPods-Supercomments.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,8 @@
 		53AEBE691E94D96A00280F70 /* hotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hotViewController.m; sourceTree = "<group>"; };
 		53AEBE6D1E94F80400280F70 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		53AEBE6E1E94F80400280F70 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		53AEBE701E95014B00280F70 /* infoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoCell.h; sourceTree = "<group>"; };
+		53AEBE711E95014B00280F70 /* infoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell.m; sourceTree = "<group>"; };
 		786A0F9C77F8BEA8D1747BFF /* libPods-Supercomments.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Supercomments.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D994A0AB886A394927602D3A /* Pods-Supercomments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Supercomments.release.xcconfig"; path = "Pods/Target Support Files/Pods-Supercomments/Pods-Supercomments.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,6 +232,8 @@
 		53AEBE581E94CD6E00280F70 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				53AEBE701E95014B00280F70 /* infoCell.h */,
+				53AEBE711E95014B00280F70 /* infoCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 				53AEBE521E9496FF00280F70 /* homeViewController.m in Sources */,
 				53AEBE221E948A2500280F70 /* ViewController.m in Sources */,
 				53AEBE5C1E94CDBD00280F70 /* infoViewController.m in Sources */,
+				53AEBE721E95014B00280F70 /* infoCell.m in Sources */,
 				53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */,
 				53AEBE671E94D8A100280F70 /* newViewController.m in Sources */,
 				53AEBE461E94910700280F70 /* MLMSegmentManager.m in Sources */,
