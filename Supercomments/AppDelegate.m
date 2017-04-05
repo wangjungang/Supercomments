@@ -31,8 +31,8 @@
     
     navigationController.navigationBar.barStyle = UIBarStyleDefault;
     navigationController.navigationBar.translucent = NO;
-    navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"008CCF"];
+    navigationController.navigationBar.tintColor = [UIColor wjColorFloat:@"333333"];
+    //navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"008CCF"];
     [self.window makeKeyAndVisible];
 
     return YES;

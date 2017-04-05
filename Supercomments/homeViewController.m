@@ -21,6 +21,7 @@
 @property (nonatomic, weak) LGSegment *segment;
 @property(nonatomic,weak)CALayer *LGLayer;
 @property (nonatomic,strong) UIButton *infobtn;
+@property (nonatomic,strong) UIButton *searchbtn;
 @end
 
 @implementation homeViewController
@@ -63,6 +64,8 @@
     [self setContentScrollView];
     
     [self.view addSubview:self.infobtn];
+    [self.view addSubview:self.searchbtn];
+    
     
 }
 
@@ -98,19 +101,19 @@
         [sv addSubview:vc.view];
         
     }
-    sv.contentSize = CGSizeMake(3 * DEVICE_WIDTH, 0);
+    sv.contentSize = CGSizeMake(2 * DEVICE_WIDTH, 0);
     self.contentScrollView = sv;
 }
 
-//加载3个ViewController
+//加载2个ViewController
 
 -(void)addChildViewController{
     
     newViewController * vc1 = [[newViewController alloc]init];
-    vc1.view.backgroundColor= [UIColor colorWithRed:80.0/255 green:227.0/255 blue:194.0/255 alpha:100];
+    //vc1.view.backgroundColor= [UIColor colorWithRed:80.0/255 green:227.0/255 blue:194.0/255 alpha:100];
     [self addChildViewController:vc1];
     hotViewController * vc2 = [[hotViewController alloc]init];
-    vc2.view.backgroundColor= [UIColor colorWithRed:0.0/255 green:167.0/255 blue:210.0/255 alpha:100];
+    //vc2.view.backgroundColor= [UIColor colorWithRed:0.0/255 green:167.0/255 blue:210.0/255 alpha:100];
     [self addChildViewController:vc2];
 }
 
@@ -147,6 +150,16 @@
         [_infobtn addTarget:self action:@selector(infoclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _infobtn;
+}
+
+-(UIButton *)searchbtn
+{
+    if(!_searchbtn)
+    {
+        _searchbtn = [[UIButton alloc] initWithFrame:CGRectMake(DEVICE_WIDTH-40, 25, 20, 20)];
+        [_searchbtn setImage:[UIImage imageNamed:@"放大镜"] forState:normal];
+    }
+    return _searchbtn;
 }
 
 -(void)infoclick

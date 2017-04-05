@@ -10,8 +10,7 @@
 
 #define LG_ScreenW [UIScreen mainScreen].bounds.size.width
 #define LG_ScreenH [UIScreen mainScreen].bounds.size.height
-#define LG_ButtonColor_Selected [UIColor colorWithRed:111.0/255 green:68.0/255 blue:28.0/255 alpha:100]
-#define LG_ButtonColor_UnSelected [UIColor colorWithRed:153.0/255 green:153.0/255 blue:153.0/255 alpha:100]
+
 #define LG_BannerColor [UIColor colorWithRed:162.0/255 green:219.0/255 blue:246.0/255 alpha:100]
 
 @interface LGSegment()
@@ -61,12 +60,9 @@
 
 -(void)commonInit {
     //按钮名称
-    NSMutableArray *titleList = [[NSMutableArray alloc]initWithObjects:@"VC1",@"VC2", nil];
-    
+    NSMutableArray *titleList = [[NSMutableArray alloc]initWithObjects:@"最新",@"最热", nil];
     self.titleList = titleList;
-    
     [self createItem:self.titleList];
-    
     [self buttonList];
 }
 
@@ -76,22 +72,25 @@
     return segment;
 }
 
-
-
 - (void)createItem:(NSMutableArray *)item {
     
     int count = (int)self.titleList.count;
-    CGFloat marginX = (self.frame.size.width - count * 60)/(count + 1);
+    //CGFloat marginX = (self.frame.size.width - count * 60)/(count + 1);
+    CGFloat marginX = DEVICE_WIDTH/2-60*count;
+    
     for (int i = 0; i<count; i++) {
         
         NSString *temp = [self.titleList objectAtIndex:i];
         //按钮的X坐标计算，i为列数
         CGFloat buttonX = marginX + i * (60 + marginX);
-        UIButton *buttonItem = [[UIButton alloc] initWithFrame:CGRectMake(buttonX, 0, 60, self.frame.size.height)];
+        //UIButton *buttonItem = [[UIButton alloc] initWithFrame:CGRectMake(buttonX, 0, 60, self.frame.size.height)];
+        
+        UIButton *buttonItem = [[UIButton alloc] init];
+        //buttonItem.backgroundColor = [UIColor redColor];
         //设置
         buttonItem.tag = i + 1;
         [buttonItem setTitle:temp forState:UIControlStateNormal];
-        [buttonItem setTitleColor:LG_ButtonColor_UnSelected forState:UIControlStateNormal];
+        [buttonItem setTitleColor:[UIColor wjColorFloat:@"E8E8E8"] forState:UIControlStateNormal];
         [buttonItem addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:buttonItem];
         
@@ -99,8 +98,12 @@
         //第一个按钮默认被选中
         if (i == 0) {
             CGFloat firstX = buttonX;
-            [buttonItem setTitleColor:LG_ButtonColor_Selected forState:UIControlStateNormal];
+            buttonItem.frame = CGRectMake(DEVICE_WIDTH/2-80, 0, 60, self.frame.size.height);
+            [buttonItem setTitleColor:[UIColor wjColorFloat:@"FFFFFF"] forState:UIControlStateNormal];
             [self creatBanner:firstX];
+        }else
+        {
+             buttonItem.frame = CGRectMake(DEVICE_WIDTH/2+20, 0, 60, self.frame.size.height);
         }
         
         buttonX += marginX;
@@ -124,7 +127,7 @@
     //获取被点击按钮
     UIButton *btn = (UIButton *)sender;
     
-    [btn setTitleColor:LG_ButtonColor_Selected forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor wjColorFloat:@"FFFFFF"] forState:UIControlStateNormal];
 //    NSLog(@"%ld",btn.tag);
     
     UIButton *bt1 = (UIButton *)[self viewWithTag:1];
@@ -211,19 +214,19 @@
     
     switch (btn.tag) {
         case 1:
-            [bt1 setTitleColor:LG_ButtonColor_Selected forState:UIControlStateNormal];
-            [bt2 setTitleColor:LG_ButtonColor_UnSelected forState:UIControlStateNormal];
-            [bt3 setTitleColor:LG_ButtonColor_UnSelected forState:UIControlStateNormal];
+            [bt1 setTitleColor:[UIColor wjColorFloat:@"FFFFFF"] forState:UIControlStateNormal];
+            [bt2 setTitleColor:[UIColor wjColorFloat:@"E8E8E8"] forState:UIControlStateNormal];
+            [bt3 setTitleColor:[UIColor wjColorFloat:@"E8E8E8"] forState:UIControlStateNormal];
             break;
         case 2:
-            [bt1 setTitleColor:LG_ButtonColor_UnSelected forState:UIControlStateNormal];
-            [bt2 setTitleColor:LG_ButtonColor_Selected forState:UIControlStateNormal];
-            [bt3 setTitleColor:LG_ButtonColor_UnSelected forState:UIControlStateNormal];
+            [bt1 setTitleColor:[UIColor wjColorFloat:@"E8E8E8"] forState:UIControlStateNormal];
+            [bt2 setTitleColor:[UIColor wjColorFloat:@"FFFFFF"] forState:UIControlStateNormal];
+            [bt3 setTitleColor:[UIColor wjColorFloat:@"E8E8E8"] forState:UIControlStateNormal];
             break;
         case 3:
-            [bt1 setTitleColor:LG_ButtonColor_UnSelected forState:UIControlStateNormal];
-            [bt2 setTitleColor:LG_ButtonColor_UnSelected forState:UIControlStateNormal];
-            [bt3 setTitleColor:LG_ButtonColor_Selected forState:UIControlStateNormal];
+            [bt1 setTitleColor:[UIColor wjColorFloat:@"E8E8E8"] forState:UIControlStateNormal];
+            [bt2 setTitleColor:[UIColor wjColorFloat:@"E8E8E8"] forState:UIControlStateNormal];
+            [bt3 setTitleColor:[UIColor wjColorFloat:@"FFFFFF"] forState:UIControlStateNormal];
             break;
             
         default:
