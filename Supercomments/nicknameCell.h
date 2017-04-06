@@ -1,5 +1,5 @@
 //
-//  nicknameViewController.h
+//  nicknameCell.h
 //  Supercomments
 //
 //  Created by 王俊钢 on 2017/4/6.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface nicknameViewController : UIViewController
-@property (nonatomic,strong) NSString *nicknamestr;
+@interface nicknameCell : UITableViewCell
+@property (nonatomic,strong) UITextField *nicknametext;
 @end

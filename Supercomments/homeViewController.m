@@ -71,7 +71,7 @@
     
     
     [self.view addSubview:self.infobtn];
-    [self.view addSubview:self.searchbtn];
+    //[self.view addSubview:self.searchbtn];
     
     
 }

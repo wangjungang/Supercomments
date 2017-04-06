@@ -19,6 +19,11 @@
 		53619E6E1E962670007CC7AC /* aboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E6D1E962670007CC7AC /* aboutViewController.m */; };
 		53619EA01E9634AE007CC7AC /* SZKCleanCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E9F1E9634AE007CC7AC /* SZKCleanCache.m */; };
 		53619EA61E963508007CC7AC /* nicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EA51E963508007CC7AC /* nicknameViewController.m */; };
+		53619EA91E963A7D007CC7AC /* nicknameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EA81E963A7D007CC7AC /* nicknameCell.m */; };
+		53619EAC1E964925007CC7AC /* systemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EAB1E964925007CC7AC /* systemViewController.m */; };
+		53619EAF1E964943007CC7AC /* replyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EAE1E964943007CC7AC /* replyViewController.m */; };
+		53619EB21E964A45007CC7AC /* systemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EB11E964A45007CC7AC /* systemCell.m */; };
+		53619EB51E964A52007CC7AC /* replyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EB41E964A52007CC7AC /* replyCell.m */; };
 		53AEBE1C1E948A2500280F70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE1B1E948A2500280F70 /* main.m */; };
 		53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE1E1E948A2500280F70 /* AppDelegate.m */; };
 		53AEBE221E948A2500280F70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE211E948A2500280F70 /* ViewController.m */; };
@@ -68,6 +73,16 @@
 		53619E9F1E9634AE007CC7AC /* SZKCleanCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZKCleanCache.m; sourceTree = "<group>"; };
 		53619EA41E963508007CC7AC /* nicknameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nicknameViewController.h; sourceTree = "<group>"; };
 		53619EA51E963508007CC7AC /* nicknameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nicknameViewController.m; sourceTree = "<group>"; };
+		53619EA71E963A7D007CC7AC /* nicknameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nicknameCell.h; sourceTree = "<group>"; };
+		53619EA81E963A7D007CC7AC /* nicknameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nicknameCell.m; sourceTree = "<group>"; };
+		53619EAA1E964925007CC7AC /* systemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = systemViewController.h; sourceTree = "<group>"; };
+		53619EAB1E964925007CC7AC /* systemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = systemViewController.m; sourceTree = "<group>"; };
+		53619EAD1E964943007CC7AC /* replyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = replyViewController.h; sourceTree = "<group>"; };
+		53619EAE1E964943007CC7AC /* replyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = replyViewController.m; sourceTree = "<group>"; };
+		53619EB01E964A45007CC7AC /* systemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = systemCell.h; sourceTree = "<group>"; };
+		53619EB11E964A45007CC7AC /* systemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = systemCell.m; sourceTree = "<group>"; };
+		53619EB31E964A52007CC7AC /* replyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = replyCell.h; sourceTree = "<group>"; };
+		53619EB41E964A52007CC7AC /* replyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = replyCell.m; sourceTree = "<group>"; };
 		53AEBE171E948A2500280F70 /* Supercomments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Supercomments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AEBE1B1E948A2500280F70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53AEBE1D1E948A2500280F70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -159,6 +174,10 @@
 			children = (
 				53619E501E960164007CC7AC /* messageViewController.h */,
 				53619E511E960164007CC7AC /* messageViewController.m */,
+				53619EAA1E964925007CC7AC /* systemViewController.h */,
+				53619EAB1E964925007CC7AC /* systemViewController.m */,
+				53619EAD1E964943007CC7AC /* replyViewController.h */,
+				53619EAE1E964943007CC7AC /* replyViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -166,6 +185,10 @@
 		53619E481E960059007CC7AC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				53619EB01E964A45007CC7AC /* systemCell.h */,
+				53619EB11E964A45007CC7AC /* systemCell.m */,
+				53619EB31E964A52007CC7AC /* replyCell.h */,
+				53619EB41E964A52007CC7AC /* replyCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -259,6 +282,8 @@
 				53619E611E9611F4007CC7AC /* myinfoCell0.m */,
 				53619E631E961201007CC7AC /* myinfoCell1.h */,
 				53619E641E961201007CC7AC /* myinfoCell1.m */,
+				53619EA71E963A7D007CC7AC /* nicknameCell.h */,
+				53619EA81E963A7D007CC7AC /* nicknameCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -663,6 +688,7 @@
 				53619E681E961CD2007CC7AC /* WJGtextView.m in Sources */,
 				53619E651E961201007CC7AC /* myinfoCell1.m in Sources */,
 				53AEBE5C1E94CDBD00280F70 /* infoViewController.m in Sources */,
+				53619EAC1E964925007CC7AC /* systemViewController.m in Sources */,
 				53AEBE721E95014B00280F70 /* infoCell.m in Sources */,
 				53619E521E960164007CC7AC /* messageViewController.m in Sources */,
 				53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */,
@@ -675,16 +701,20 @@
 				53AEBE491E94910700280F70 /* UIView+ViewController.m in Sources */,
 				53AEBE451E94910700280F70 /* MLMSegmentHead.m in Sources */,
 				53619EA01E9634AE007CC7AC /* SZKCleanCache.m in Sources */,
+				53619EB21E964A45007CC7AC /* systemCell.m in Sources */,
 				53AEBE381E948D6500280F70 /* UIColor+WJColor.m in Sources */,
 				53AEBE471E94910700280F70 /* MLMSegmentScroll.m in Sources */,
 				53619E581E9601B1007CC7AC /* setViewController.m in Sources */,
+				53619EB51E964A52007CC7AC /* replyCell.m in Sources */,
 				53619E6E1E962670007CC7AC /* aboutViewController.m in Sources */,
 				53619E621E9611F4007CC7AC /* myinfoCell0.m in Sources */,
 				53619E551E9601A5007CC7AC /* feedbackViewController.m in Sources */,
 				53619E431E95EEDB007CC7AC /* headView.m in Sources */,
+				53619EAF1E964943007CC7AC /* replyViewController.m in Sources */,
 				53AEBE481E94910700280F70 /* UIView+EasyFrame.m in Sources */,
 				53AEBE1C1E948A2500280F70 /* main.m in Sources */,
 				53AEBE371E948D6500280F70 /* NSString+Extend.m in Sources */,
+				53619EA91E963A7D007CC7AC /* nicknameCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,9 +841,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Supercomments/PrefixHeader.pch;
 				INFOPLIST_FILE = Supercomments/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Supercomments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -826,9 +858,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Supercomments/PrefixHeader.pch;
 				INFOPLIST_FILE = Supercomments/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Supercomments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -7,7 +7,8 @@
 //
 
 #import "messageViewController.h"
-
+#import "systemViewController.h"
+#import "replyViewController.h"
 @interface messageViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *messagetable;
 @property (nonatomic,strong) NSArray *messagearr;
@@ -96,12 +97,24 @@ static NSString *messageidentfid = @"messageidentfid";
     return 60*HEIGHT_SCALE;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row==0) {
+        replyViewController *replyvc = [[replyViewController alloc] init];
+        [self.navigationController pushViewController:replyvc animated:YES];
+    }
+    if (indexPath.row==1) {
+        systemViewController *systemvc = [[systemViewController alloc] init];
+        [self.navigationController pushViewController:systemvc animated:YES];
+    }
+}
 #pragma mark - 实现方法
 
 -(void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 
 @end
