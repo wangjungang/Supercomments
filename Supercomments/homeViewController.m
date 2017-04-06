@@ -13,7 +13,7 @@
 #import "newViewController.h"
 #import "hotViewController.h"
 //Segment高度
-#define LG_segmentH 40
+#define LG_segmentH 44
 
 @interface homeViewController ()<UIScrollViewDelegate,SegmentDelegate>
 @property (nonatomic, strong) UIScrollView *contentScrollView;
@@ -22,6 +22,8 @@
 @property(nonatomic,weak)CALayer *LGLayer;
 @property (nonatomic,strong) UIButton *infobtn;
 @property (nonatomic,strong) UIButton *searchbtn;
+
+@property (nonatomic,strong) UIImageView *bgimg;
 @end
 
 @implementation homeViewController
@@ -56,12 +58,17 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [self.view addSubview:self.bgimg];
+    
     //加载Segment
     [self setSegment];
     //加载ViewController
     [self addChildViewController];
     //加载ScrollView
     [self setContentScrollView];
+    
+    
     
     [self.view addSubview:self.infobtn];
     [self.view addSubview:self.searchbtn];
@@ -75,6 +82,7 @@
     //初始化
     LGSegment *segment = [[LGSegment alloc]initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, LG_segmentH)];
     segment.delegate = self;
+    
     self.segment = segment;
     [self.view addSubview:segment];
     [self.buttonList addObject:segment.buttonList];
@@ -84,7 +92,7 @@
 //加载ScrollView
 -(void)setContentScrollView {
     
-    UIScrollView *sv = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 40, self.view.frame.size.width, DEVICE_HEIGHT-40)];
+    UIScrollView *sv = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, DEVICE_HEIGHT-44)];
     [self.view addSubview:sv];
     sv.bounces = NO;
     sv.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -156,10 +164,20 @@
 {
     if(!_searchbtn)
     {
-        _searchbtn = [[UIButton alloc] initWithFrame:CGRectMake(DEVICE_WIDTH-40, 25, 20, 20)];
+        _searchbtn = [[UIButton alloc] initWithFrame:CGRectMake(DEVICE_WIDTH-40, 29, 20, 20)];
         [_searchbtn setImage:[UIImage imageNamed:@"放大镜"] forState:normal];
     }
     return _searchbtn;
+}
+
+-(UIImageView *)bgimg
+{
+    if(!_bgimg)
+    {
+        _bgimg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 64)];
+        _bgimg.image = [UIImage imageNamed:@"矩形-1"];
+    }
+    return _bgimg;
 }
 
 -(void)infoclick

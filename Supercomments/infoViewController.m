@@ -8,10 +8,17 @@
 
 #import "infoViewController.h"
 #import "infoCell.h"
+#import "headView.h"
+#import "messageViewController.h"
+#import "feedbackViewController.h"
+#import "setViewController.h"
+#import "myinfoViewController.h"
+
 @interface infoViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *infotableview;
 @property (nonatomic,strong) NSArray *imgarr;
 @property (nonatomic,strong) NSArray *textarr;
+@property (nonatomic,strong) headView *headview;
 @end
 static NSString *infocellidentfid = @"infocellidentfid";
 
@@ -30,6 +37,7 @@ static NSString *infocellidentfid = @"infocellidentfid";
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"F5F5F5"];
     [self.view addSubview:self.infotableview];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +60,8 @@ static NSString *infocellidentfid = @"infocellidentfid";
         _infotableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT) style:UITableViewStyleGrouped];
         _infotableview.dataSource = self;
         _infotableview.delegate = self;
+        _infotableview.tableHeaderView = self.headview;
+        _infotableview.scrollEnabled = NO;
     }
     return _infotableview;
 }
@@ -76,6 +86,21 @@ static NSString *infocellidentfid = @"infocellidentfid";
     return _textarr;
 }
 
+-(headView *)headview
+{
+    if(!_headview)
+    {
+        _headview = [[headView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 140)];
+        _headview.backgroundColor = [UIColor wjColorFloat:@"F5F5F5"];
+        _headview.infoimg.userInteractionEnabled = YES;//打开用户交互
+        //初始化一个手势
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+        //为图片添加手势
+        [ _headview.infoimg addGestureRecognizer:singleTap];
+    }
+    return _headview;
+}
+
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -91,7 +116,40 @@ static NSString *infocellidentfid = @"infocellidentfid";
     }
     cell.leftimg.image = [UIImage imageNamed:self.imgarr[indexPath.row]];
     cell.textlab.text = self.textarr[indexPath.row];
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60*HEIGHT_SCALE;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row==0) {
+        messageViewController *messagevc = [[messageViewController alloc] init];
+        [self.navigationController pushViewController:messagevc animated:YES];
+    }
+    if (indexPath.row==1) {
+        feedbackViewController *feedbackvc = [[feedbackViewController alloc] init];
+        [self.navigationController pushViewController:feedbackvc animated:YES];
+    }
+    if (indexPath.row==2) {
+        setViewController *setvc = [[setViewController alloc]init];
+        [self.navigationController pushViewController:setvc animated:YES];
+    }
 }
 
 #pragma mark - 实现方法
@@ -99,6 +157,12 @@ static NSString *infocellidentfid = @"infocellidentfid";
 -(void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)handleSingleTap:(UITapGestureRecognizer *)gestureRecognizer {
+    
+    myinfoViewController *myinfovc = [[myinfoViewController alloc] init];
+    [self.navigationController pushViewController:myinfovc animated:YES];
 }
 
 @end

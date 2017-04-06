@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53619E431E95EEDB007CC7AC /* headView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E421E95EEDB007CC7AC /* headView.m */; };
+		53619E521E960164007CC7AC /* messageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E511E960164007CC7AC /* messageViewController.m */; };
+		53619E551E9601A5007CC7AC /* feedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E541E9601A5007CC7AC /* feedbackViewController.m */; };
+		53619E581E9601B1007CC7AC /* setViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E571E9601B1007CC7AC /* setViewController.m */; };
+		53619E5F1E96055E007CC7AC /* myinfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E5E1E96055E007CC7AC /* myinfoViewController.m */; };
+		53619E621E9611F4007CC7AC /* myinfoCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E611E9611F4007CC7AC /* myinfoCell0.m */; };
+		53619E651E961201007CC7AC /* myinfoCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E641E961201007CC7AC /* myinfoCell1.m */; };
+		53619E681E961CD2007CC7AC /* WJGtextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E671E961CD2007CC7AC /* WJGtextView.m */; };
+		53619E6B1E962093007CC7AC /* setCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E6A1E962093007CC7AC /* setCell.m */; };
+		53619E6E1E962670007CC7AC /* aboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E6D1E962670007CC7AC /* aboutViewController.m */; };
+		53619EA01E9634AE007CC7AC /* SZKCleanCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619E9F1E9634AE007CC7AC /* SZKCleanCache.m */; };
+		53619EA61E963508007CC7AC /* nicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EA51E963508007CC7AC /* nicknameViewController.m */; };
 		53AEBE1C1E948A2500280F70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE1B1E948A2500280F70 /* main.m */; };
 		53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE1E1E948A2500280F70 /* AppDelegate.m */; };
 		53AEBE221E948A2500280F70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE211E948A2500280F70 /* ViewController.m */; };
@@ -32,6 +44,30 @@
 
 /* Begin PBXFileReference section */
 		199683D136C99C557085109D /* Pods-Supercomments.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Supercomments.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Supercomments/Pods-Supercomments.debug.xcconfig"; sourceTree = "<group>"; };
+		53619E411E95EEDB007CC7AC /* headView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = headView.h; sourceTree = "<group>"; };
+		53619E421E95EEDB007CC7AC /* headView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = headView.m; sourceTree = "<group>"; };
+		53619E501E960164007CC7AC /* messageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageViewController.h; sourceTree = "<group>"; };
+		53619E511E960164007CC7AC /* messageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = messageViewController.m; sourceTree = "<group>"; };
+		53619E531E9601A5007CC7AC /* feedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = feedbackViewController.h; sourceTree = "<group>"; };
+		53619E541E9601A5007CC7AC /* feedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = feedbackViewController.m; sourceTree = "<group>"; };
+		53619E561E9601B1007CC7AC /* setViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setViewController.h; sourceTree = "<group>"; };
+		53619E571E9601B1007CC7AC /* setViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setViewController.m; sourceTree = "<group>"; };
+		53619E5D1E96055E007CC7AC /* myinfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myinfoViewController.h; sourceTree = "<group>"; };
+		53619E5E1E96055E007CC7AC /* myinfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myinfoViewController.m; sourceTree = "<group>"; };
+		53619E601E9611F4007CC7AC /* myinfoCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myinfoCell0.h; sourceTree = "<group>"; };
+		53619E611E9611F4007CC7AC /* myinfoCell0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myinfoCell0.m; sourceTree = "<group>"; };
+		53619E631E961201007CC7AC /* myinfoCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myinfoCell1.h; sourceTree = "<group>"; };
+		53619E641E961201007CC7AC /* myinfoCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myinfoCell1.m; sourceTree = "<group>"; };
+		53619E661E961CD2007CC7AC /* WJGtextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJGtextView.h; sourceTree = "<group>"; };
+		53619E671E961CD2007CC7AC /* WJGtextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJGtextView.m; sourceTree = "<group>"; };
+		53619E691E962093007CC7AC /* setCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setCell.h; sourceTree = "<group>"; };
+		53619E6A1E962093007CC7AC /* setCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setCell.m; sourceTree = "<group>"; };
+		53619E6C1E962670007CC7AC /* aboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutViewController.h; sourceTree = "<group>"; };
+		53619E6D1E962670007CC7AC /* aboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutViewController.m; sourceTree = "<group>"; };
+		53619E9E1E9634AE007CC7AC /* SZKCleanCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZKCleanCache.h; sourceTree = "<group>"; };
+		53619E9F1E9634AE007CC7AC /* SZKCleanCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZKCleanCache.m; sourceTree = "<group>"; };
+		53619EA41E963508007CC7AC /* nicknameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nicknameViewController.h; sourceTree = "<group>"; };
+		53619EA51E963508007CC7AC /* nicknameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nicknameViewController.m; sourceTree = "<group>"; };
 		53AEBE171E948A2500280F70 /* Supercomments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Supercomments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AEBE1B1E948A2500280F70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53AEBE1D1E948A2500280F70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -88,6 +124,152 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53619E441E96003F007CC7AC /* 消息通知 */ = {
+			isa = PBXGroup;
+			children = (
+				53619E491E96005A007CC7AC /* model */,
+				53619E481E960059007CC7AC /* view */,
+				53619E471E960058007CC7AC /* controller */,
+			);
+			name = "消息通知";
+			sourceTree = "<group>";
+		};
+		53619E451E960043007CC7AC /* 意见反馈 */ = {
+			isa = PBXGroup;
+			children = (
+				53619E4C1E960067007CC7AC /* model */,
+				53619E4B1E960066007CC7AC /* view */,
+				53619E4A1E960063007CC7AC /* controller */,
+			);
+			name = "意见反馈";
+			sourceTree = "<group>";
+		};
+		53619E461E960047007CC7AC /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				53619E4F1E960073007CC7AC /* model */,
+				53619E4E1E960072007CC7AC /* view */,
+				53619E4D1E960070007CC7AC /* controller */,
+			);
+			name = "设置";
+			sourceTree = "<group>";
+		};
+		53619E471E960058007CC7AC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				53619E501E960164007CC7AC /* messageViewController.h */,
+				53619E511E960164007CC7AC /* messageViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		53619E481E960059007CC7AC /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		53619E491E96005A007CC7AC /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		53619E4A1E960063007CC7AC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				53619E531E9601A5007CC7AC /* feedbackViewController.h */,
+				53619E541E9601A5007CC7AC /* feedbackViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		53619E4B1E960066007CC7AC /* view */ = {
+			isa = PBXGroup;
+			children = (
+				53619E661E961CD2007CC7AC /* WJGtextView.h */,
+				53619E671E961CD2007CC7AC /* WJGtextView.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		53619E4C1E960067007CC7AC /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		53619E4D1E960070007CC7AC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				53619E561E9601B1007CC7AC /* setViewController.h */,
+				53619E571E9601B1007CC7AC /* setViewController.m */,
+				53619E6C1E962670007CC7AC /* aboutViewController.h */,
+				53619E6D1E962670007CC7AC /* aboutViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		53619E4E1E960072007CC7AC /* view */ = {
+			isa = PBXGroup;
+			children = (
+				53619E691E962093007CC7AC /* setCell.h */,
+				53619E6A1E962093007CC7AC /* setCell.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		53619E4F1E960073007CC7AC /* model */ = {
+			isa = PBXGroup;
+			children = (
+				53619E9E1E9634AE007CC7AC /* SZKCleanCache.h */,
+				53619E9F1E9634AE007CC7AC /* SZKCleanCache.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		53619E591E960542007CC7AC /* 个人信息 */ = {
+			isa = PBXGroup;
+			children = (
+				53619E5C1E96054B007CC7AC /* model */,
+				53619E5B1E96054A007CC7AC /* view */,
+				53619E5A1E960549007CC7AC /* controller */,
+			);
+			name = "个人信息";
+			sourceTree = "<group>";
+		};
+		53619E5A1E960549007CC7AC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				53619E5D1E96055E007CC7AC /* myinfoViewController.h */,
+				53619E5E1E96055E007CC7AC /* myinfoViewController.m */,
+				53619EA41E963508007CC7AC /* nicknameViewController.h */,
+				53619EA51E963508007CC7AC /* nicknameViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		53619E5B1E96054A007CC7AC /* view */ = {
+			isa = PBXGroup;
+			children = (
+				53619E601E9611F4007CC7AC /* myinfoCell0.h */,
+				53619E611E9611F4007CC7AC /* myinfoCell0.m */,
+				53619E631E961201007CC7AC /* myinfoCell1.h */,
+				53619E641E961201007CC7AC /* myinfoCell1.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		53619E5C1E96054B007CC7AC /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		53AEBE0E1E948A2500280F70 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +295,10 @@
 				53AEBE5D1E94D1F300280F70 /* 最新 */,
 				53AEBE5E1E94D68500280F70 /* 最热 */,
 				53AEBE561E94CD5900280F70 /* info个人 */,
+				53619E591E960542007CC7AC /* 个人信息 */,
+				53619E441E96003F007CC7AC /* 消息通知 */,
+				53619E451E960043007CC7AC /* 意见反馈 */,
+				53619E461E960047007CC7AC /* 设置 */,
 				53AEBE6B1E94F7F000280F70 /* 登录 */,
 				53AEBE4A1E94969C00280F70 /* 其他 */,
 				53AEBE1A1E948A2500280F70 /* Supporting Files */,
@@ -234,6 +420,8 @@
 			children = (
 				53AEBE701E95014B00280F70 /* infoCell.h */,
 				53AEBE711E95014B00280F70 /* infoCell.m */,
+				53619E411E95EEDB007CC7AC /* headView.h */,
+				53619E421E95EEDB007CC7AC /* headView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -468,20 +656,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53619EA61E963508007CC7AC /* nicknameViewController.m in Sources */,
 				53AEBE551E94C9FF00280F70 /* LGSegment.m in Sources */,
 				53AEBE521E9496FF00280F70 /* homeViewController.m in Sources */,
 				53AEBE221E948A2500280F70 /* ViewController.m in Sources */,
+				53619E681E961CD2007CC7AC /* WJGtextView.m in Sources */,
+				53619E651E961201007CC7AC /* myinfoCell1.m in Sources */,
 				53AEBE5C1E94CDBD00280F70 /* infoViewController.m in Sources */,
 				53AEBE721E95014B00280F70 /* infoCell.m in Sources */,
+				53619E521E960164007CC7AC /* messageViewController.m in Sources */,
 				53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */,
 				53AEBE671E94D8A100280F70 /* newViewController.m in Sources */,
+				53619E6B1E962093007CC7AC /* setCell.m in Sources */,
 				53AEBE461E94910700280F70 /* MLMSegmentManager.m in Sources */,
 				53AEBE6A1E94D96A00280F70 /* hotViewController.m in Sources */,
+				53619E5F1E96055E007CC7AC /* myinfoViewController.m in Sources */,
 				53AEBE6F1E94F80400280F70 /* loginViewController.m in Sources */,
 				53AEBE491E94910700280F70 /* UIView+ViewController.m in Sources */,
 				53AEBE451E94910700280F70 /* MLMSegmentHead.m in Sources */,
+				53619EA01E9634AE007CC7AC /* SZKCleanCache.m in Sources */,
 				53AEBE381E948D6500280F70 /* UIColor+WJColor.m in Sources */,
 				53AEBE471E94910700280F70 /* MLMSegmentScroll.m in Sources */,
+				53619E581E9601B1007CC7AC /* setViewController.m in Sources */,
+				53619E6E1E962670007CC7AC /* aboutViewController.m in Sources */,
+				53619E621E9611F4007CC7AC /* myinfoCell0.m in Sources */,
+				53619E551E9601A5007CC7AC /* feedbackViewController.m in Sources */,
+				53619E431E95EEDB007CC7AC /* headView.m in Sources */,
 				53AEBE481E94910700280F70 /* UIView+EasyFrame.m in Sources */,
 				53AEBE1C1E948A2500280F70 /* main.m in Sources */,
 				53AEBE371E948D6500280F70 /* NSString+Extend.m in Sources */,
