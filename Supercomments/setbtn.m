@@ -35,7 +35,6 @@
 
 #pragma mark - getters
 
-
 -(UILabel *)leftlab
 {
     if(!_leftlab)

@@ -98,12 +98,12 @@
         //第一个按钮默认被选中
         if (i == 0) {
             CGFloat firstX = buttonX;
-            buttonItem.frame = CGRectMake(DEVICE_WIDTH/2-80, 0, 60, self.frame.size.height);
+            buttonItem.frame = CGRectMake(DEVICE_WIDTH/2-60, 0, 60, self.frame.size.height);
             [buttonItem setTitleColor:[UIColor wjColorFloat:@"FFFFFF"] forState:UIControlStateNormal];
             [self creatBanner:firstX];
         }else
         {
-             buttonItem.frame = CGRectMake(DEVICE_WIDTH/2+20, 0, 60, self.frame.size.height);
+             buttonItem.frame = CGRectMake(DEVICE_WIDTH/2, 0, 60, self.frame.size.height);
         }
         
         buttonX += marginX;

@@ -30,7 +30,6 @@
 
 #pragma mark - getters
 
-
 -(UILabel *)leftlab
 {
     if(!_leftlab)
@@ -41,7 +40,6 @@
     }
     return _leftlab;
 }
-
 
 -(UILabel *)rightlab
 {

@@ -27,6 +27,11 @@
 #define KNAV_Blue kCOLOR(57, 160, 219, 1)
 
 #define Line_Color kCOLOR(210, 210, 210, 0.3)
+
+#define QSTextDefaultLines 0
+#define QSTextLineSpacing 5
+#define QSTextFontSize 18
+
 #define serviseId  @"192.168.1.4"
 #endif /* PrefixHeader_pch */
 

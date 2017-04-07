@@ -28,6 +28,7 @@
 		53619EBB1E9765D3007CC7AC /* replyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EBA1E9765D3007CC7AC /* replyModel.m */; };
 		53619EC01E976EBB007CC7AC /* UIColor+BgColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EBD1E976EBB007CC7AC /* UIColor+BgColor.m */; };
 		53619EC11E976EBB007CC7AC /* UILabel+MultipleLines.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EBF1E976EBB007CC7AC /* UILabel+MultipleLines.m */; };
+		53619EC51E9778E9007CC7AC /* newCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EC41E9778E9007CC7AC /* newCell.m */; };
 		53AEBE1C1E948A2500280F70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE1B1E948A2500280F70 /* main.m */; };
 		53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE1E1E948A2500280F70 /* AppDelegate.m */; };
 		53AEBE221E948A2500280F70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE211E948A2500280F70 /* ViewController.m */; };
@@ -95,6 +96,8 @@
 		53619EBD1E976EBB007CC7AC /* UIColor+BgColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BgColor.m"; sourceTree = "<group>"; };
 		53619EBE1E976EBB007CC7AC /* UILabel+MultipleLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+MultipleLines.h"; sourceTree = "<group>"; };
 		53619EBF1E976EBB007CC7AC /* UILabel+MultipleLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+MultipleLines.m"; sourceTree = "<group>"; };
+		53619EC31E9778E9007CC7AC /* newCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newCell.h; sourceTree = "<group>"; };
+		53619EC41E9778E9007CC7AC /* newCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newCell.m; sourceTree = "<group>"; };
 		53AEBE171E948A2500280F70 /* Supercomments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Supercomments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AEBE1B1E948A2500280F70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53AEBE1D1E948A2500280F70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -510,6 +513,8 @@
 		53AEBE601E94D80A00280F70 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				53619EC31E9778E9007CC7AC /* newCell.h */,
+				53619EC41E9778E9007CC7AC /* newCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -701,6 +706,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53619EC51E9778E9007CC7AC /* newCell.m in Sources */,
 				53619EA61E963508007CC7AC /* nicknameViewController.m in Sources */,
 				53AEBE551E94C9FF00280F70 /* LGSegment.m in Sources */,
 				53AEBE521E9496FF00280F70 /* homeViewController.m in Sources */,

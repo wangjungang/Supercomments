@@ -5,9 +5,7 @@
 //  Created by 王俊钢 on 2017/4/6.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
-#define QSTextDefaultLines 0
-#define QSTextLineSpacing 5
-#define QSTextFontSize 18
+
 
 
 #import "systemCell.h"
