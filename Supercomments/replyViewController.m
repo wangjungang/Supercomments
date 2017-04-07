@@ -8,7 +8,7 @@
 
 #import "replyViewController.h"
 #import "replyCell.h"
-@interface replyViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface replyViewController ()<UITableViewDelegate,UITableViewDataSource,myTabVdelegate>
 @property (nonatomic,strong) UITableView *replytable;
 @end
 static NSString *replyidentfid = @"replyidentfid";
@@ -63,6 +63,7 @@ static NSString *replyidentfid = @"replyidentfid";
     if (!cell) {
         cell = [[replyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:replyidentfid];
     }
+    cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -89,6 +90,16 @@ static NSString *replyidentfid = @"replyidentfid";
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)myTabVClick:(UITableViewCell *)cell
+{
+    NSIndexPath *index = [self.replytable indexPathForCell:cell];
+    
+    NSLog(@"333===%ld",index.row);
+}
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    NSLog(@"%ld",(long)indexPath.row);
+}
 
 @end

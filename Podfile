@@ -13,4 +13,6 @@ pod 'MJRefresh', '~> 3.1.9'
 pod 'SDCycleScrollView','~> 1.3'
 pod 'AFNetworking', '~> 3.1.0'
 pod 'WechatOpenSDK'
+
+
 end
