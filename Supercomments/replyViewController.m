@@ -8,8 +8,12 @@
 
 #import "replyViewController.h"
 #import "replyCell.h"
+#import "replyModel.h"
 @interface replyViewController ()<UITableViewDelegate,UITableViewDataSource,myTabVdelegate>
 @property (nonatomic,strong) UITableView *replytable;
+
+@property (nonatomic,strong) NSMutableArray *replyarr;
+@property (nonatomic,strong) replyModel *rmodel;
 @end
 static NSString *replyidentfid = @"replyidentfid";
 @implementation replyViewController
@@ -24,17 +28,40 @@ static NSString *replyidentfid = @"replyidentfid";
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.title = @"回复";
+    self.replyarr = [NSMutableArray array];
+    
+    [self datafromweb];
 //    self.messagetable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 //    [self.view addSubview:self.messagetable];
     self.navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"F5F5F5"];
-    
     [self.view addSubview:self.replytable];
+    
+    
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)datafromweb
+{
+    
+    for (int i = 0; i<10; i++) {
+        self.rmodel = [[replyModel alloc] init];
+        self.rmodel.replyurl = @"";
+        self.rmodel.replyname = @"今日牛评";
+        self.rmodel.replytext = @"赵客曼胡樱，吴钩霜雪明，银鞍照白马，飒沓如流星";
+        self.rmodel.replyrighturl = @"";
+        self.rmodel.replytimestr = @"12:30";
+        
+        [self.replyarr addObject:self.rmodel];
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.replytable reloadData];
+    });
 }
 
 #pragma mark - getters
@@ -54,7 +81,7 @@ static NSString *replyidentfid = @"replyidentfid";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.replyarr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,6 +92,7 @@ static NSString *replyidentfid = @"replyidentfid";
     }
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell setdata:self.replyarr[indexPath.row]];
     return cell;
 }
 

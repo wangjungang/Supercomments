@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWTableViewCell.h"
 
-@interface systemCell : UITableViewCell
+@interface systemCell : SWTableViewCell
+- (void)layoutSubviewsWithText:(NSString *)text;
 
++ (CGFloat)cellHeightWithText:(NSString *)text;
+
+@property (nonatomic,strong)UILabel *contentLabel;
+@property (nonatomic,strong)UILabel *timelabel;
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "setbtn.h"
+@class replyModel;
 
 //创建一个代理
 @protocol myTabVdelegate <NSObject>
@@ -24,4 +25,7 @@
 @property (nonatomic,strong) UILabel *timelab;
 @property (nonatomic,strong) setbtn *btn;
 @property(assign,nonatomic)id<myTabVdelegate>delegate;
+
+
+-(void)setdata:(replyModel *)repmodel;
 @end

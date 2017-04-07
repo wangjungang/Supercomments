@@ -25,6 +25,9 @@
 		53619EB21E964A45007CC7AC /* systemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EB11E964A45007CC7AC /* systemCell.m */; };
 		53619EB51E964A52007CC7AC /* replyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EB41E964A52007CC7AC /* replyCell.m */; };
 		53619EB81E973908007CC7AC /* setbtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EB71E973908007CC7AC /* setbtn.m */; };
+		53619EBB1E9765D3007CC7AC /* replyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EBA1E9765D3007CC7AC /* replyModel.m */; };
+		53619EC01E976EBB007CC7AC /* UIColor+BgColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EBD1E976EBB007CC7AC /* UIColor+BgColor.m */; };
+		53619EC11E976EBB007CC7AC /* UILabel+MultipleLines.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EBF1E976EBB007CC7AC /* UILabel+MultipleLines.m */; };
 		53AEBE1C1E948A2500280F70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE1B1E948A2500280F70 /* main.m */; };
 		53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE1E1E948A2500280F70 /* AppDelegate.m */; };
 		53AEBE221E948A2500280F70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE211E948A2500280F70 /* ViewController.m */; };
@@ -86,6 +89,12 @@
 		53619EB41E964A52007CC7AC /* replyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = replyCell.m; sourceTree = "<group>"; };
 		53619EB61E973908007CC7AC /* setbtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setbtn.h; sourceTree = "<group>"; };
 		53619EB71E973908007CC7AC /* setbtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setbtn.m; sourceTree = "<group>"; };
+		53619EB91E9765D3007CC7AC /* replyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = replyModel.h; sourceTree = "<group>"; };
+		53619EBA1E9765D3007CC7AC /* replyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = replyModel.m; sourceTree = "<group>"; };
+		53619EBC1E976EBB007CC7AC /* UIColor+BgColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BgColor.h"; sourceTree = "<group>"; };
+		53619EBD1E976EBB007CC7AC /* UIColor+BgColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BgColor.m"; sourceTree = "<group>"; };
+		53619EBE1E976EBB007CC7AC /* UILabel+MultipleLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+MultipleLines.h"; sourceTree = "<group>"; };
+		53619EBF1E976EBB007CC7AC /* UILabel+MultipleLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+MultipleLines.m"; sourceTree = "<group>"; };
 		53AEBE171E948A2500280F70 /* Supercomments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Supercomments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AEBE1B1E948A2500280F70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53AEBE1D1E948A2500280F70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -201,6 +210,12 @@
 		53619E491E96005A007CC7AC /* model */ = {
 			isa = PBXGroup;
 			children = (
+				53619EBC1E976EBB007CC7AC /* UIColor+BgColor.h */,
+				53619EBD1E976EBB007CC7AC /* UIColor+BgColor.m */,
+				53619EBE1E976EBB007CC7AC /* UILabel+MultipleLines.h */,
+				53619EBF1E976EBB007CC7AC /* UILabel+MultipleLines.m */,
+				53619EB91E9765D3007CC7AC /* replyModel.h */,
+				53619EBA1E9765D3007CC7AC /* replyModel.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -696,6 +711,7 @@
 				53619EAC1E964925007CC7AC /* systemViewController.m in Sources */,
 				53AEBE721E95014B00280F70 /* infoCell.m in Sources */,
 				53619E521E960164007CC7AC /* messageViewController.m in Sources */,
+				53619EC01E976EBB007CC7AC /* UIColor+BgColor.m in Sources */,
 				53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */,
 				53AEBE671E94D8A100280F70 /* newViewController.m in Sources */,
 				53619E6B1E962093007CC7AC /* setCell.m in Sources */,
@@ -705,11 +721,13 @@
 				53AEBE6F1E94F80400280F70 /* loginViewController.m in Sources */,
 				53AEBE491E94910700280F70 /* UIView+ViewController.m in Sources */,
 				53AEBE451E94910700280F70 /* MLMSegmentHead.m in Sources */,
+				53619EC11E976EBB007CC7AC /* UILabel+MultipleLines.m in Sources */,
 				53619EA01E9634AE007CC7AC /* SZKCleanCache.m in Sources */,
 				53619EB21E964A45007CC7AC /* systemCell.m in Sources */,
 				53AEBE381E948D6500280F70 /* UIColor+WJColor.m in Sources */,
 				53AEBE471E94910700280F70 /* MLMSegmentScroll.m in Sources */,
 				53619E581E9601B1007CC7AC /* setViewController.m in Sources */,
+				53619EBB1E9765D3007CC7AC /* replyModel.m in Sources */,
 				53619EB51E964A52007CC7AC /* replyCell.m in Sources */,
 				53619E6E1E962670007CC7AC /* aboutViewController.m in Sources */,
 				53619E621E9611F4007CC7AC /* myinfoCell0.m in Sources */,

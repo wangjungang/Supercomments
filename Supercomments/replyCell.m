@@ -7,6 +7,11 @@
 //
 
 #import "replyCell.h"
+#import "replyModel.h"
+
+@interface replyCell()
+@property (nonatomic,strong) replyModel *model;
+@end
 
 @implementation replyCell
 
@@ -34,6 +39,19 @@
     self.textlab.frame = CGRectMake(128/2*WIDTH_SCALE, 94/2*HEIGHT_SCALE, DEVICE_WIDTH-128/2*WIDTH_SCALE-148/2*WIDTH_SCALE, (248/2-94/2-44)*HEIGHT_SCALE);
     self.timelab.frame = CGRectMake(130/2*WIDTH_SCALE, (self.frame.size.height-16-15)*HEIGHT_SCALE, 80*WIDTH_SCALE, 15*HEIGHT_SCALE);
     self.btn.frame = CGRectMake(DEVICE_WIDTH-12*WIDTH_SCALE-40*WIDTH_SCALE, self.frame.size.height-16*HEIGHT_SCALE-40/3*HEIGHT_SCALE, 40*WIDTH_SCALE, 40/3*HEIGHT_SCALE);
+    
+    
+}
+
+-(void)setdata:(replyModel *)repmodel
+{
+    self.model = repmodel;
+    [self.picimage sd_setImageWithURL:[NSURL URLWithString:repmodel.replyurl]];
+    self.namelab.text = repmodel.replyname;
+    self.textlab.text = repmodel.replytext;
+    self.timelab.text = repmodel.replytimestr;
+    [self.rightimage sd_setImageWithURL:[NSURL URLWithString:repmodel.replyrighturl]];
+    [self layoutIfNeeded];
 }
 
 #pragma mark - getters
@@ -121,6 +139,7 @@
     [self.delegate myTabVClick:self];
     
 }
+
 
 
 @end
