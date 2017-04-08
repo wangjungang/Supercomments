@@ -13,13 +13,6 @@
 
 @end
 
-//@property (nonatomic,strong) UILabel *namelab;
-//@property (nonatomic,strong) UILabel *fromlab;
-//@property (nonatomic,strong) UILabel *contentlab;
-//@property (nonatomic,strong) UILabel *titlelab;
-//@property (nonatomic,strong) UILabel *timelab;
-//@property (nonatomic,strong) UIButton *zanbtn;
-//@property (nonatomic,strong) UIButton *setbtn;
 @implementation newCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -34,6 +27,7 @@
         [self.contentView addSubview:self.zanbtn];
         [self.contentView addSubview:self.setbtn];
         [self.contentView addSubview:self.reimg];
+        [self.contentView addSubview:self.timelab];
     }
     return self;
 }
@@ -43,12 +37,12 @@
     [super layoutSubviews];
     self.namelab.frame = CGRectMake(15*WIDTH_SCALE, 8*HEIGHT_SCALE, 120*WIDTH_SCALE, 15*HEIGHT_SCALE);
     self.fromlab.frame = CGRectMake(DEVICE_WIDTH-200*WIDTH_SCALE, 10*HEIGHT_SCALE, 185*WIDTH_SCALE, 14*HEIGHT_SCALE);
-    self.reimg.frame = CGRectMake(15*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 18*WIDTH_SCALE, 12*HEIGHT_SCALE);
+    self.reimg.frame = CGRectMake(15*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 24*WIDTH_SCALE, 18*HEIGHT_SCALE);
+    self.timelab.frame = CGRectMake(15*WIDTH_SCALE+30*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 50*WIDTH_SCALE, 18*HEIGHT_SCALE);
     
 }
 
 #pragma mark - getters
-
 
 -(UILabel *)namelab
 {
@@ -92,8 +86,9 @@
     if(!_timelab)
     {
         _timelab = [[UILabel alloc] init];
-        _timelab.text = @"12:40";
+        _timelab.text = @"十分钟前";
         _timelab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
+        _timelab.font = [UIFont systemFontOfSize:12];
         
     }
     return _timelab;
