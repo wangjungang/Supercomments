@@ -41,7 +41,7 @@
 #endif /* PrefixHeader_pch */
 
 #import <MBProgressHUD.h>
-//
+#import "Masonry.h"
 #import "UIColor+WJColor.h"
 #import "UIImageView+WebCache.h"
 #ifdef __OBJC__

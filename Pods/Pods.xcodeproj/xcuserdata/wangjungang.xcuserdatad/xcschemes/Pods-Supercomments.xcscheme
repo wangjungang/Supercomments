@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'AC0A2DCFB88C9195C2C3098C25E6B890'
+               BlueprintIdentifier = 'A36286902F41B792031501DEBC01E848'
                BlueprintName = 'Pods-Supercomments'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-Supercomments.a'>

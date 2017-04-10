@@ -14,5 +14,5 @@ pod 'SDCycleScrollView','~> 1.3'
 pod 'AFNetworking', '~> 3.1.0'
 pod 'WechatOpenSDK'
 pod 'SWTableViewCell', '~> 0.3.7'
-
+pod 'Masonry'
 end
