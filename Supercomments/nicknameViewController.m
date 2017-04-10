@@ -25,11 +25,10 @@ static NSString *nickcellidentfid = @"nickidentfid";
     UITapGestureRecognizer *TapGestureTecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide)];
     TapGestureTecognizer.cancelsTouchesInView=NO;
     [self.nicktable addGestureRecognizer:TapGestureTecognizer];
-    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"F5F5F5"];
-    
     self.nicktable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.nicktable];
 }

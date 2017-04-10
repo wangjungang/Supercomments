@@ -30,6 +30,11 @@
 		53619EC51E9778E9007CC7AC /* newCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EC41E9778E9007CC7AC /* newCell.m */; };
 		53619EC81E988649007CC7AC /* zanBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EC71E988649007CC7AC /* zanBtn.m */; };
 		53619ED11E988A01007CC7AC /* setbtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619ED01E988A01007CC7AC /* setbtn.m */; };
+		53619ED41E988B6C007CC7AC /* commentsBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619ED31E988B6C007CC7AC /* commentsBtn.m */; };
+		53619ED71E98B89D007CC7AC /* titleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619ED61E98B89D007CC7AC /* titleView.m */; };
+		53619EDE1E98D283007CC7AC /* detailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EDD1E98D283007CC7AC /* detailsViewController.m */; };
+		53619EE11E98D8DA007CC7AC /* detaolsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EE01E98D8DA007CC7AC /* detaolsCell.m */; };
+		53619EE41E98E0C7007CC7AC /* detailsheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EE31E98E0C7007CC7AC /* detailsheadView.m */; };
 		53AEBE1C1E948A2500280F70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE1B1E948A2500280F70 /* main.m */; };
 		53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE1E1E948A2500280F70 /* AppDelegate.m */; };
 		53AEBE221E948A2500280F70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE211E948A2500280F70 /* ViewController.m */; };
@@ -101,6 +106,16 @@
 		53619EC71E988649007CC7AC /* zanBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zanBtn.m; sourceTree = "<group>"; };
 		53619ECF1E988A01007CC7AC /* setbtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setbtn.h; sourceTree = "<group>"; };
 		53619ED01E988A01007CC7AC /* setbtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setbtn.m; sourceTree = "<group>"; };
+		53619ED21E988B6C007CC7AC /* commentsBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentsBtn.h; sourceTree = "<group>"; };
+		53619ED31E988B6C007CC7AC /* commentsBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentsBtn.m; sourceTree = "<group>"; };
+		53619ED51E98B89D007CC7AC /* titleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = titleView.h; sourceTree = "<group>"; };
+		53619ED61E98B89D007CC7AC /* titleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = titleView.m; sourceTree = "<group>"; };
+		53619EDC1E98D283007CC7AC /* detailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailsViewController.h; sourceTree = "<group>"; };
+		53619EDD1E98D283007CC7AC /* detailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailsViewController.m; sourceTree = "<group>"; };
+		53619EDF1E98D8DA007CC7AC /* detaolsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detaolsCell.h; sourceTree = "<group>"; };
+		53619EE01E98D8DA007CC7AC /* detaolsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detaolsCell.m; sourceTree = "<group>"; };
+		53619EE21E98E0C7007CC7AC /* detailsheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailsheadView.h; sourceTree = "<group>"; };
+		53619EE31E98E0C7007CC7AC /* detailsheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailsheadView.m; sourceTree = "<group>"; };
 		53AEBE171E948A2500280F70 /* Supercomments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Supercomments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AEBE1B1E948A2500280F70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53AEBE1D1E948A2500280F70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -321,6 +336,43 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		53619ED81E98D252007CC7AC /* 详情 */ = {
+			isa = PBXGroup;
+			children = (
+				53619EDB1E98D25C007CC7AC /* model */,
+				53619EDA1E98D25C007CC7AC /* view */,
+				53619ED91E98D25B007CC7AC /* controller */,
+			);
+			name = "详情";
+			sourceTree = "<group>";
+		};
+		53619ED91E98D25B007CC7AC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				53619EDC1E98D283007CC7AC /* detailsViewController.h */,
+				53619EDD1E98D283007CC7AC /* detailsViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		53619EDA1E98D25C007CC7AC /* view */ = {
+			isa = PBXGroup;
+			children = (
+				53619EDF1E98D8DA007CC7AC /* detaolsCell.h */,
+				53619EE01E98D8DA007CC7AC /* detaolsCell.m */,
+				53619EE21E98E0C7007CC7AC /* detailsheadView.h */,
+				53619EE31E98E0C7007CC7AC /* detailsheadView.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		53619EDB1E98D25C007CC7AC /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		53AEBE0E1E948A2500280F70 = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +397,7 @@
 				53AEBE4B1E9496A700280F70 /* home首页 */,
 				53AEBE5D1E94D1F300280F70 /* 最新 */,
 				53AEBE5E1E94D68500280F70 /* 最热 */,
+				53619ED81E98D252007CC7AC /* 详情 */,
 				53AEBE561E94CD5900280F70 /* info个人 */,
 				53619E591E960542007CC7AC /* 个人信息 */,
 				53619E441E96003F007CC7AC /* 消息通知 */,
@@ -520,6 +573,10 @@
 				53619EC41E9778E9007CC7AC /* newCell.m */,
 				53619EC61E988649007CC7AC /* zanBtn.h */,
 				53619EC71E988649007CC7AC /* zanBtn.m */,
+				53619ED51E98B89D007CC7AC /* titleView.h */,
+				53619ED61E98B89D007CC7AC /* titleView.m */,
+				53619ED21E988B6C007CC7AC /* commentsBtn.h */,
+				53619ED31E988B6C007CC7AC /* commentsBtn.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -711,13 +768,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53619EE41E98E0C7007CC7AC /* detailsheadView.m in Sources */,
 				53619EC51E9778E9007CC7AC /* newCell.m in Sources */,
 				53619EA61E963508007CC7AC /* nicknameViewController.m in Sources */,
 				53AEBE551E94C9FF00280F70 /* LGSegment.m in Sources */,
 				53AEBE521E9496FF00280F70 /* homeViewController.m in Sources */,
+				53619EE11E98D8DA007CC7AC /* detaolsCell.m in Sources */,
 				53AEBE221E948A2500280F70 /* ViewController.m in Sources */,
 				53619E681E961CD2007CC7AC /* WJGtextView.m in Sources */,
 				53619E651E961201007CC7AC /* myinfoCell1.m in Sources */,
+				53619EDE1E98D283007CC7AC /* detailsViewController.m in Sources */,
 				53AEBE5C1E94CDBD00280F70 /* infoViewController.m in Sources */,
 				53619EAC1E964925007CC7AC /* systemViewController.m in Sources */,
 				53AEBE721E95014B00280F70 /* infoCell.m in Sources */,
@@ -734,6 +794,7 @@
 				53AEBE6F1E94F80400280F70 /* loginViewController.m in Sources */,
 				53AEBE491E94910700280F70 /* UIView+ViewController.m in Sources */,
 				53AEBE451E94910700280F70 /* MLMSegmentHead.m in Sources */,
+				53619ED71E98B89D007CC7AC /* titleView.m in Sources */,
 				53619EC11E976EBB007CC7AC /* UILabel+MultipleLines.m in Sources */,
 				53619EA01E9634AE007CC7AC /* SZKCleanCache.m in Sources */,
 				53619EB21E964A45007CC7AC /* systemCell.m in Sources */,
@@ -742,6 +803,7 @@
 				53619E581E9601B1007CC7AC /* setViewController.m in Sources */,
 				53619EBB1E9765D3007CC7AC /* replyModel.m in Sources */,
 				53619EB51E964A52007CC7AC /* replyCell.m in Sources */,
+				53619ED41E988B6C007CC7AC /* commentsBtn.m in Sources */,
 				53619E6E1E962670007CC7AC /* aboutViewController.m in Sources */,
 				53619E621E9611F4007CC7AC /* myinfoCell0.m in Sources */,
 				53619E551E9601A5007CC7AC /* feedbackViewController.m in Sources */,

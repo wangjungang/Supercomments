@@ -8,7 +8,8 @@
 
 #import "newViewController.h"
 #import "newCell.h"
-@interface newViewController ()<UITableViewDataSource,UITableViewDelegate>
+#import "detailsViewController.h"
+@interface newViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate>
 @property (nonatomic,strong) UITableView *newtable;
 @property (nonatomic,strong) UIImageView *demoimg;
 @property (nonatomic,strong) NSMutableArray *dataSource;
@@ -29,7 +30,7 @@ static NSString *newidentfid = @"newidentfid";
     
     [self.view addSubview:self.newtable];
     
-    self.dataSource = [NSMutableArray arrayWithObjects:@"在企业开发中，一些核心技术或者常用框架，出于安全性和稳定性的考虑，不想被外界知道，所以会把核心代码打包成静态库",@"链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝",@"链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝",@"链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝",@"链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝", nil];
+    self.dataSource = [NSMutableArray arrayWithObjects:@"在企业开发中，一些核心技术或者常用框架，出于安全性和稳定性的考虑，不想被外界知道，所以会把核心代码打包成静态库",@"链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝",@"链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝",@"链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝",@"链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝", nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,12 +89,35 @@ static NSString *newidentfid = @"newidentfid";
     }
     [cell layoutSubviewsWithText:[self p_textAtIndexPath:indexPath]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.delegate = self;
     return cell;
 }
 
 - (NSString *)p_textAtIndexPath:(NSIndexPath *)indexPath{
     
     return [self.dataSource objectAtIndex:indexPath.row];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    detailsViewController *detailsvc = [[detailsViewController alloc] init];
+    [self.navigationController pushViewController:detailsvc animated:YES];
+}
+
+//点赞
+-(void)myTabVClick1:(UITableViewCell *)cell
+{
+    NSIndexPath *index = [self.newtable indexPathForCell:cell];
+    NSLog(@"333===%ld   点赞",index.row);
+    
+}
+
+//回复
+-(void)myTabVClick2:(UITableViewCell *)cell
+{
+    NSIndexPath *index = [self.newtable indexPathForCell:cell];
+    
+    NSLog(@"333===%ld   回复",index.row);
 }
 
 @end

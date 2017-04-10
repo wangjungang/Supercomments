@@ -27,7 +27,7 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.title = @"关于";
     self.navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"F5F5F5"];
-    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     [self.view addSubview:self.logoimg];
     [self.view addSubview:self.namelab];
     [self.view addSubview:self.versionlab];

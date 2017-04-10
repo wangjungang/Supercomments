@@ -32,6 +32,11 @@
 #define QSTextLineSpacing 5
 #define QSTextFontSize 18
 
+#define QSTextFontSize2 14
+
+#define FX [UIScreen mainScreen].bounds.size.width/375
+
+
 #define serviseId  @"192.168.1.4"
 #endif /* PrefixHeader_pch */
 

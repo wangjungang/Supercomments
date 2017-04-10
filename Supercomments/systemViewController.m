@@ -28,7 +28,8 @@ static NSString * const kShowTextCellReuseIdentifier = @"QSShowTextCell";
     self.title = @"系统通知";
 //    self.messagetable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 //    [self.view addSubview:self.messagetable];
-    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
+
     self.navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"F5F5F5"];
     
     self.dataSource = [[NSMutableArray alloc]initWithObjects:

@@ -1,5 +1,5 @@
 //
-//  zanBtn.h
+//  titleView.h
 //  Supercomments
 //
 //  Created by 王俊钢 on 2017/4/8.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface zanBtn : UIButton
-
-@property (nonatomic,strong) UILabel *zanlab;
+@interface titleView : UIView
+@property (nonatomic,strong) UILabel *titlelab;
 @end

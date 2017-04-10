@@ -1,5 +1,5 @@
 //
-//  zanBtn.h
+//  detailsViewController.h
 //  Supercomments
 //
 //  Created by 王俊钢 on 2017/4/8.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface zanBtn : UIButton
+@interface detailsViewController : UIViewController
 
-@property (nonatomic,strong) UILabel *zanlab;
 @end

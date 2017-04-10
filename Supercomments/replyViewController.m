@@ -28,6 +28,8 @@ static NSString *replyidentfid = @"replyidentfid";
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.title = @"回复";
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
+
     self.replyarr = [NSMutableArray array];
     
     [self datafromweb];
