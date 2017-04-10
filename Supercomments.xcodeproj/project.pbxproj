@@ -80,6 +80,8 @@
 		53F9CB7D1E9B542F00C1F3A7 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F9CB7C1E9B542F00C1F3A7 /* JavaScriptCore.framework */; };
 		53F9CB7F1E9B543900C1F3A7 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F9CB7E1E9B543900C1F3A7 /* ImageIO.framework */; };
 		53F9CB811E9B544300C1F3A7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F9CB801E9B544300C1F3A7 /* libsqlite3.tbd */; };
+		53F9CB841E9B7F1A00C1F3A7 /* thumbView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F9CB831E9B7F1A00C1F3A7 /* thumbView.m */; };
+		53F9CB8A1E9B834900C1F3A7 /* UILabel+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F9CB891E9B834900C1F3A7 /* UILabel+Category.m */; };
 		95F412879000247E7AD6332D /* libPods-Supercomments.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 786A0F9C77F8BEA8D1747BFF /* libPods-Supercomments.a */; };
 /* End PBXBuildFile section */
 
@@ -220,6 +222,10 @@
 		53F9CB7C1E9B542F00C1F3A7 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		53F9CB7E1E9B543900C1F3A7 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		53F9CB801E9B544300C1F3A7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		53F9CB821E9B7F1A00C1F3A7 /* thumbView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thumbView.h; sourceTree = "<group>"; };
+		53F9CB831E9B7F1A00C1F3A7 /* thumbView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = thumbView.m; sourceTree = "<group>"; };
+		53F9CB881E9B834900C1F3A7 /* UILabel+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Category.h"; sourceTree = "<group>"; };
+		53F9CB891E9B834900C1F3A7 /* UILabel+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Category.m"; sourceTree = "<group>"; };
 		786A0F9C77F8BEA8D1747BFF /* libPods-Supercomments.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Supercomments.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D994A0AB886A394927602D3A /* Pods-Supercomments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Supercomments.release.xcconfig"; path = "Pods/Target Support Files/Pods-Supercomments/Pods-Supercomments.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -444,6 +450,10 @@
 				53619EE01E98D8DA007CC7AC /* detaolsCell.m */,
 				53619EE21E98E0C7007CC7AC /* detailsheadView.h */,
 				53619EE31E98E0C7007CC7AC /* detailsheadView.m */,
+				53F9CB821E9B7F1A00C1F3A7 /* thumbView.h */,
+				53F9CB831E9B7F1A00C1F3A7 /* thumbView.m */,
+				53F9CB881E9B834900C1F3A7 /* UILabel+Category.h */,
+				53F9CB891E9B834900C1F3A7 /* UILabel+Category.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -977,6 +987,7 @@
 				53AEBE221E948A2500280F70 /* ViewController.m in Sources */,
 				53619E681E961CD2007CC7AC /* WJGtextView.m in Sources */,
 				53619E651E961201007CC7AC /* myinfoCell1.m in Sources */,
+				53F9CB8A1E9B834900C1F3A7 /* UILabel+Category.m in Sources */,
 				53619EDE1E98D283007CC7AC /* detailsViewController.m in Sources */,
 				53AEBE5C1E94CDBD00280F70 /* infoViewController.m in Sources */,
 				53619EAC1E964925007CC7AC /* systemViewController.m in Sources */,
@@ -1011,6 +1022,7 @@
 				53619EAF1E964943007CC7AC /* replyViewController.m in Sources */,
 				53AEBE481E94910700280F70 /* UIView+EasyFrame.m in Sources */,
 				53AEBE1C1E948A2500280F70 /* main.m in Sources */,
+				53F9CB841E9B7F1A00C1F3A7 /* thumbView.m in Sources */,
 				53AEBE371E948D6500280F70 /* NSString+Extend.m in Sources */,
 				53619EA91E963A7D007CC7AC /* nicknameCell.m in Sources */,
 			);

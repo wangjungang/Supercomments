@@ -39,10 +39,10 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.namelab.frame = CGRectMake(15*WIDTH_SCALE, 8*HEIGHT_SCALE, 120*WIDTH_SCALE, 15*HEIGHT_SCALE);
+    self.namelab.frame = CGRectMake(14*WIDTH_SCALE, 8*HEIGHT_SCALE, 120*WIDTH_SCALE, 15*HEIGHT_SCALE);
     self.fromlab.frame = CGRectMake(DEVICE_WIDTH-200*WIDTH_SCALE, 10*HEIGHT_SCALE, 185*WIDTH_SCALE, 14*HEIGHT_SCALE);
-    self.reimg.frame = CGRectMake(15*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 24*WIDTH_SCALE, 18*HEIGHT_SCALE);
-    self.timelab.frame = CGRectMake(15*WIDTH_SCALE+30*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 50*WIDTH_SCALE, 18*HEIGHT_SCALE);
+    self.reimg.frame = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 24*WIDTH_SCALE, 18*HEIGHT_SCALE);
+    self.timelab.frame = CGRectMake(14*WIDTH_SCALE+30*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 50*WIDTH_SCALE, 18*HEIGHT_SCALE);
     self.commbtn.frame = CGRectMake(DEVICE_WIDTH-50*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 40*WIDTH_SCALE, 22*HEIGHT_SCALE);
     self.zbtn.frame = CGRectMake(DEVICE_WIDTH-110*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 40*WIDTH_SCALE, 20*HEIGHT_SCALE);
     self.titlelab.frame = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-65*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 30*HEIGHT_SCALE);
@@ -65,7 +65,7 @@
     {
         _namelab = [[UILabel alloc] init];
         _namelab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
-        _namelab.font = [UIFont systemFontOfSize:14];
+        _namelab.font = [UIFont systemFontOfSize:14*FX];
         _namelab.text = @"姓名";
         
     }
@@ -78,7 +78,7 @@
     {
         _fromlab = [[UILabel alloc] init];
         _fromlab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
-        _fromlab.font = [UIFont systemFontOfSize:12];
+        _fromlab.font = [UIFont systemFontOfSize:12*FX];
         _fromlab.text = @"来自网易老司机的评论";
         _fromlab.textAlignment = NSTextAlignmentRight;
     }
@@ -90,7 +90,7 @@
     if(!_contentlab)
     {
         _contentlab = [[UILabel alloc] init];
-        _contentlab.font = [UIFont systemFontOfSize:14];
+        _contentlab.font = [UIFont systemFontOfSize:14*FX];
         _contentlab.textColor = [UIColor wjColorFloat:@"333333"];
     }
     return _contentlab;
@@ -103,7 +103,7 @@
         _timelab = [[UILabel alloc] init];
         _timelab.text = @"十分钟前";
         _timelab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
-        _timelab.font = [UIFont systemFontOfSize:12];
+        _timelab.font = [UIFont systemFontOfSize:12*FX];
         
     }
     return _timelab;
@@ -166,15 +166,15 @@
 
 
 - (void)layoutSubviewsWithText:(NSString *)text{
-    CGSize textSize = [self.contentlab setText:text lines:QSTextDefaultLines andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH - 30,MAXFLOAT)];
-    self.contentlab.frame = CGRectMake(15,  30*HEIGHT_SCALE, textSize.width, textSize.height);
+    CGSize textSize = [self.contentlab setText:text lines:QSTextDefaultLines2 andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH - 30,MAXFLOAT)];
+    self.contentlab.frame = CGRectMake(14*WIDTH_SCALE,  30*HEIGHT_SCALE, textSize.width, textSize.height);
     
 }
 
 + (CGFloat)cellHeightWithText:(NSString *)text{
     
     CGSize textSize = [UILabel sizeWithText:text
-                                      lines:QSTextDefaultLines
+                                      lines:QSTextDefaultLines2
                                        font:[UIFont systemFontOfSize:QSTextFontSize2]
                              andLineSpacing:QSTextLineSpacing
                           constrainedToSize:CGSizeMake(DEVICE_WIDTH - 30,MAXFLOAT)];

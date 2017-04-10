@@ -64,13 +64,12 @@ static NSString *detailsidentfid = @"detailsidentfid";
 {
     if(!_headview)
     {
-        _headview = [[detailsheadView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 200)];
-        //_headview.backgroundColor = [UIColor lightGrayColor];
-        
+        _headview = [[detailsheadView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 450)];
+        _headview.layer.masksToBounds = YES;
+        _headview.layer.borderWidth = 1;
     }
     return _headview;
 }
-
 
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
 

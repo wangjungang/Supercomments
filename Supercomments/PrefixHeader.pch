@@ -29,6 +29,9 @@
 #define Line_Color kCOLOR(210, 210, 210, 0.3)
 
 #define QSTextDefaultLines 0
+
+#define QSTextDefaultLines2 2
+
 #define QSTextLineSpacing 5
 #define QSTextFontSize 18
 
@@ -44,5 +47,6 @@
 #import "Masonry.h"
 #import "UIColor+WJColor.h"
 #import "UIImageView+WebCache.h"
+#import "UILabel+MultipleLines.h"
 #ifdef __OBJC__
 #endif

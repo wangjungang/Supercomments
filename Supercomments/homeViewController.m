@@ -68,11 +68,8 @@
     //加载ScrollView
     [self setContentScrollView];
     
-    
     [self.view addSubview:self.infobtn];
     //[self.view addSubview:self.searchbtn];
-    
-    
 }
 
 -(void)setSegment {

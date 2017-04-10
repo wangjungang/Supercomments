@@ -33,7 +33,6 @@
 
 #pragma mark - getters
 
-
 -(UIImageView *)sanjiaoxin
 {
     if(!_sanjiaoxin)
@@ -51,13 +50,10 @@
         _titlelab = [[UILabel alloc] init];
         _titlelab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
         _titlelab.backgroundColor = [UIColor wjColorFloat:@"F5F5F5"];
-        _titlelab.font = [UIFont systemFontOfSize:14];
+        _titlelab.font = [UIFont systemFontOfSize:13*FX];
         _titlelab.numberOfLines = 0;
     }
     return _titlelab;
 }
-
-
-
 
 @end
