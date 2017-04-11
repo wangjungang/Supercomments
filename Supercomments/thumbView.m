@@ -15,10 +15,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
-        
-        //[self addSubview:self.leftimg];
-        [self richTextLable];
+        [self addSubview:self.thumblab];
+        [self thumb];
     }
 
     return self;
@@ -27,69 +25,60 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.leftimg.frame = CGRectMake(0, 0, 14*WIDTH_SCALE, 14*WIDTH_SCALE);
     
 }
 
 #pragma mark - getters
 
 
--(UIImageView *)leftimg
+-(UILabel *)thumblab
 {
-    if(!_leftimg)
+    if(!_thumblab)
     {
-        _leftimg = [[UIImageView alloc] init];
-        _leftimg.image = [UIImage imageNamed:@"详情页点赞-提示"];
+        _thumblab = [[UILabel alloc] init];
+        _thumblab.textColor = [UIColor wjColorFloat:@"CDCDC7"];
     }
-    return _leftimg;
+    return _thumblab;
 }
 
--(void)richTextLable
+-(void)thumb
 {
-    
-   
-
-    
     NSArray *goodArray = @[@"张三",@"李四",@"王五",@"李兆",@"粟子",@"小李",@"李四",@"王五",@"李兆",@"粟子",@"小李"];
-    
     NSString *goodTotalString = [goodArray componentsJoinedByString:@", "];
     
     NSMutableAttributedString *newGoodString = [[NSMutableAttributedString alloc] initWithString:goodTotalString];
-    [newGoodString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(0, goodTotalString.length)];
-    
+    [newGoodString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, goodTotalString.length)];
     //设置行距 实际开发中间距为0太丑了，根据项目需求自己把握
     NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
     paragraphstyle.lineSpacing = 3;
     [newGoodString addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, goodTotalString.length)];
-    
-    
-    UILabel *goodTextLbl = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, DEVICE_WIDTH- 40, 20)];
     
     // 添加图片
     NSTextAttachment *attch = [[NSTextAttachment alloc] init];
     // 图片
     attch.image = [UIImage imageNamed:@"详情页点赞-提示"];
     // 设置图片大小
-    attch.bounds = CGRectMake(0, 0, 14, 14);
+    attch.bounds = CGRectMake(0, 0, 14*WIDTH_SCALE, 14*WIDTH_SCALE);
+    
     // 创建带有图片的富文本
     NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
-    //[newGoodString appendAttributedString:string];
-    
     [newGoodString insertAttributedString:string atIndex:0];
     
-    goodTextLbl.backgroundColor = [UIColor orangeColor];
-    goodTextLbl.numberOfLines = 0;//设置UILable自适应
-    goodTextLbl.attributedText = newGoodString;
-   
+    self.thumblab.attributedText = newGoodString;
+    self.thumblab.numberOfLines = 0;
+    //设置UILable自适
+    self.thumblab.lineBreakMode = NSLineBreakByCharWrapping;
+    self.thumblab.frame = CGRectMake(0,  0, DEVICE_WIDTH-28, 0);
     
-    [self addSubview:goodTextLbl];
-    [goodTextLbl sizeToFit];
+    [self.thumblab sizeToFit];
     
-    
-    [goodTextLbl onTapRangeActionWithString:goodArray tapClicked:^(NSString *string, NSRange range, NSInteger index) {
+    [self.thumblab onTapRangeActionWithString:goodArray tapClicked:^(NSString *string, NSRange range, NSInteger index) {
         NSLog(@"这是第--%ld--个点赞的,他是--%@",index,string);
+        
     }];
+    
 }
+
 
 
 

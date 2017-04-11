@@ -23,7 +23,6 @@
         [self addSubview:self.fromlab];
         [self addSubview:self.numberlab];
         [self addSubview:self.title];
-        
         [self addSubview:self.timelab];
         [self addSubview:self.dianzanbtn];
         [self addSubview:self.combtn];
@@ -45,6 +44,7 @@
         make.left.equalTo(self).with.offset(14*WIDTH_SCALE);
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
     }];
+    
     [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentlab).with.offset(14*WIDTH_SCALE+self.contentlab.frame.size.height*HEIGHT_SCALE);
         CGFloat hei = 15*WIDTH_SCALE;
@@ -75,7 +75,13 @@
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE-110*WIDTH_SCALE);
         make.top.equalTo(self.title).with.offset(15*HEIGHT_SCALE+20*HEIGHT_SCALE);
     }];
-    self.thumview.frame = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-14*HEIGHT_SCALE-18*HEIGHT_SCALE-14*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 20);
+    
+    [self.thumview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).with.offset(14*WIDTH_SCALE);
+        make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
+        make.top.equalTo(self.timelab).with.offset(33*HEIGHT_SCALE);
+    }];
+    
     
 }
 
@@ -114,8 +120,9 @@
         _contentlab.textColor = [UIColor wjColorFloat:@"333333"];
         _contentlab.text = @"赵客缦胡缨，吴钩霜雪明。银鞍照白马，飒沓如流星。十步杀一人，千里不留行。事了拂衣去，深藏身与名。闲过信陵饮，脱剑膝前横。将炙啖朱亥，持觞劝侯嬴。三杯吐然诺，五岳倒为轻。眼花耳热后，意气素霓生。救赵挥金槌，邯郸先震惊。千秋二壮士，烜赫大梁城。纵死侠骨香，不惭世上英。谁能书阁下，白首太玄经。";
         CGSize textSize = [_contentlab setText:_contentlab.text lines:QSTextDefaultLines andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH - 30,MAXFLOAT)];
-        
         self.contentlab.frame = CGRectMake(14*WIDTH_SCALE,  30*HEIGHT_SCALE, textSize.width, textSize.height);
+        height1 = textSize.height;
+        
     }
     return _contentlab;
 }

@@ -11,5 +11,6 @@
 @interface thumbView : UIView
 @property (nonatomic,strong) UIImageView *leftimg;
 
+@property (nonatomic,strong) UILabel *thumblab;
 
 @end

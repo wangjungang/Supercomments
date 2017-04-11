@@ -1,29 +1,26 @@
 //
-//  detaolsCell.m
+//  sectionView.m
 //  Supercomments
 //
-//  Created by 王俊钢 on 2017/4/8.
+//  Created by 王俊钢 on 2017/4/11.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "detaolsCell.h"
+#import "sectionView.h"
 
-@implementation detaolsCell
+@implementation sectionView
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self =  [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if(self)
-    {
-        [self.contentView addSubview:self.picimg];
-        [self.contentView addSubview:self.namelab];
-        [self.contentView addSubview:self.timelab];
-        [self.contentView addSubview:self.contentlab];
-        [self.contentView addSubview:self.pinglunlab];
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self addSubview:self.picimg];
+        [self addSubview:self.namelab];
+        [self addSubview:self.timelab];
+        [self addSubview:self.contentlab];
     }
     return self;
 }
-
 
 -(void)layoutSubviews
 {
@@ -84,26 +81,13 @@
         _contentlab.font = [UIFont systemFontOfSize:16*FX];
         _contentlab.text = @"赵客缦胡缨，吴钩霜雪明。银鞍照白马，飒沓如流星。十步杀一人，千里不留行。事了拂衣去，深藏身与名。";
         CGSize textSize = [_contentlab setText:_contentlab.text lines:QSTextDefaultLines andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH - 94*WIDTH_SCALE-14*WIDTH_SCALE,MAXFLOAT)];
+        
         self.contentlab.frame = CGRectMake(14*WIDTH_SCALE+32*WIDTH_SCALE+14*WIDTH_SCALE,  60*HEIGHT_SCALE, textSize.width, textSize.height);
+        
         _hei = textSize.height;
     }
     return _contentlab;
 }
-
--(UILabel *)pinglunlab
-{
-    if(!_pinglunlab)
-    {
-        _pinglunlab = [[UILabel alloc] init];
-        _pinglunlab.numberOfLines = 0;
-        _pinglunlab.font = [UIFont systemFontOfSize:14*FX];
-        
-    }
-    return _pinglunlab;
-}
-
-
-
 
 
 @end

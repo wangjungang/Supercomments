@@ -12,6 +12,11 @@
 #import "commentsBtn.h"
 #import "thumbView.h"
 @interface detailsheadView : UIView
+{
+    CGFloat height1;
+    CGFloat height2;
+}
+
 @property (nonatomic,strong) UILabel *namelab;
 @property (nonatomic,strong) UILabel *fromlab;
 @property (nonatomic,strong) UILabel *contentlab;
