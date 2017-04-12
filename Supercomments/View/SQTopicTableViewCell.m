@@ -17,9 +17,13 @@
 
 @interface SQTopicTableViewCell()<UITableViewDelegate, UITableViewDataSource, SQCommentTableViewCellDelegate>
 @property(nonatomic, strong) UIImageView *icon;
-@property(nonatomic, strong) TTTAttributedLabel *nameLabel;
+
 @property(nonatomic, strong) TTTAttributedLabel *topicLabel;
 @property(nonatomic, strong) UITableView *commentTableView;
+
+
+@property(nonatomic, strong) TTTAttributedLabel *nameLabel;
+
 @property(nonatomic, strong) UIButton *toggoleButton;
 @end
 
@@ -51,18 +55,19 @@
         _icon = [[UIImageView alloc] init];
         [self.contentView addSubview:_icon];
         
-        
-        
+        [self.contentView addSubview:self.timeLabel];
+        self.timeLabel.frame = CGRectMake(15+35+14, 16+14+6, 100, 12);
         
         _nameLabel = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
         _nameLabel.numberOfLines = 1;
-        _nameLabel.linkAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:0/256.0 green:87/256.0 blue:168/256.0 alpha:1]};
-        _nameLabel.activeLinkAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:140/256.0 green:87/256.0 blue:168/256.0 alpha:1]};
+        _nameLabel.linkAttributes = @{NSForegroundColorAttributeName: [UIColor wjColorFloat:@"CDCDC7"]};
+        _nameLabel.activeLinkAttributes = @{NSForegroundColorAttributeName: [UIColor wjColorFloat:@"CDCDC7"]};
+        _nameLabel.font = [UIFont systemFontOfSize:14];
         [self.contentView addSubview:_nameLabel];
         
         _topicLabel = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
         _topicLabel.numberOfLines = 0;
-        _topicLabel.font = [UIFont systemFontOfSize:15];
+        _topicLabel.font = [UIFont systemFontOfSize:16];
         _toggoleButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [self.contentView addSubview:_topicLabel];
         
@@ -75,7 +80,7 @@
         _commentTableView = [[UITableView alloc] initWithFrame:CGRectZero];
         _commentTableView.delegate = self;
         _commentTableView.dataSource = self;
-        _commentTableView.backgroundColor = [UIColor colorWithRed:236/256.0 green:236/256.0 blue:236/256.0 alpha:1];
+        _commentTableView.backgroundColor = [UIColor wjColorFloat:@"F4F5F6"];
         _commentTableView.bounces = NO;
         _commentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_commentTableView registerClass:[SQCommentTableViewCell class] forCellReuseIdentifier:@"comment"];
@@ -84,6 +89,19 @@
     }
     
     return self;
+}
+
+
+-(UILabel *)timeLabel
+{
+    if(!_timeLabel)
+    {
+        _timeLabel = [[UILabel alloc] init];
+        _timeLabel.textColor = [UIColor wjColorFloat:@"CDCDC7"];
+        _timeLabel.font = [UIFont systemFontOfSize:11*FX];
+        _timeLabel.text = @"12:00";
+    }
+    return _timeLabel;
 }
 
 - (void)didToggoleButtonClicked:(UIButton *)button
@@ -100,17 +118,17 @@
     }
 }
 
-
 - (void)setTopicViewModel:(SQTopicCellViewModel *)topicViewModel
 {
     _topicViewModel = topicViewModel;
     
     //self.icon.image = [UIImage imageNamed:topicViewModel.topicModel.icon];
+   
     [self.icon sd_setImageWithURL:[NSURL URLWithString:topicViewModel.topicModel.icon]];
     self.icon.frame = topicViewModel.iconF;
     
-    
-    
+    self.icon.layer.masksToBounds = YES;
+    self.icon.layer.cornerRadius = self.icon.frame.size.width/2;
     
     
     self.nameLabel.frame = topicViewModel.nameLabelF;
@@ -125,7 +143,8 @@
             [self.delegate cell:self didUserClicked:topicViewModel.topicModel.userame];
         }
     };
-
+    
+  
     
     self.topicLabel.text = topicViewModel.topicModel.content;
     self.topicLabel.frame = topicViewModel.contentF;
@@ -167,11 +186,15 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    
+    NSLog(@"点击cell");
     if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didReplyClicked:)]) {
         [self.delegate cell:self didReplyClicked:((SQCommentCellViewModel *)self.topicViewModel.commentCellViewModels[indexPath.row]).commentModel];
     }
-    
+}
+
+- (void)cell:(SQCommentTableViewCell *)cell didreply:(NSString *)replystr
+{
+    NSLog(@"回复");
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -185,7 +208,9 @@
     
     cell.commentCellVM = self.topicViewModel.commentCellViewModels[indexPath.row];
     cell.delegate = self;
+    //cell.backgroundColor = [UIColor greenColor];
     return cell;
 }
+
 
 @end

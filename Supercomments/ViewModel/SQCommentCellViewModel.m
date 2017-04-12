@@ -30,7 +30,7 @@
     NSDictionary *attr = @{
                             NSParagraphStyleAttributeName: para,
                             NSFontAttributeName: [UIFont systemFontOfSize:14],
-                            NSForegroundColorAttributeName: [UIColor colorWithRed:46/256.0 green:46/256.0 blue:46/256.0 alpha:1]
+                            NSForegroundColorAttributeName: [UIColor wjColorFloat:@"333333"]
                            };
     
     self.contentAttributedString = [[NSAttributedString alloc] initWithString:commentModel.all attributes:attr];

@@ -95,32 +95,6 @@
 		53F9CB841E9B7F1A00C1F3A7 /* thumbView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F9CB831E9B7F1A00C1F3A7 /* thumbView.m */; };
 		53F9CB8A1E9B834900C1F3A7 /* UILabel+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F9CB891E9B834900C1F3A7 /* UILabel+Category.m */; };
 		53FE161C1E9C89D000585111 /* sectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE161B1E9C89D000585111 /* sectionView.m */; };
-		53FE164D1E9CC0CA00585111 /* ILRegularExpressionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE16211E9CC0CA00585111 /* ILRegularExpressionManager.m */; };
-		53FE164E1E9CC0CA00585111 /* NSArray+NSArray_ILExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE16231E9CC0CA00585111 /* NSArray+NSArray_ILExtension.m */; };
-		53FE164F1E9CC0CA00585111 /* NSString+NSString_ILExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE16251E9CC0CA00585111 /* NSString+NSString_ILExtension.m */; };
-		53FE16501E9CC0CA00585111 /* WFMessageBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE16271E9CC0CA00585111 /* WFMessageBody.m */; };
-		53FE16511E9CC0CA00585111 /* WFReplyBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE16291E9CC0CA00585111 /* WFReplyBody.m */; };
-		53FE16521E9CC0CA00585111 /* YMTextData.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE162B1E9CC0CA00585111 /* YMTextData.m */; };
-		53FE16531E9CC0CA00585111 /* 01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FE162D1E9CC0CA00585111 /* 01@2x.png */; };
-		53FE16541E9CC0CA00585111 /* 02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FE162E1E9CC0CA00585111 /* 02@2x.png */; };
-		53FE16551E9CC0CA00585111 /* 03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FE162F1E9CC0CA00585111 /* 03@2x.png */; };
-		53FE16561E9CC0CA00585111 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FE16301E9CC0CA00585111 /* 1.png */; };
-		53FE16571E9CC0CA00585111 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FE16311E9CC0CA00585111 /* 2.png */; };
-		53FE16581E9CC0CA00585111 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FE16321E9CC0CA00585111 /* 3.png */; };
-		53FE16591E9CC0CA00585111 /* button_send_comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FE16331E9CC0CA00585111 /* button_send_comment@2x.png */; };
-		53FE165A1E9CC0CA00585111 /* fw_r2_c2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FE16341E9CC0CA00585111 /* fw_r2_c2@2x.png */; };
-		53FE165B1E9CC0CA00585111 /* mao@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 53FE16351E9CC0CA00585111 /* mao@2x.jpg */; };
-		53FE165C1E9CC0CA00585111 /* personal_showBac@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FE16361E9CC0CA00585111 /* personal_showBac@2x.png */; };
-		53FE165D1E9CC0CA00585111 /* zan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FE16371E9CC0CA00585111 /* zan@2x.png */; };
-		53FE165E1E9CC0CA00585111 /* WFActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE163A1E9CC0CA00585111 /* WFActionSheet.m */; };
-		53FE165F1E9CC0CA00585111 /* WFHudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE163C1E9CC0CA00585111 /* WFHudView.m */; };
-		53FE16601E9CC0CA00585111 /* WFPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE163E1E9CC0CA00585111 /* WFPopView.m */; };
-		53FE16611E9CC0CA00585111 /* WFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE16401E9CC0CA00585111 /* WFTextView.m */; };
-		53FE16621E9CC0CA00585111 /* YMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE16421E9CC0CA00585111 /* YMButton.m */; };
-		53FE16631E9CC0CA00585111 /* YMReplyInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE16441E9CC0CA00585111 /* YMReplyInputView.m */; };
-		53FE16641E9CC0CA00585111 /* YMShowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE16461E9CC0CA00585111 /* YMShowImageView.m */; };
-		53FE16651E9CC0CA00585111 /* YMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE16481E9CC0CA00585111 /* YMTableViewCell.m */; };
-		53FE16661E9CC0CA00585111 /* YMTapGestureRecongnizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FE164A1E9CC0CA00585111 /* YMTapGestureRecongnizer.m */; };
 		95F412879000247E7AD6332D /* libPods-Supercomments.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 786A0F9C77F8BEA8D1747BFF /* libPods-Supercomments.a */; };
 /* End PBXBuildFile section */
 
@@ -291,48 +265,6 @@
 		53F9CB891E9B834900C1F3A7 /* UILabel+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Category.m"; sourceTree = "<group>"; };
 		53FE161A1E9C89D000585111 /* sectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sectionView.h; sourceTree = "<group>"; };
 		53FE161B1E9C89D000585111 /* sectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sectionView.m; sourceTree = "<group>"; };
-		53FE161E1E9CC0CA00585111 /* ContantHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContantHead.h; sourceTree = "<group>"; };
-		53FE16201E9CC0CA00585111 /* ILRegularExpressionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILRegularExpressionManager.h; sourceTree = "<group>"; };
-		53FE16211E9CC0CA00585111 /* ILRegularExpressionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILRegularExpressionManager.m; sourceTree = "<group>"; };
-		53FE16221E9CC0CA00585111 /* NSArray+NSArray_ILExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NSArray_ILExtension.h"; sourceTree = "<group>"; };
-		53FE16231E9CC0CA00585111 /* NSArray+NSArray_ILExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NSArray_ILExtension.m"; sourceTree = "<group>"; };
-		53FE16241E9CC0CA00585111 /* NSString+NSString_ILExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSString_ILExtension.h"; sourceTree = "<group>"; };
-		53FE16251E9CC0CA00585111 /* NSString+NSString_ILExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSString_ILExtension.m"; sourceTree = "<group>"; };
-		53FE16261E9CC0CA00585111 /* WFMessageBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFMessageBody.h; sourceTree = "<group>"; };
-		53FE16271E9CC0CA00585111 /* WFMessageBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFMessageBody.m; sourceTree = "<group>"; };
-		53FE16281E9CC0CA00585111 /* WFReplyBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFReplyBody.h; sourceTree = "<group>"; };
-		53FE16291E9CC0CA00585111 /* WFReplyBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFReplyBody.m; sourceTree = "<group>"; };
-		53FE162A1E9CC0CA00585111 /* YMTextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTextData.h; sourceTree = "<group>"; };
-		53FE162B1E9CC0CA00585111 /* YMTextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTextData.m; sourceTree = "<group>"; };
-		53FE162D1E9CC0CA00585111 /* 01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01@2x.png"; sourceTree = "<group>"; };
-		53FE162E1E9CC0CA00585111 /* 02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02@2x.png"; sourceTree = "<group>"; };
-		53FE162F1E9CC0CA00585111 /* 03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03@2x.png"; sourceTree = "<group>"; };
-		53FE16301E9CC0CA00585111 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		53FE16311E9CC0CA00585111 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		53FE16321E9CC0CA00585111 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
-		53FE16331E9CC0CA00585111 /* button_send_comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_send_comment@2x.png"; sourceTree = "<group>"; };
-		53FE16341E9CC0CA00585111 /* fw_r2_c2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fw_r2_c2@2x.png"; sourceTree = "<group>"; };
-		53FE16351E9CC0CA00585111 /* mao@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mao@2x.jpg"; sourceTree = "<group>"; };
-		53FE16361E9CC0CA00585111 /* personal_showBac@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "personal_showBac@2x.png"; sourceTree = "<group>"; };
-		53FE16371E9CC0CA00585111 /* zan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zan@2x.png"; sourceTree = "<group>"; };
-		53FE16391E9CC0CA00585111 /* WFActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFActionSheet.h; sourceTree = "<group>"; };
-		53FE163A1E9CC0CA00585111 /* WFActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFActionSheet.m; sourceTree = "<group>"; };
-		53FE163B1E9CC0CA00585111 /* WFHudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFHudView.h; sourceTree = "<group>"; };
-		53FE163C1E9CC0CA00585111 /* WFHudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFHudView.m; sourceTree = "<group>"; };
-		53FE163D1E9CC0CA00585111 /* WFPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFPopView.h; sourceTree = "<group>"; };
-		53FE163E1E9CC0CA00585111 /* WFPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFPopView.m; sourceTree = "<group>"; };
-		53FE163F1E9CC0CA00585111 /* WFTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTextView.h; sourceTree = "<group>"; };
-		53FE16401E9CC0CA00585111 /* WFTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTextView.m; sourceTree = "<group>"; };
-		53FE16411E9CC0CA00585111 /* YMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMButton.h; sourceTree = "<group>"; };
-		53FE16421E9CC0CA00585111 /* YMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMButton.m; sourceTree = "<group>"; };
-		53FE16431E9CC0CA00585111 /* YMReplyInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMReplyInputView.h; sourceTree = "<group>"; };
-		53FE16441E9CC0CA00585111 /* YMReplyInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMReplyInputView.m; sourceTree = "<group>"; };
-		53FE16451E9CC0CA00585111 /* YMShowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMShowImageView.h; sourceTree = "<group>"; };
-		53FE16461E9CC0CA00585111 /* YMShowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMShowImageView.m; sourceTree = "<group>"; };
-		53FE16471E9CC0CA00585111 /* YMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTableViewCell.h; sourceTree = "<group>"; };
-		53FE16481E9CC0CA00585111 /* YMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTableViewCell.m; sourceTree = "<group>"; };
-		53FE16491E9CC0CA00585111 /* YMTapGestureRecongnizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTapGestureRecongnizer.h; sourceTree = "<group>"; };
-		53FE164A1E9CC0CA00585111 /* YMTapGestureRecongnizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTapGestureRecongnizer.m; sourceTree = "<group>"; };
 		786A0F9C77F8BEA8D1747BFF /* libPods-Supercomments.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Supercomments.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D994A0AB886A394927602D3A /* Pods-Supercomments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Supercomments.release.xcconfig"; path = "Pods/Target Support Files/Pods-Supercomments/Pods-Supercomments.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -592,7 +524,6 @@
 				5337FEF11E9DF29A004664D7 /* View */,
 				5337FEF61E9DF29A004664D7 /* ViewModel */,
 				5337FEE31E9DF268004664D7 /* TTTAttributedLabel */,
-				53FE161D1E9CC0CA00585111 /* 朋友圈 */,
 				53619EDB1E98D25C007CC7AC /* model */,
 				53619EDA1E98D25C007CC7AC /* view */,
 				53619ED91E98D25B007CC7AC /* controller */,
@@ -1015,79 +946,6 @@
 			path = Required;
 			sourceTree = "<group>";
 		};
-		53FE161D1E9CC0CA00585111 /* 朋友圈 */ = {
-			isa = PBXGroup;
-			children = (
-				53FE161E1E9CC0CA00585111 /* ContantHead.h */,
-				53FE161F1E9CC0CA00585111 /* Manager */,
-				53FE162C1E9CC0CA00585111 /* Source */,
-				53FE16381E9CC0CA00585111 /* View */,
-			);
-			path = "朋友圈";
-			sourceTree = "<group>";
-		};
-		53FE161F1E9CC0CA00585111 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				53FE16201E9CC0CA00585111 /* ILRegularExpressionManager.h */,
-				53FE16211E9CC0CA00585111 /* ILRegularExpressionManager.m */,
-				53FE16221E9CC0CA00585111 /* NSArray+NSArray_ILExtension.h */,
-				53FE16231E9CC0CA00585111 /* NSArray+NSArray_ILExtension.m */,
-				53FE16241E9CC0CA00585111 /* NSString+NSString_ILExtension.h */,
-				53FE16251E9CC0CA00585111 /* NSString+NSString_ILExtension.m */,
-				53FE16261E9CC0CA00585111 /* WFMessageBody.h */,
-				53FE16271E9CC0CA00585111 /* WFMessageBody.m */,
-				53FE16281E9CC0CA00585111 /* WFReplyBody.h */,
-				53FE16291E9CC0CA00585111 /* WFReplyBody.m */,
-				53FE162A1E9CC0CA00585111 /* YMTextData.h */,
-				53FE162B1E9CC0CA00585111 /* YMTextData.m */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		53FE162C1E9CC0CA00585111 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				53FE162D1E9CC0CA00585111 /* 01@2x.png */,
-				53FE162E1E9CC0CA00585111 /* 02@2x.png */,
-				53FE162F1E9CC0CA00585111 /* 03@2x.png */,
-				53FE16301E9CC0CA00585111 /* 1.png */,
-				53FE16311E9CC0CA00585111 /* 2.png */,
-				53FE16321E9CC0CA00585111 /* 3.png */,
-				53FE16331E9CC0CA00585111 /* button_send_comment@2x.png */,
-				53FE16341E9CC0CA00585111 /* fw_r2_c2@2x.png */,
-				53FE16351E9CC0CA00585111 /* mao@2x.jpg */,
-				53FE16361E9CC0CA00585111 /* personal_showBac@2x.png */,
-				53FE16371E9CC0CA00585111 /* zan@2x.png */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		53FE16381E9CC0CA00585111 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				53FE16391E9CC0CA00585111 /* WFActionSheet.h */,
-				53FE163A1E9CC0CA00585111 /* WFActionSheet.m */,
-				53FE163B1E9CC0CA00585111 /* WFHudView.h */,
-				53FE163C1E9CC0CA00585111 /* WFHudView.m */,
-				53FE163D1E9CC0CA00585111 /* WFPopView.h */,
-				53FE163E1E9CC0CA00585111 /* WFPopView.m */,
-				53FE163F1E9CC0CA00585111 /* WFTextView.h */,
-				53FE16401E9CC0CA00585111 /* WFTextView.m */,
-				53FE16411E9CC0CA00585111 /* YMButton.h */,
-				53FE16421E9CC0CA00585111 /* YMButton.m */,
-				53FE16431E9CC0CA00585111 /* YMReplyInputView.h */,
-				53FE16441E9CC0CA00585111 /* YMReplyInputView.m */,
-				53FE16451E9CC0CA00585111 /* YMShowImageView.h */,
-				53FE16461E9CC0CA00585111 /* YMShowImageView.m */,
-				53FE16471E9CC0CA00585111 /* YMTableViewCell.h */,
-				53FE16481E9CC0CA00585111 /* YMTableViewCell.m */,
-				53FE16491E9CC0CA00585111 /* YMTapGestureRecongnizer.h */,
-				53FE164A1E9CC0CA00585111 /* YMTapGestureRecongnizer.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		9721CF6373A11BC2885DE581 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1173,27 +1031,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53FE16591E9CC0CA00585111 /* button_send_comment@2x.png in Resources */,
-				53FE16551E9CC0CA00585111 /* 03@2x.png in Resources */,
-				53FE165D1E9CC0CA00585111 /* zan@2x.png in Resources */,
-				53FE16541E9CC0CA00585111 /* 02@2x.png in Resources */,
 				53F9CB6D1E9B53B200C1F3A7 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				53F9CB721E9B53B200C1F3A7 /* README.txt in Resources */,
 				53F9CB641E9B53B200C1F3A7 /* ShareSDKConfigFile.bundle in Resources */,
-				53FE165C1E9CC0CA00585111 /* personal_showBac@2x.png in Resources */,
 				53AEBE2A1E948A2500280F70 /* LaunchScreen.storyboard in Resources */,
 				53F9CB671E9B53B200C1F3A7 /* ShareSDKUI.bundle in Resources */,
 				53F9CB6F1E9B53B200C1F3A7 /* WeiboSDK.bundle in Resources */,
 				53F9CB741E9B53B200C1F3A7 /* ShareSDK.bundle in Resources */,
 				53AEBE271E948A2500280F70 /* Assets.xcassets in Resources */,
 				53F9CB711E9B53B200C1F3A7 /* read_me.txt in Resources */,
-				53FE16581E9CC0CA00585111 /* 3.png in Resources */,
 				53AEBE251E948A2500280F70 /* Main.storyboard in Resources */,
-				53FE16571E9CC0CA00585111 /* 2.png in Resources */,
-				53FE16531E9CC0CA00585111 /* 01@2x.png in Resources */,
-				53FE165B1E9CC0CA00585111 /* mao@2x.jpg in Resources */,
-				53FE165A1E9CC0CA00585111 /* fw_r2_c2@2x.png in Resources */,
-				53FE16561E9CC0CA00585111 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1254,15 +1101,11 @@
 			files = (
 				53619EE41E98E0C7007CC7AC /* detailsheadView.m in Sources */,
 				53619EC51E9778E9007CC7AC /* newCell.m in Sources */,
-				53FE16661E9CC0CA00585111 /* YMTapGestureRecongnizer.m in Sources */,
 				53619EA61E963508007CC7AC /* nicknameViewController.m in Sources */,
 				53AEBE551E94C9FF00280F70 /* LGSegment.m in Sources */,
 				5337FEFF1E9DF29A004664D7 /* SQCommentTableViewCell.m in Sources */,
 				53AEBE521E9496FF00280F70 /* homeViewController.m in Sources */,
-				53FE16511E9CC0CA00585111 /* WFReplyBody.m in Sources */,
 				53619EE11E98D8DA007CC7AC /* detaolsCell.m in Sources */,
-				53FE16601E9CC0CA00585111 /* WFPopView.m in Sources */,
-				53FE165F1E9CC0CA00585111 /* WFHudView.m in Sources */,
 				53AEBE221E948A2500280F70 /* ViewController.m in Sources */,
 				53619E681E961CD2007CC7AC /* WJGtextView.m in Sources */,
 				53FE161C1E9C89D000585111 /* sectionView.m in Sources */,
@@ -1275,39 +1118,31 @@
 				53619E521E960164007CC7AC /* messageViewController.m in Sources */,
 				53619ED11E988A01007CC7AC /* setbtn.m in Sources */,
 				53619EC01E976EBB007CC7AC /* UIColor+BgColor.m in Sources */,
-				53FE164E1E9CC0CA00585111 /* NSArray+NSArray_ILExtension.m in Sources */,
 				53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */,
-				53FE16641E9CC0CA00585111 /* YMShowImageView.m in Sources */,
 				5337FF011E9DF29A004664D7 /* SQCommentCellViewModel.m in Sources */,
 				5337FF001E9DF29A004664D7 /* SQTopicTableViewCell.m in Sources */,
-				53FE164D1E9CC0CA00585111 /* ILRegularExpressionManager.m in Sources */,
 				53AEBE671E94D8A100280F70 /* newViewController.m in Sources */,
 				53619E6B1E962093007CC7AC /* setCell.m in Sources */,
 				53AEBE461E94910700280F70 /* MLMSegmentManager.m in Sources */,
 				5337FEFE1E9DF29A004664D7 /* SQTopicModel.m in Sources */,
 				53619EC81E988649007CC7AC /* zanBtn.m in Sources */,
 				53AEBE6A1E94D96A00280F70 /* hotViewController.m in Sources */,
-				53FE165E1E9CC0CA00585111 /* WFActionSheet.m in Sources */,
 				53619E5F1E96055E007CC7AC /* myinfoViewController.m in Sources */,
 				53AEBE6F1E94F80400280F70 /* loginViewController.m in Sources */,
-				53FE16651E9CC0CA00585111 /* YMTableViewCell.m in Sources */,
 				5337FEE61E9DF268004664D7 /* TTTAttributedLabel.m in Sources */,
 				53AEBE491E94910700280F70 /* UIView+ViewController.m in Sources */,
 				53AEBE451E94910700280F70 /* MLMSegmentHead.m in Sources */,
-				53FE164F1E9CC0CA00585111 /* NSString+NSString_ILExtension.m in Sources */,
 				53619ED71E98B89D007CC7AC /* titleView.m in Sources */,
 				53EC944E1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				53619EC11E976EBB007CC7AC /* UILabel+MultipleLines.m in Sources */,
 				53619EA01E9634AE007CC7AC /* SZKCleanCache.m in Sources */,
 				53619EB21E964A45007CC7AC /* systemCell.m in Sources */,
-				53FE16521E9CC0CA00585111 /* YMTextData.m in Sources */,
 				53AEBE381E948D6500280F70 /* UIColor+WJColor.m in Sources */,
 				5337FEFC1E9DF29A004664D7 /* SQUserCenterViewController.m in Sources */,
 				53AEBE471E94910700280F70 /* MLMSegmentScroll.m in Sources */,
 				53619E581E9601B1007CC7AC /* setViewController.m in Sources */,
 				5337FF021E9DF29A004664D7 /* SQTopicCellViewModel.m in Sources */,
 				53619EBB1E9765D3007CC7AC /* replyModel.m in Sources */,
-				53FE16611E9CC0CA00585111 /* WFTextView.m in Sources */,
 				53EC944A1E9DC1C400E03E07 /* hDisplayView.m in Sources */,
 				53619EB51E964A52007CC7AC /* replyCell.m in Sources */,
 				53619ED41E988B6C007CC7AC /* commentsBtn.m in Sources */,
@@ -1317,10 +1152,7 @@
 				53619E431E95EEDB007CC7AC /* headView.m in Sources */,
 				5337FEFB1E9DF29A004664D7 /* SQTopicTableViewController.m in Sources */,
 				53619EAF1E964943007CC7AC /* replyViewController.m in Sources */,
-				53FE16501E9CC0CA00585111 /* WFMessageBody.m in Sources */,
 				53AEBE481E94910700280F70 /* UIView+EasyFrame.m in Sources */,
-				53FE16631E9CC0CA00585111 /* YMReplyInputView.m in Sources */,
-				53FE16621E9CC0CA00585111 /* YMButton.m in Sources */,
 				53AEBE1C1E948A2500280F70 /* main.m in Sources */,
 				5337FEFD1E9DF29A004664D7 /* SQCommentModel.m in Sources */,
 				53F9CB841E9B7F1A00C1F3A7 /* thumbView.m in Sources */,

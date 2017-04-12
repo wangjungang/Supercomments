@@ -15,6 +15,8 @@
 #import "SQCommentCellViewModel.h"
 #import "SQUserCenterViewController.h"
 
+#import "headView.h"
+
 @interface SQTopicTableViewController ()<SQTopicTableViewCellDelegate>
 @property(nonatomic, strong) NSMutableArray *dataArray;
 @end
@@ -38,15 +40,6 @@
     
     
     
-    
-    ///--------------- 假数据start
-//    NSString *content = @"决赛中面对塞尔维亚的强有力挑战，中国女排在先输一局的情况下加强发球和拦网，连扳三局3-1逆转获胜，时隔12年再度荣膺奥运冠军";
-//    NSString *content1 = @"决赛中面对塞尔维亚的强有力挑战\n中国女排在先输一局的情况下加强发球和拦网，连扳三局3-1逆转获胜，\n时隔12年再度荣膺奥运";
-//    
-//    NSRange range = NSMakeRange(0, content.length);
-//    
-//    NSRange range1 = NSMakeRange(0, content1.length);
-    
     NSMutableArray *topicModels = [NSMutableArray array];
     
     SQTopicModel *topic = nil;
@@ -56,9 +49,9 @@
         
         topic.userame = [NSString stringWithFormat:@"张%d", i];
         
-        topic.content = @"拜仁慕尼黑，罗本里贝罗，哈维阿隆索，拉姆";
+        topic.content = @"拜仁慕尼黑最早由弗朗茨·约翰率领11名足球运动员在1900年创立。尽管曾在1932年赢得首次德国联赛。拜仁慕尼黑最早由弗朗茨·约翰率领11名足球运动员在1900年创立。尽管曾在1932年赢得首次德国联赛。拜仁慕尼黑最早由弗朗茨·约翰率领11名足球运动员在1900年创立。尽管曾在1932年赢得首次德国联赛。拜仁慕尼黑最早由弗朗茨·约翰率领11名足球运动员在1900年创立。尽管曾在1932年赢得首次德国联赛。拜仁慕尼黑最早由弗朗茨·约翰率领11名足球运动员在1900年创立。尽管曾在1932年赢得首次德国联赛。";
         
-        int commnentCount = arc4random_uniform(20);
+        int commnentCount = arc4random_uniform(10);
         
         NSMutableArray *commentModels = [NSMutableArray array];
         
@@ -71,10 +64,7 @@
                 commentModel.to = topic.userame;
             }
             
-            //int index = arc4random_uniform(range.length);
-            
-           // commentModel.content = [content substringFromIndex:index];
-            commentModel.content = @"加油拜仁";
+            commentModel.content = @"加油拜仁加油拜仁加油拜仁加油拜仁加油拜仁加油拜仁加油拜仁加油拜仁加油拜仁加油拜仁加油拜仁";
             [commentModels addObject:commentModel];
         }
         
@@ -130,7 +120,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SQTopicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-
+    
     cell.delegate = self;
     return cell;
 }
@@ -141,8 +131,8 @@
 
 }
 
-
 # pragma mark - cell事件代理
+
 - (void)cell:(SQTopicTableViewCell *)cell didUserClicked:(NSString *)username{
     NSLog(@"点击了%@, 可以跳转个人中心", username);
     
@@ -156,6 +146,7 @@
 - (void)cell:(SQTopicTableViewCell *)cell didReplyClicked:(SQCommentModel *)commentModel{
     NSLog(@"这里可以回复%@", commentModel.from);
 }
+
 
 - (void)cellToggleExpentContent:(SQTopicTableViewCell *)cell
 {

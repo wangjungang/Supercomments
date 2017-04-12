@@ -47,12 +47,11 @@
     self.zbtn.frame = CGRectMake(DEVICE_WIDTH-110*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 40*WIDTH_SCALE, 20*HEIGHT_SCALE);
     self.titlelab.frame = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-65*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 30*HEIGHT_SCALE);
     
+    
+    
     CGRect rect = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-270*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 200*HEIGHT_SCALE);//创建矩形框
-    
     self.infoimg.frame = rect;
-    
     UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491562601265&di=51fbf1320a65a3c5c78945548d3f4543&imgtype=0&src=http%3A%2F%2Fimgcache.mysodao.com%2Fimg1%2FM05%2FAE%2F09%2FCgAPDE9HBDTVnPg5AAhpyG48ies967-dd7e1653.JPG"]]];
-    
     _infoimg.image=[UIImage imageWithCGImage:CGImageCreateWithImageInRect([img CGImage], rect)];
     
 }
@@ -125,7 +124,6 @@
     {
         _commbtn = [[commentsBtn alloc] init];
         [_commbtn addTarget:self action:@selector(test2:) forControlEvents:UIControlEventTouchUpInside];
-        //_commbtn.backgroundColor = [UIColor redColor];
     }
     return _commbtn;
 }
@@ -136,7 +134,6 @@
     if(!_zbtn)
     {
         _zbtn = [[zanBtn alloc] init];
-//        _zbtn.backgroundColor = [UIColor redColor];
         [_zbtn addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _zbtn;

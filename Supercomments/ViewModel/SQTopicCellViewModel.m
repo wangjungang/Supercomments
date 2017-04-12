@@ -24,20 +24,20 @@
     
     CGFloat iconX = margin;
     CGFloat iconY = margin;
-    CGFloat iconWH = 50;
+    CGFloat iconWH = 35;
     
     self.iconF = CGRectMake(iconX, iconY, iconWH, iconWH);
-    
     
     CGFloat nameLabelX = CGRectGetMaxX(self.iconF) + margin;
     CGFloat nameLabelW = 250;
     CGFloat nameLabelH = 20;
     
+    
     CGFloat contentLabelX = nameLabelX;
     CGFloat contentLabelW = conentW - margin - iconWH;
     CGFloat contentLabelH = 0;
     
-    UIFont *contentLabelFont = [UIFont systemFontOfSize:15];
+    UIFont *contentLabelFont = [UIFont systemFontOfSize:14];
     contentLabelH = [topicModel.content boundingRectWithSize:CGSizeMake(contentLabelW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:contentLabelFont} context:nil].size.height;
     
     int lineNum = contentLabelH / contentLabelFont.lineHeight;
@@ -47,10 +47,12 @@
     CGFloat toggoleButtonW = 32;
     CGFloat toggoleButtonH = 0;
     
-    if (lineNum > 5) {
+    //决定是否折叠的行数，暂时定位110行
+    
+    if (lineNum > 110) {
         
         if (topicModel.isExpanded == NO) {
-            contentLabelH = contentLabelFont.lineHeight * 5;
+            contentLabelH = contentLabelFont.lineHeight * 110;
         }
         toggoleButtonH = 20;
     
@@ -87,12 +89,11 @@
     }
     
     if (contentLabelH > 0) {
-        self.cellHeight += margin * 0.5;
+        self.cellHeight += margin * 0.5+10;
         self.contentF = CGRectMake(contentLabelX, self.cellHeight, contentLabelW, contentLabelH);
         self.cellHeight += contentLabelH;
         
     }
-    
     if (toggoleButtonH > 0) {
         self.cellHeight += margin * 0.5;
         self.toggoleButtonF = CGRectMake(toggoleButtonX,  self.cellHeight, toggoleButtonW, toggoleButtonH);
@@ -104,9 +105,9 @@
         self.tableviewF = CGRectMake(tableViewX, self.cellHeight, tableViewW, tableViewH);
         self.cellHeight += tableViewH;
     }
-
     
-    self.cellHeight += margin * 0.5;
+    
+    self.cellHeight += margin * 0.5+10;
     
 }
 

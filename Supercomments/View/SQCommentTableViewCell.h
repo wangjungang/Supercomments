@@ -11,7 +11,7 @@
 
 @protocol SQCommentTableViewCellDelegate <NSObject>
 - (void)cell:(SQCommentTableViewCell *)cell didUserInfoClicked:(NSString *)username;
-
+- (void)cell:(SQCommentTableViewCell *)cell didreply:(NSString *)replystr;
 @end
 @interface SQCommentTableViewCell : UITableViewCell
 @property(nonatomic, strong) SQCommentCellViewModel *commentCellVM;

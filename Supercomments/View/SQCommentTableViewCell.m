@@ -26,14 +26,13 @@
 
         _contentLabel = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
         _contentLabel.numberOfLines = 0;
-        _contentLabel.textColor = [UIColor blackColor];
-//        _contentLabel.backgroundColor = [UIColor redColor];
+        _contentLabel.textColor = [UIColor wjColorFloat:@"333333"];
         _contentLabel.font = [UIFont systemFontOfSize:14];
-        _contentLabel.linkAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:0/256.0 green:87/256.0 blue:168/256.0 alpha:1]};
-        _contentLabel.activeLinkAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:140/256.0 green:87/256.0 blue:168/256.0 alpha:1]};
+        _contentLabel.linkAttributes = @{NSForegroundColorAttributeName: [UIColor wjColorFloat:@"CDCDC7"]};
+        _contentLabel.activeLinkAttributes = @{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"CDCDC7"]};
         
         [self.contentView addSubview:_contentLabel];
-//        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.selectionStyle = UITableViewCellSelectionStyleBlue;
         self.backgroundColor = [UIColor clearColor];
         self.contentView.backgroundColor = [UIColor clearColor];
     }
@@ -88,8 +87,21 @@
             }
         };
     }
+   
+    //回复
+//    TTTAttributedLabelLink *textlink = [self.contentLabel addLinkToPhoneNumber:commentCellVM.commentModel.content withRange:NSMakeRange(commentCellVM.commentModel.to.length+commentCellVM.commentModel.from.length, commentCellVM.commentModel.content.length)];
+//    
+//    textlink.linkTapBlock = ^(TTTAttributedLabel *label, TTTAttributedLabelLink *link)
+//    {
+//        if (self.delegate && [self.delegate respondsToSelector:@selector(cell:didUserInfoClicked:)]) {
+//            [self.delegate cell:self didreply:commentCellVM.commentModel.content];
+//        }
+//    };
     
     
 //    commentCellVM.commentModel.all;
 }
+
+
+
 @end
