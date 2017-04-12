@@ -7,8 +7,14 @@
 //
 
 #import "loginViewController.h"
-
-@interface loginViewController ()
+#import "UILabel+YBAttributeTextTapAction.h"
+@interface loginViewController ()<YBAttributeTapActionDelegate>
+@property (nonatomic,strong) UIImageView *logoimg;
+@property (nonatomic,strong) UILabel *namelab;
+@property (nonatomic,strong) UIButton *gobackbtn;
+@property (nonatomic,strong) UIButton *loginbtn;
+@property (nonatomic,strong) UIButton *zhijiebtn;
+@property (nonatomic,strong) UILabel *aggrentlab;
 
 @end
 
@@ -16,7 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.logoimg];
+    [self.view addSubview:self.namelab];
+    [self.view addSubview:self.gobackbtn];
+    [self.view addSubview:self.loginbtn];
+    [self.view addSubview:self.zhijiebtn];
+    [self.view addSubview:self.aggrentlab];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,10 +39,132 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    self.logoimg.frame = CGRectMake(283/2*WIDTH_SCALE, 264/2*HEIGHT_SCALE, (DEVICE_WIDTH/2-283/2*WIDTH_SCALE)*2, (DEVICE_WIDTH/2-283/2*WIDTH_SCALE)*2);
+    self.namelab.frame = CGRectMake(100*WIDTH_SCALE,  264/2*HEIGHT_SCALE+(DEVICE_WIDTH/2-283/2*WIDTH_SCALE)*2, DEVICE_WIDTH-200*WIDTH_SCALE, 30);
+    self.gobackbtn.frame = CGRectMake(DEVICE_WIDTH-60-50, 120, 60, 60);
+    self.loginbtn.frame = CGRectMake(20*WIDTH_SCALE, DEVICE_HEIGHT-140*HEIGHT_SCALE, DEVICE_WIDTH-40*WIDTH_SCALE, 40*HEIGHT_SCALE);
+    self.zhijiebtn.frame = CGRectMake(DEVICE_WIDTH-50*WIDTH_SCALE-20*WIDTH_SCALE, DEVICE_HEIGHT-24*WIDTH_SCALE-12*WIDTH_SCALE, 50*WIDTH_SCALE, 12*HEIGHT_SCALE);
+    self.aggrentlab.frame = CGRectMake(20*WIDTH_SCALE, DEVICE_HEIGHT-24*HEIGHT_SCALE-12*HEIGHT_SCALE, 180*WIDTH_SCALE, 12*HEIGHT_SCALE);
 }
 
 #pragma mark - 实现方法
+
+-(UIImageView *)logoimg
+{
+    if(!_logoimg)
+    {
+        _logoimg = [[UIImageView alloc] init];
+        _logoimg.image = [UIImage imageNamed:@"矢量智能对象"];
+    }
+    return _logoimg;
+}
+
+-(UILabel *)namelab
+{
+    if(!_namelab)
+    {
+        _namelab = [[UILabel alloc] init];
+        _namelab.text = @"今日牛评";
+        _namelab.textAlignment = NSTextAlignmentCenter;
+        _namelab.font = [UIFont systemFontOfSize:18*FX];
+        
+    }
+    return _namelab;
+}
+
+-(UIButton *)gobackbtn
+{
+    if(!_gobackbtn)
+    {
+        _gobackbtn = [[UIButton alloc] init];
+        [_gobackbtn setImage:[UIImage imageNamed:@"矩形-228-拷贝"] forState:normal];
+        [_gobackbtn addTarget:self action:@selector(gobackbtnclick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _gobackbtn;
+}
+
+-(UIButton *)loginbtn
+{
+    if(!_loginbtn)
+    {
+        _loginbtn = [[UIButton alloc] init];
+        _loginbtn.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"矩形-1"]];
+        [_loginbtn setTitle:@"微信登录" forState:normal];
+        [_loginbtn setTitleColor:[UIColor whiteColor] forState:normal];
+        [_loginbtn addTarget:self action:@selector(loginbtnclick) forControlEvents:UIControlEventTouchUpInside];
+        _loginbtn.layer.masksToBounds = YES;
+        _loginbtn.layer.cornerRadius = 20*HEIGHT_SCALE;
+        
+    }
+    return _loginbtn;
+}
+
+-(UIButton *)zhijiebtn
+{
+    if(!_zhijiebtn)
+    {
+        _zhijiebtn = [[UIButton alloc] init];
+        [_zhijiebtn addTarget:self action:@selector(gobackbtnclick) forControlEvents:UIControlEventTouchUpInside];
+        [_zhijiebtn setTitle:@"直接使用" forState:normal];
+        _zhijiebtn.titleLabel.textAlignment = NSTextAlignmentRight;
+        [_zhijiebtn setTitleColor:[UIColor wjColorFloat:@"FF4444"] forState:normal];
+        _zhijiebtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        //_zhijiebtn.backgroundColor = [UIColor greenColor];
+        
+    }
+    return _zhijiebtn;
+}
+
+
+-(UILabel *)aggrentlab
+{
+    if(!_aggrentlab)
+    {
+        _aggrentlab = [[UILabel alloc] init];
+        NSString *str = @"登录即表示您同意用户协议";
+        _aggrentlab.font = [UIFont systemFontOfSize:12];
+        //创建NSMutableAttributedString
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc]initWithString:str];
+        //设置字体和设置字体的范围
+        [attrStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:NSMakeRange(8
+                                                                                                       , 4)];
+        //添加文字颜色
+        [attrStr addAttribute:NSForegroundColorAttributeName value:[UIColor wjColorFloat:@"FF4444"] range:NSMakeRange(8, 4)];
+        //添加下划线
+        [attrStr addAttribute:NSUnderlineStyleAttributeName
+                        value:[NSNumber numberWithInteger:NSUnderlineStyleSingle]
+                        range:NSMakeRange(8, 4)];
+        
+        _aggrentlab.textColor = [UIColor wjColorFloat:@"CDCDC7"];
+        _aggrentlab.attributedText = attrStr;
+        
+        [_aggrentlab sizeToFit];
+        
+        [_aggrentlab yb_addAttributeTapActionWithStrings:@[@"用户协议"] delegate:self];
+        
+        [_aggrentlab yb_addAttributeTapActionWithStrings:@[@"用户协议"] tapClicked:^(NSString *string, NSRange range, NSInteger index) {
+            NSLog(@"122");
+        }];
+        
+    }
+    return _aggrentlab;
+}
+
+#pragma mark - 实现方法
+
+-(void)loginbtnclick
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+-(void)gobackbtnclick
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 
 
 

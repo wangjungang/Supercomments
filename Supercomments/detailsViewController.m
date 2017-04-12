@@ -228,12 +228,13 @@ static NSString *detailsidentfid = @"detailsidentfid";
     {
         _headview = [[detailsheadView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 450)];
         _headview.layer.masksToBounds = YES;
-        _headview.layer.borderWidth = 1;
+        //_headview.layer.borderWidth = 1;
     }
     return _headview;
 }
 
 #pragma mark -加载数据
+
 - (void)loadTextData{
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -321,8 +322,6 @@ static NSString *detailsidentfid = @"detailsidentfid";
     
     return cell;
 }
-
-////////////////////////////////////////////////////////////////////
 
 #pragma mark - 按钮动画
 

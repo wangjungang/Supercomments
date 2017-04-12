@@ -267,8 +267,6 @@
     
     backView_H += (ymData.replyDataSource.count - 1)*5;
     
-    
-    
     if (ymData.replyDataSource.count == 0) {//没回复的时候
         
         replyImageView.frame = CGRectMake(offSet_X, backView_Y - 10 + balanceHeight + 5 + kReplyBtnDistance, 0, 0);
@@ -281,6 +279,7 @@
 }
 
 #pragma mark - ilcoreTextDelegate
+
 - (void)clickMyself:(NSString *)clickString{
     
     //延迟调用下  可去掉 下同

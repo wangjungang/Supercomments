@@ -35,6 +35,7 @@
 		53619EDE1E98D283007CC7AC /* detailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EDD1E98D283007CC7AC /* detailsViewController.m */; };
 		53619EE11E98D8DA007CC7AC /* detaolsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EE01E98D8DA007CC7AC /* detaolsCell.m */; };
 		53619EE41E98E0C7007CC7AC /* detailsheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53619EE31E98E0C7007CC7AC /* detailsheadView.m */; };
+		53A8B25B1E9CE40400F6CBD5 /* agreementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A8B25A1E9CE40400F6CBD5 /* agreementView.m */; };
 		53AEBE1C1E948A2500280F70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE1B1E948A2500280F70 /* main.m */; };
 		53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE1E1E948A2500280F70 /* AppDelegate.m */; };
 		53AEBE221E948A2500280F70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE211E948A2500280F70 /* ViewController.m */; };
@@ -55,6 +56,8 @@
 		53AEBE6A1E94D96A00280F70 /* hotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE691E94D96A00280F70 /* hotViewController.m */; };
 		53AEBE6F1E94F80400280F70 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE6E1E94F80400280F70 /* loginViewController.m */; };
 		53AEBE721E95014B00280F70 /* infoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE711E95014B00280F70 /* infoCell.m */; };
+		53EC944A1E9DC1C400E03E07 /* hDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EC94491E9DC1C400E03E07 /* hDisplayView.m */; };
+		53EC944E1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EC944D1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.m */; };
 		53F9CB631E9B53B200C1F3A7 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F9CB3A1E9B53B200C1F3A7 /* ShareSDK.framework */; };
 		53F9CB641E9B53B200C1F3A7 /* ShareSDKConfigFile.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 53F9CB3D1E9B53B200C1F3A7 /* ShareSDKConfigFile.bundle */; };
 		53F9CB651E9B53B200C1F3A7 /* ShareSDKConfigFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F9CB3E1E9B53B200C1F3A7 /* ShareSDKConfigFile.framework */; };
@@ -170,6 +173,8 @@
 		53619EE01E98D8DA007CC7AC /* detaolsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detaolsCell.m; sourceTree = "<group>"; };
 		53619EE21E98E0C7007CC7AC /* detailsheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailsheadView.h; sourceTree = "<group>"; };
 		53619EE31E98E0C7007CC7AC /* detailsheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailsheadView.m; sourceTree = "<group>"; };
+		53A8B2591E9CE40400F6CBD5 /* agreementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = agreementView.h; sourceTree = "<group>"; };
+		53A8B25A1E9CE40400F6CBD5 /* agreementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = agreementView.m; sourceTree = "<group>"; };
 		53AEBE171E948A2500280F70 /* Supercomments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Supercomments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AEBE1B1E948A2500280F70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53AEBE1D1E948A2500280F70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -210,6 +215,10 @@
 		53AEBE6E1E94F80400280F70 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		53AEBE701E95014B00280F70 /* infoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoCell.h; sourceTree = "<group>"; };
 		53AEBE711E95014B00280F70 /* infoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell.m; sourceTree = "<group>"; };
+		53EC94481E9DC1C400E03E07 /* hDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hDisplayView.h; sourceTree = "<group>"; };
+		53EC94491E9DC1C400E03E07 /* hDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hDisplayView.m; sourceTree = "<group>"; };
+		53EC944C1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
+		53EC944D1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
 		53F9CB3A1E9B53B200C1F3A7 /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDK.framework; sourceTree = "<group>"; };
 		53F9CB3D1E9B53B200C1F3A7 /* ShareSDKConfigFile.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKConfigFile.bundle; sourceTree = "<group>"; };
 		53F9CB3E1E9B53B200C1F3A7 /* ShareSDKConfigFile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConfigFile.framework; sourceTree = "<group>"; };
@@ -539,6 +548,18 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		53A8B2581E9CE3F100F6CBD5 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				53EC944B1E9DC6DE00E03E07 /* YBAttributeTextTapAction */,
+				53A8B2591E9CE40400F6CBD5 /* agreementView.h */,
+				53A8B25A1E9CE40400F6CBD5 /* agreementView.m */,
+				53EC94481E9DC1C400E03E07 /* hDisplayView.h */,
+				53EC94491E9DC1C400E03E07 /* hDisplayView.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		53AEBE0E1E948A2500280F70 = {
 			isa = PBXGroup;
 			children = (
@@ -781,6 +802,7 @@
 		53AEBE6B1E94F7F000280F70 /* 登录 */ = {
 			isa = PBXGroup;
 			children = (
+				53A8B2581E9CE3F100F6CBD5 /* view */,
 				53AEBE6C1E94F7F700280F70 /* controller */,
 			);
 			name = "登录";
@@ -793,6 +815,15 @@
 				53AEBE6E1E94F80400280F70 /* loginViewController.m */,
 			);
 			name = controller;
+			sourceTree = "<group>";
+		};
+		53EC944B1E9DC6DE00E03E07 /* YBAttributeTextTapAction */ = {
+			isa = PBXGroup;
+			children = (
+				53EC944C1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.h */,
+				53EC944D1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.m */,
+			);
+			path = YBAttributeTextTapAction;
 			sourceTree = "<group>";
 		};
 		53F9CB391E9B53B200C1F3A7 /* ShareSDK */ = {
@@ -1175,6 +1206,7 @@
 				53AEBE451E94910700280F70 /* MLMSegmentHead.m in Sources */,
 				53FE164F1E9CC0CA00585111 /* NSString+NSString_ILExtension.m in Sources */,
 				53619ED71E98B89D007CC7AC /* titleView.m in Sources */,
+				53EC944E1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				53619EC11E976EBB007CC7AC /* UILabel+MultipleLines.m in Sources */,
 				53619EA01E9634AE007CC7AC /* SZKCleanCache.m in Sources */,
 				53619EB21E964A45007CC7AC /* systemCell.m in Sources */,
@@ -1184,6 +1216,7 @@
 				53619E581E9601B1007CC7AC /* setViewController.m in Sources */,
 				53619EBB1E9765D3007CC7AC /* replyModel.m in Sources */,
 				53FE16611E9CC0CA00585111 /* WFTextView.m in Sources */,
+				53EC944A1E9DC1C400E03E07 /* hDisplayView.m in Sources */,
 				53619EB51E964A52007CC7AC /* replyCell.m in Sources */,
 				53619ED41E988B6C007CC7AC /* commentsBtn.m in Sources */,
 				53619E6E1E962670007CC7AC /* aboutViewController.m in Sources */,
@@ -1197,6 +1230,7 @@
 				53FE16621E9CC0CA00585111 /* YMButton.m in Sources */,
 				53AEBE1C1E948A2500280F70 /* main.m in Sources */,
 				53F9CB841E9B7F1A00C1F3A7 /* thumbView.m in Sources */,
+				53A8B25B1E9CE40400F6CBD5 /* agreementView.m in Sources */,
 				53AEBE371E948D6500280F70 /* NSString+Extend.m in Sources */,
 				53619EA91E963A7D007CC7AC /* nicknameCell.m in Sources */,
 			);

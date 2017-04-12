@@ -23,6 +23,7 @@
 #import "WeiboSDK.h"
 //新浪微博SDK需要在项目Build Settings中的Other Linker Flags添加"-ObjC"
 
+#import "hDisplayView.h"
 
 @interface AppDelegate ()
 
@@ -36,10 +37,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    //设置导航控制器 并添加firstViewController
-    //     FirstViewController *firstNavigationController=[[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
-    
     homeViewController *homevc = [[homeViewController alloc] init];
     UINavigationController *navigationController=[[UINavigationController alloc] initWithRootViewController:homevc];
     self.window.rootViewController=navigationController;
@@ -50,6 +47,34 @@
     //navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"008CCF"];
     [self.window makeKeyAndVisible];
 
+  
+    
+//    /**
+//     可以在这里进行一个判断的设置，如果是app第一次启动就加载启动页，如果不是，则直接进入首页
+//     **/
+//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
+//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+//    }
+//    else{
+//        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+//    }
+//    
+//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+//        // 这里判断是否第一次
+//        
+//        hDisplayView *hvc = [[hDisplayView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
+//        
+//        [self.window.rootViewController.view addSubview:hvc];
+//        
+//        [UIView animateWithDuration:0.25 animations:^{
+//            hvc.frame = CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT);
+//            
+//        }];
+//        
+//    }
+      // 启动图片延时: 2秒
+    [NSThread sleepForTimeInterval:2];
     return YES;
 }
 

@@ -12,7 +12,10 @@
 #import "infoViewController.h"
 #import "newViewController.h"
 #import "hotViewController.h"
+#import "loginViewController.h"
+
 //Segment高度
+
 #define LG_segmentH 44
 
 @interface homeViewController ()<UIScrollViewDelegate,SegmentDelegate>
@@ -178,8 +181,13 @@
 
 -(void)infoclick
 {
-    infoViewController *infovc = [[infoViewController alloc] init];
-    [self.navigationController pushViewController:infovc animated:YES];
+//    infoViewController *infovc = [[infoViewController alloc] init];
+//    [self.navigationController pushViewController:infovc animated:YES];
+    loginViewController *loginvc = [[loginViewController alloc] init];
+    
+    [self presentViewController:loginvc animated:YES completion:^{
+        
+    }];
 }
 
 @end
