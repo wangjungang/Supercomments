@@ -9,6 +9,8 @@
 #import "newViewController.h"
 #import "newCell.h"
 #import "detailsViewController.h"
+#import "SQTopicTableViewController.h"
+
 @interface newViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate>
 @property (nonatomic,strong) UITableView *newtable;
 @property (nonatomic,strong) UIImageView *demoimg;
@@ -100,8 +102,10 @@ static NSString *newidentfid = @"newidentfid";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    detailsViewController *detailsvc = [[detailsViewController alloc] init];
-    [self.navigationController pushViewController:detailsvc animated:YES];
+//    detailsViewController *detailsvc = [[detailsViewController alloc] init];
+//    [self.navigationController pushViewController:detailsvc animated:YES];
+    SQTopicTableViewController *sqvc = [[SQTopicTableViewController alloc] init];
+    [self.navigationController pushViewController:sqvc animated:YES];
 }
 
 //点赞
