@@ -11,10 +11,14 @@
 #import "detailsViewController.h"
 #import "SQTopicTableViewController.h"
 #import "XWScanImage.h"
+#import "newModel.h"
 @interface newViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate>
 @property (nonatomic,strong) UITableView *newtable;
 @property (nonatomic,strong) UIImageView *demoimg;
 @property (nonatomic,strong) NSMutableArray *dataSource;
+@property (nonatomic,strong) NSMutableArray *dataarr;
+@property (nonatomic,strong) newModel *nmodel;
+@property (nonatomic,strong) NSMutableArray *heiarr;
 @end
 static NSString *newidentfid = @"newidentfid";
 @implementation newViewController
@@ -23,16 +27,59 @@ static NSString *newidentfid = @"newidentfid";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491562601265&di=51fbf1320a65a3c5c78945548d3f4543&imgtype=0&src=http%3A%2F%2Fimgcache.mysodao.com%2Fimg1%2FM05%2FAE%2F09%2FCgAPDE9HBDTVnPg5AAhpyG48ies967-dd7e1653.JPG"]]];
-    CGRect rect = CGRectMake(0, 80, DEVICE_WIDTH, 200);//创建矩形框
-    self.demoimg.frame = rect;
-    self.demoimg.image=[UIImage imageWithCGImage:CGImageCreateWithImageInRect([img CGImage], rect)];
-    //[self.view addSubview:self.demoimg];
+    self.dataarr = [NSMutableArray array];
+    self.heiarr = [NSMutableArray array];
+    self.dataSource = [NSMutableArray array];
+    [self loaddatafromweb];
     
     [self.view addSubview:self.newtable];
     
-    self.dataSource = [NSMutableArray arrayWithObjects:@"在企业开发中，一些核心技术或者常用框架，出于安全性和稳定性的考虑，不想被外界知道，所以会把核心代码打包成静态库",@"链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝",@"链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝",@"链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝",@"链接时，静态库会被完整地复制到可执行文件中，被多次使用就有多份冗余拷贝", nil];
+}
+
+-(void)loaddatafromweb
+{
+    
+    [AFManager getReqURL:newVCload block:^(id infor) {
+        NSLog(@"info====%@",infor);
+      
+            NSArray *dit = [infor objectForKey:@"info"];
+            NSLog(@"ddjdjdjdj----%lu",(unsigned long)dit.count);
+            for (int i = 0; i<dit.count; i++) {
+                
+                NSDictionary *dicarr = [dit objectAtIndex:i];
+                self.nmodel = [[newModel alloc] init];
+                self.nmodel.contentstr = dicarr[@"content"];
+                self.nmodel.timestr = dicarr[@"create_time"];
+                self.nmodel.imgurlstr = dicarr[@"images"];
+                self.nmodel.namestr = dicarr[@"name"];
+                self.nmodel.dianzanstr = dicarr[@"support_num"];
+                self.nmodel.pinglunstr = dicarr[@"reply_num"];
+                if (self.nmodel.imgurlstr!=nil||self.nmodel.imgurlstr!=NULL) {
+                    self.nmodel.hei = @"50";
+                }
+                else
+                {
+                    self.nmodel.hei = @"140";
+                }
+                
+                [self.heiarr addObject:self.nmodel.hei];
+                [self.dataSource addObject:self.nmodel.contentstr];
+                [self.dataarr addObject:self.nmodel];
+                
+                
+                
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.newtable reloadData];
+            });
+        }
+    } errorblock:^(NSError *error) {
+        
+    }];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.newtable reloadData];
+    });
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,8 +101,6 @@ static NSString *newidentfid = @"newidentfid";
     if(!_demoimg)
     {
         _demoimg = [[UIImageView alloc] init];
-        
-        
     }
     return _demoimg;
 }
@@ -75,12 +120,14 @@ static NSString *newidentfid = @"newidentfid";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return [newCell cellHeightWithText:[self p_textAtIndexPath:indexPath]];
+   // return [self.heiarr[indexPath.row] floatValue];
+    
+    return [newCell cellHeightWithText:self.dataSource[indexPath.row]]+120*HEIGHT_SCALE;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataSource.count;
+    return self.dataarr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -89,10 +136,10 @@ static NSString *newidentfid = @"newidentfid";
     if (!cell) {
         cell = [[newCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:newidentfid];
     }
-    [cell layoutSubviewsWithText:[self p_textAtIndexPath:indexPath]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;
     
+    [cell setcelldata:self.dataarr[indexPath.row]];
     //为UIImageView1添加点击事件
     UITapGestureRecognizer *tapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scanBigImageClick:)];
     [cell.infoimg addGestureRecognizer:tapGestureRecognizer1];
@@ -127,8 +174,8 @@ static NSString *newidentfid = @"newidentfid";
 -(void)myTabVClick2:(UITableViewCell *)cell
 {
     NSIndexPath *index = [self.newtable indexPathForCell:cell];
-    
     NSLog(@"333===%ld   回复",index.row);
+    
 }
 
 

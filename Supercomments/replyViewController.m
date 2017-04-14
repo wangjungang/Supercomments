@@ -41,7 +41,21 @@ static NSString *replyidentfid = @"replyidentfid";
     
     
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    
+}
 
+-(void)viewWillDisappear:(BOOL)animated
+
+{
+    
+    [super viewWillDisappear:animated];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

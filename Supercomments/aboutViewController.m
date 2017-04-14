@@ -40,14 +40,21 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     self.logoimg.frame = CGRectMake(DEVICE_WIDTH/2-45*WIDTH_SCALE, 94*HEIGHT_SCALE, 90*WIDTH_SCALE, 90*WIDTH_SCALE);
     self.namelab.frame = CGRectMake(DEVICE_WIDTH/2-45*WIDTH_SCALE, 194*HEIGHT_SCALE, 90*WIDTH_SCALE, 20*HEIGHT_SCALE);
     self.versionlab.frame = CGRectMake(DEVICE_WIDTH/2-45*WIDTH_SCALE, 225*HEIGHT_SCALE, 90*WIDTH_SCALE, 10*HEIGHT_SCALE);
     self.companylab.frame = CGRectMake(50*WIDTH_SCALE, DEVICE_HEIGHT-180*HEIGHT_SCALE, DEVICE_WIDTH-100*WIDTH_SCALE, 30*HEIGHT_SCALE);
     self.urllab.frame = CGRectMake(50*WIDTH_SCALE, DEVICE_HEIGHT-150*HEIGHT_SCALE, DEVICE_WIDTH-100*WIDTH_SCALE, 25*HEIGHT_SCALE);
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+
+{
+    [super viewWillDisappear:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 
 #pragma mark - getters

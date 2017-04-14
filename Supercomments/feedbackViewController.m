@@ -28,7 +28,7 @@
     UITapGestureRecognizer *TapGestureTecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide)];
     TapGestureTecognizer.cancelsTouchesInView=NO;
     [self.view addGestureRecognizer:TapGestureTecognizer];
-    self.navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"F5F5F5"];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
     [self.view addSubview:self.feedtext];
 }
@@ -38,11 +38,19 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     self.feedtext.frame = CGRectMake(14*WIDTH_SCALE, 20*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 280*HEIGHT_SCALE);
 }
+
+-(void)viewWillDisappear:(BOOL)animated
+
+{
+    [super viewWillDisappear:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+}
+
 
 #pragma mark - getters
 

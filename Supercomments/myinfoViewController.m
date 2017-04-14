@@ -31,7 +31,7 @@ static NSString *myinfoidentfid1 = @"myidentfid1";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"F5F5F5"];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
     self.myinfotable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
@@ -44,9 +44,19 @@ static NSString *myinfoidentfid1 = @"myidentfid1";
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+   
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+
 {
-    [super viewWillAppear:animated];
+    
+    [super viewWillDisappear:animated];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
 }
 

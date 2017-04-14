@@ -46,13 +46,24 @@ static NSString * const kShowTextCellReuseIdentifier = @"QSShowTextCell";
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.systemtableview.frame = CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64);
+
+-(void)viewWillAppear:(BOOL)animated{
     
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+   
+    self.systemtableview.frame = CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64);
+
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+
+{
+    
+    [super viewWillDisappear:animated];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+}
 #pragma mark - getters
 
 -(UITableView *)systemtableview

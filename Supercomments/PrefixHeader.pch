@@ -32,7 +32,7 @@
 
 #define QSTextDefaultLines2 2
 
-#define QSTextLineSpacing 5
+#define QSTextLineSpacing 4
 #define QSTextFontSize 18
 
 #define QSTextFontSize2 14
@@ -42,13 +42,14 @@
 
 #define serviseId  @"192.168.1.4"
 #endif /* PrefixHeader_pch */
+#import "wangHeader.h"
 
 #import <MBProgressHUD.h>
 #import "Masonry.h"
 #import "UIColor+WJColor.h"
 #import "UIImageView+WebCache.h"
 #import "UILabel+MultipleLines.h"
-
+#import "AFManager.h"
 
 #ifdef __OBJC__
 #endif

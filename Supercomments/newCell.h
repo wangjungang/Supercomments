@@ -12,7 +12,7 @@
 #import "zanBtn.h"
 #import "titleView.h"
 
-
+@class newModel;
 //创建一个代理
 @protocol mycellVdelegate <NSObject>
 
@@ -23,6 +23,9 @@
 
 
 @interface newCell : SWTableViewCell
+{
+    CGFloat imghei;
+}
 @property (nonatomic,strong) UILabel *namelab;
 @property (nonatomic,strong) UILabel *fromlab;
 @property (nonatomic,strong) UILabel *contentlab;
@@ -31,11 +34,14 @@
 @property (nonatomic,strong) commentsBtn *commbtn;
 @property (nonatomic,strong) zanBtn *zbtn;
 
+@property (nonatomic,strong) NSString *heightstr;
 
 @property (nonatomic,strong) UIImageView *infoimg;
 
 @property(assign,nonatomic)id<mycellVdelegate>delegate;
 
+
+-(void)setcelldata:(newModel *)model;
 
 - (void)layoutSubviewsWithText:(NSString *)text;
 

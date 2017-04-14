@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "homeViewController.h"
-
+#import "navViewController.h"
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
 
@@ -37,18 +37,20 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     self.window.backgroundColor = [UIColor whiteColor];
     homeViewController *homevc = [[homeViewController alloc] init];
-    UINavigationController *navigationController=[[UINavigationController alloc] initWithRootViewController:homevc];
+    navViewController *navigationController=[[navViewController alloc] initWithRootViewController:homevc];
     self.window.rootViewController=navigationController;
     
     navigationController.navigationBar.barStyle = UIBarStyleDefault;
     navigationController.navigationBar.translucent = NO;
-    navigationController.navigationBar.tintColor = [UIColor wjColorFloat:@"333333"];
+    navigationController.navigationBar.tintColor = [UIColor whiteColor];
     //navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"008CCF"];
     [self.window makeKeyAndVisible];
 
-  
+    
+    
     
 //    /**
 //     可以在这里进行一个判断的设置，如果是app第一次启动就加载启动页，如果不是，则直接进入首页

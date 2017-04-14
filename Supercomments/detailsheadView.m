@@ -36,8 +36,8 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.namelab.frame = CGRectMake(14*WIDTH_SCALE, 16*HEIGHT_SCALE, 100*WIDTH_SCALE, 30*HEIGHT_SCALE);
-    self.fromlab.frame = CGRectMake(DEVICE_WIDTH-200*WIDTH_SCALE, 18*WIDTH_SCALE, 185*WIDTH_SCALE, 26*HEIGHT_SCALE);
+    self.namelab.frame = CGRectMake(14*WIDTH_SCALE, 16*HEIGHT_SCALE, 100*WIDTH_SCALE, 14*HEIGHT_SCALE);
+    self.fromlab.frame = CGRectMake(DEVICE_WIDTH-200*WIDTH_SCALE, 18*WIDTH_SCALE, 185*WIDTH_SCALE, 12*HEIGHT_SCALE);
     self.numberlab.frame = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-18*HEIGHT_SCALE-14*HEIGHT_SCALE, 100*WIDTH_SCALE, 14*HEIGHT_SCALE);
     
     [self.contentlab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -50,8 +50,8 @@
         make.top.equalTo(self.contentlab).with.offset(2*WIDTH_SCALE+self.contentlab.frame.size.height*HEIGHT_SCALE);
         CGFloat hei = 200*WIDTH_SCALE;
         make.height.mas_equalTo(hei);
-        make.left.equalTo(self).with.offset(40*WIDTH_SCALE);
-        make.right.equalTo(self).with.offset(-40*WIDTH_SCALE);
+        make.left.equalTo(self).with.offset(14*WIDTH_SCALE);
+        make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
     }];
     
     [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -118,6 +118,7 @@
         _fromlab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
         _fromlab.font = [UIFont systemFontOfSize:12*FX];
         _fromlab.text = @"来自网易老司机的评论";
+        _fromlab.backgroundColor = [UIColor redColor];
         _fromlab.textAlignment = NSTextAlignmentRight;
     }
     return _fromlab;
