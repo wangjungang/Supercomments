@@ -28,6 +28,7 @@
         [self addSubview:self.combtn];
         [self addSubview:self.sharebtn];
         [self addSubview:self.thumview];
+        [self addSubview:self.headimg];
     }
     return self;
 }
@@ -45,8 +46,16 @@
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
     }];
     
+    [self.headimg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentlab).with.offset(2*WIDTH_SCALE+self.contentlab.frame.size.height*HEIGHT_SCALE);
+        CGFloat hei = 200*WIDTH_SCALE;
+        make.height.mas_equalTo(hei);
+        make.left.equalTo(self).with.offset(40*WIDTH_SCALE);
+        make.right.equalTo(self).with.offset(-40*WIDTH_SCALE);
+    }];
+    
     [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentlab).with.offset(14*WIDTH_SCALE+self.contentlab.frame.size.height*HEIGHT_SCALE);
+        make.top.equalTo(self.headimg).with.offset(2*WIDTH_SCALE+self.contentlab.frame.size.height*HEIGHT_SCALE);
         CGFloat hei = 15*WIDTH_SCALE;
         make.height.mas_equalTo(hei);
         make.left.equalTo(self).with.offset(14*WIDTH_SCALE);
@@ -67,10 +76,12 @@
         make.top.equalTo(self.title).with.offset(15*HEIGHT_SCALE+20*HEIGHT_SCALE);
         
     }];
+    
     [self.combtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE-50*WIDTH_SCALE);
         make.top.equalTo(self.title).with.offset(15*HEIGHT_SCALE+20*HEIGHT_SCALE);
     }];
+    
     [self.dianzanbtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE-110*WIDTH_SCALE);
         make.top.equalTo(self.title).with.offset(15*HEIGHT_SCALE+20*HEIGHT_SCALE);
@@ -201,6 +212,17 @@
         
     }
     return _thumview;
+}
+
+
+-(UIImageView *)headimg
+{
+    if(!_headimg)
+    {
+        _headimg = [[UIImageView alloc] init];
+        _headimg.backgroundColor = [UIColor greenColor];
+    }
+    return _headimg;
 }
 
 

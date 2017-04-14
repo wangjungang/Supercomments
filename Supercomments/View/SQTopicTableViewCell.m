@@ -181,7 +181,6 @@
     return 1;
 }
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -199,7 +198,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.topicViewModel.commentCellViewModels.count;;
+    return self.topicViewModel.commentCellViewModels.count;
 }
 
 

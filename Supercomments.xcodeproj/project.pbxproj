@@ -65,6 +65,19 @@
 		53AEBE6A1E94D96A00280F70 /* hotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE691E94D96A00280F70 /* hotViewController.m */; };
 		53AEBE6F1E94F80400280F70 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE6E1E94F80400280F70 /* loginViewController.m */; };
 		53AEBE721E95014B00280F70 /* infoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE711E95014B00280F70 /* infoCell.m */; };
+		53E2942C1E9F49CA0034D4E7 /* DDRichTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E293F21E9F49C90034D4E7 /* DDRichTextViewController.m */; };
+		53E2942D1E9F49CA0034D4E7 /* ILRegularExpressionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E293F41E9F49C90034D4E7 /* ILRegularExpressionManager.m */; };
+		53E2942E1E9F49CA0034D4E7 /* NSArray+NSArray_ILExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E293F61E9F49C90034D4E7 /* NSArray+NSArray_ILExtension.m */; };
+		53E2942F1E9F49CA0034D4E7 /* NSString+NSString_ILExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E293F81E9F49C90034D4E7 /* NSString+NSString_ILExtension.m */; };
+		53E294301E9F49CA0034D4E7 /* reply_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53E293F91E9F49C90034D4E7 /* reply_button@2x.png */; };
+		53E294421E9F49CA0034D4E7 /* WFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E2941E1E9F49CA0034D4E7 /* WFTextView.m */; };
+		53E294431E9F49CA0034D4E7 /* YMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E294201E9F49CA0034D4E7 /* YMButton.m */; };
+		53E294441E9F49CA0034D4E7 /* YMReplyInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E294221E9F49CA0034D4E7 /* YMReplyInputView.m */; };
+		53E294451E9F49CA0034D4E7 /* YMShowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E294241E9F49CA0034D4E7 /* YMShowImageView.m */; };
+		53E294461E9F49CA0034D4E7 /* YMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E294261E9F49CA0034D4E7 /* YMTableViewCell.m */; };
+		53E294471E9F49CA0034D4E7 /* YMTapGestureRecongnizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E294281E9F49CA0034D4E7 /* YMTapGestureRecongnizer.m */; };
+		53E294481E9F49CA0034D4E7 /* YMTextData.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E2942A1E9F49CA0034D4E7 /* YMTextData.m */; };
+		53E2944C1E9F72930034D4E7 /* XWScanImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E2944B1E9F72930034D4E7 /* XWScanImage.m */; };
 		53EC944A1E9DC1C400E03E07 /* hDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EC94491E9DC1C400E03E07 /* hDisplayView.m */; };
 		53EC944E1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EC944D1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.m */; };
 		53F9CB631E9B53B200C1F3A7 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F9CB3A1E9B53B200C1F3A7 /* ShareSDK.framework */; };
@@ -216,6 +229,32 @@
 		53AEBE6E1E94F80400280F70 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		53AEBE701E95014B00280F70 /* infoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoCell.h; sourceTree = "<group>"; };
 		53AEBE711E95014B00280F70 /* infoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell.m; sourceTree = "<group>"; };
+		53E293F01E9F49C90034D4E7 /* ContantHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContantHead.h; sourceTree = "<group>"; };
+		53E293F11E9F49C90034D4E7 /* DDRichTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRichTextViewController.h; sourceTree = "<group>"; };
+		53E293F21E9F49C90034D4E7 /* DDRichTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRichTextViewController.m; sourceTree = "<group>"; };
+		53E293F31E9F49C90034D4E7 /* ILRegularExpressionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILRegularExpressionManager.h; sourceTree = "<group>"; };
+		53E293F41E9F49C90034D4E7 /* ILRegularExpressionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILRegularExpressionManager.m; sourceTree = "<group>"; };
+		53E293F51E9F49C90034D4E7 /* NSArray+NSArray_ILExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NSArray_ILExtension.h"; sourceTree = "<group>"; };
+		53E293F61E9F49C90034D4E7 /* NSArray+NSArray_ILExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NSArray_ILExtension.m"; sourceTree = "<group>"; };
+		53E293F71E9F49C90034D4E7 /* NSString+NSString_ILExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSString_ILExtension.h"; sourceTree = "<group>"; };
+		53E293F81E9F49C90034D4E7 /* NSString+NSString_ILExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSString_ILExtension.m"; sourceTree = "<group>"; };
+		53E293F91E9F49C90034D4E7 /* reply_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reply_button@2x.png"; sourceTree = "<group>"; };
+		53E2941D1E9F49CA0034D4E7 /* WFTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTextView.h; sourceTree = "<group>"; };
+		53E2941E1E9F49CA0034D4E7 /* WFTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTextView.m; sourceTree = "<group>"; };
+		53E2941F1E9F49CA0034D4E7 /* YMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMButton.h; sourceTree = "<group>"; };
+		53E294201E9F49CA0034D4E7 /* YMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMButton.m; sourceTree = "<group>"; };
+		53E294211E9F49CA0034D4E7 /* YMReplyInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMReplyInputView.h; sourceTree = "<group>"; };
+		53E294221E9F49CA0034D4E7 /* YMReplyInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMReplyInputView.m; sourceTree = "<group>"; };
+		53E294231E9F49CA0034D4E7 /* YMShowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMShowImageView.h; sourceTree = "<group>"; };
+		53E294241E9F49CA0034D4E7 /* YMShowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMShowImageView.m; sourceTree = "<group>"; };
+		53E294251E9F49CA0034D4E7 /* YMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTableViewCell.h; sourceTree = "<group>"; };
+		53E294261E9F49CA0034D4E7 /* YMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTableViewCell.m; sourceTree = "<group>"; };
+		53E294271E9F49CA0034D4E7 /* YMTapGestureRecongnizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTapGestureRecongnizer.h; sourceTree = "<group>"; };
+		53E294281E9F49CA0034D4E7 /* YMTapGestureRecongnizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTapGestureRecongnizer.m; sourceTree = "<group>"; };
+		53E294291E9F49CA0034D4E7 /* YMTextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTextData.h; sourceTree = "<group>"; };
+		53E2942A1E9F49CA0034D4E7 /* YMTextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTextData.m; sourceTree = "<group>"; };
+		53E2944A1E9F72930034D4E7 /* XWScanImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWScanImage.h; sourceTree = "<group>"; };
+		53E2944B1E9F72930034D4E7 /* XWScanImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWScanImage.m; sourceTree = "<group>"; };
 		53EC94481E9DC1C400E03E07 /* hDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hDisplayView.h; sourceTree = "<group>"; };
 		53EC94491E9DC1C400E03E07 /* hDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hDisplayView.m; sourceTree = "<group>"; };
 		53EC944C1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
@@ -519,6 +558,7 @@
 		53619ED81E98D252007CC7AC /* 详情 */ = {
 			isa = PBXGroup;
 			children = (
+				53E293EE1E9F49C90034D4E7 /* DDRichTextLib */,
 				5337FEE71E9DF29A004664D7 /* Controller */,
 				5337FEEC1E9DF29A004664D7 /* Model */,
 				5337FEF11E9DF29A004664D7 /* View */,
@@ -773,6 +813,7 @@
 		53AEBE601E94D80A00280F70 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				53E294491E9F72930034D4E7 /* XWScanImage */,
 				53619EC31E9778E9007CC7AC /* newCell.h */,
 				53619EC41E9778E9007CC7AC /* newCell.m */,
 				53619EC61E988649007CC7AC /* zanBtn.h */,
@@ -831,6 +872,46 @@
 				53AEBE6E1E94F80400280F70 /* loginViewController.m */,
 			);
 			name = controller;
+			sourceTree = "<group>";
+		};
+		53E293EE1E9F49C90034D4E7 /* DDRichTextLib */ = {
+			isa = PBXGroup;
+			children = (
+				53E293F01E9F49C90034D4E7 /* ContantHead.h */,
+				53E293F11E9F49C90034D4E7 /* DDRichTextViewController.h */,
+				53E293F21E9F49C90034D4E7 /* DDRichTextViewController.m */,
+				53E293F31E9F49C90034D4E7 /* ILRegularExpressionManager.h */,
+				53E293F41E9F49C90034D4E7 /* ILRegularExpressionManager.m */,
+				53E293F51E9F49C90034D4E7 /* NSArray+NSArray_ILExtension.h */,
+				53E293F61E9F49C90034D4E7 /* NSArray+NSArray_ILExtension.m */,
+				53E293F71E9F49C90034D4E7 /* NSString+NSString_ILExtension.h */,
+				53E293F81E9F49C90034D4E7 /* NSString+NSString_ILExtension.m */,
+				53E293F91E9F49C90034D4E7 /* reply_button@2x.png */,
+				53E2941D1E9F49CA0034D4E7 /* WFTextView.h */,
+				53E2941E1E9F49CA0034D4E7 /* WFTextView.m */,
+				53E2941F1E9F49CA0034D4E7 /* YMButton.h */,
+				53E294201E9F49CA0034D4E7 /* YMButton.m */,
+				53E294211E9F49CA0034D4E7 /* YMReplyInputView.h */,
+				53E294221E9F49CA0034D4E7 /* YMReplyInputView.m */,
+				53E294231E9F49CA0034D4E7 /* YMShowImageView.h */,
+				53E294241E9F49CA0034D4E7 /* YMShowImageView.m */,
+				53E294251E9F49CA0034D4E7 /* YMTableViewCell.h */,
+				53E294261E9F49CA0034D4E7 /* YMTableViewCell.m */,
+				53E294271E9F49CA0034D4E7 /* YMTapGestureRecongnizer.h */,
+				53E294281E9F49CA0034D4E7 /* YMTapGestureRecongnizer.m */,
+				53E294291E9F49CA0034D4E7 /* YMTextData.h */,
+				53E2942A1E9F49CA0034D4E7 /* YMTextData.m */,
+			);
+			path = DDRichTextLib;
+			sourceTree = "<group>";
+		};
+		53E294491E9F72930034D4E7 /* XWScanImage */ = {
+			isa = PBXGroup;
+			children = (
+				53E2944A1E9F72930034D4E7 /* XWScanImage.h */,
+				53E2944B1E9F72930034D4E7 /* XWScanImage.m */,
+			);
+			path = XWScanImage;
 			sourceTree = "<group>";
 		};
 		53EC944B1E9DC6DE00E03E07 /* YBAttributeTextTapAction */ = {
@@ -1041,6 +1122,7 @@
 				53AEBE271E948A2500280F70 /* Assets.xcassets in Resources */,
 				53F9CB711E9B53B200C1F3A7 /* read_me.txt in Resources */,
 				53AEBE251E948A2500280F70 /* Main.storyboard in Resources */,
+				53E294301E9F49CA0034D4E7 /* reply_button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1099,11 +1181,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E2942C1E9F49CA0034D4E7 /* DDRichTextViewController.m in Sources */,
+				53E294441E9F49CA0034D4E7 /* YMReplyInputView.m in Sources */,
 				53619EE41E98E0C7007CC7AC /* detailsheadView.m in Sources */,
 				53619EC51E9778E9007CC7AC /* newCell.m in Sources */,
 				53619EA61E963508007CC7AC /* nicknameViewController.m in Sources */,
 				53AEBE551E94C9FF00280F70 /* LGSegment.m in Sources */,
 				5337FEFF1E9DF29A004664D7 /* SQCommentTableViewCell.m in Sources */,
+				53E2942F1E9F49CA0034D4E7 /* NSString+NSString_ILExtension.m in Sources */,
 				53AEBE521E9496FF00280F70 /* homeViewController.m in Sources */,
 				53619EE11E98D8DA007CC7AC /* detaolsCell.m in Sources */,
 				53AEBE221E948A2500280F70 /* ViewController.m in Sources */,
@@ -1113,12 +1198,14 @@
 				53F9CB8A1E9B834900C1F3A7 /* UILabel+Category.m in Sources */,
 				53619EDE1E98D283007CC7AC /* detailsViewController.m in Sources */,
 				53AEBE5C1E94CDBD00280F70 /* infoViewController.m in Sources */,
+				53E294481E9F49CA0034D4E7 /* YMTextData.m in Sources */,
 				53619EAC1E964925007CC7AC /* systemViewController.m in Sources */,
 				53AEBE721E95014B00280F70 /* infoCell.m in Sources */,
 				53619E521E960164007CC7AC /* messageViewController.m in Sources */,
 				53619ED11E988A01007CC7AC /* setbtn.m in Sources */,
 				53619EC01E976EBB007CC7AC /* UIColor+BgColor.m in Sources */,
 				53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */,
+				53E294431E9F49CA0034D4E7 /* YMButton.m in Sources */,
 				5337FF011E9DF29A004664D7 /* SQCommentCellViewModel.m in Sources */,
 				5337FF001E9DF29A004664D7 /* SQTopicTableViewCell.m in Sources */,
 				53AEBE671E94D8A100280F70 /* newViewController.m in Sources */,
@@ -1129,9 +1216,11 @@
 				53AEBE6A1E94D96A00280F70 /* hotViewController.m in Sources */,
 				53619E5F1E96055E007CC7AC /* myinfoViewController.m in Sources */,
 				53AEBE6F1E94F80400280F70 /* loginViewController.m in Sources */,
+				53E2942D1E9F49CA0034D4E7 /* ILRegularExpressionManager.m in Sources */,
 				5337FEE61E9DF268004664D7 /* TTTAttributedLabel.m in Sources */,
 				53AEBE491E94910700280F70 /* UIView+ViewController.m in Sources */,
 				53AEBE451E94910700280F70 /* MLMSegmentHead.m in Sources */,
+				53E2944C1E9F72930034D4E7 /* XWScanImage.m in Sources */,
 				53619ED71E98B89D007CC7AC /* titleView.m in Sources */,
 				53EC944E1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				53619EC11E976EBB007CC7AC /* UILabel+MultipleLines.m in Sources */,
@@ -1147,7 +1236,10 @@
 				53619EB51E964A52007CC7AC /* replyCell.m in Sources */,
 				53619ED41E988B6C007CC7AC /* commentsBtn.m in Sources */,
 				53619E6E1E962670007CC7AC /* aboutViewController.m in Sources */,
+				53E2942E1E9F49CA0034D4E7 /* NSArray+NSArray_ILExtension.m in Sources */,
+				53E294471E9F49CA0034D4E7 /* YMTapGestureRecongnizer.m in Sources */,
 				53619E621E9611F4007CC7AC /* myinfoCell0.m in Sources */,
+				53E294451E9F49CA0034D4E7 /* YMShowImageView.m in Sources */,
 				53619E551E9601A5007CC7AC /* feedbackViewController.m in Sources */,
 				53619E431E95EEDB007CC7AC /* headView.m in Sources */,
 				5337FEFB1E9DF29A004664D7 /* SQTopicTableViewController.m in Sources */,
@@ -1155,6 +1247,8 @@
 				53AEBE481E94910700280F70 /* UIView+EasyFrame.m in Sources */,
 				53AEBE1C1E948A2500280F70 /* main.m in Sources */,
 				5337FEFD1E9DF29A004664D7 /* SQCommentModel.m in Sources */,
+				53E294461E9F49CA0034D4E7 /* YMTableViewCell.m in Sources */,
+				53E294421E9F49CA0034D4E7 /* WFTextView.m in Sources */,
 				53F9CB841E9B7F1A00C1F3A7 /* thumbView.m in Sources */,
 				53A8B25B1E9CE40400F6CBD5 /* agreementView.m in Sources */,
 				53AEBE371E948D6500280F70 /* NSString+Extend.m in Sources */,

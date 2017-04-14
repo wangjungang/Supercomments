@@ -147,7 +147,6 @@
     NSLog(@"这里可以回复%@", commentModel.from);
 }
 
-
 - (void)cellToggleExpentContent:(SQTopicTableViewCell *)cell
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];

@@ -181,13 +181,13 @@
 
 -(void)infoclick
 {
-//    infoViewController *infovc = [[infoViewController alloc] init];
-//    [self.navigationController pushViewController:infovc animated:YES];
-    loginViewController *loginvc = [[loginViewController alloc] init];
-    
-    [self presentViewController:loginvc animated:YES completion:^{
-        
-    }];
+    infoViewController *infovc = [[infoViewController alloc] init];
+    [self.navigationController pushViewController:infovc animated:YES];
+//    loginViewController *loginvc = [[loginViewController alloc] init];
+//    
+//    [self presentViewController:loginvc animated:YES completion:^{
+//        
+//    }];
 }
 
 @end

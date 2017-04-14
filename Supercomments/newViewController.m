@@ -10,7 +10,7 @@
 #import "newCell.h"
 #import "detailsViewController.h"
 #import "SQTopicTableViewController.h"
-
+#import "XWScanImage.h"
 @interface newViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate>
 @property (nonatomic,strong) UITableView *newtable;
 @property (nonatomic,strong) UIImageView *demoimg;
@@ -92,6 +92,12 @@ static NSString *newidentfid = @"newidentfid";
     [cell layoutSubviewsWithText:[self p_textAtIndexPath:indexPath]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;
+    
+    //为UIImageView1添加点击事件
+    UITapGestureRecognizer *tapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scanBigImageClick:)];
+    [cell.infoimg addGestureRecognizer:tapGestureRecognizer1];
+    //让UIImageView和它的父类开启用户交互属性
+    [cell.infoimg setUserInteractionEnabled:YES];
     return cell;
 }
 
@@ -102,10 +108,11 @@ static NSString *newidentfid = @"newidentfid";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    detailsViewController *detailsvc = [[detailsViewController alloc] init];
-//    [self.navigationController pushViewController:detailsvc animated:YES];
-    SQTopicTableViewController *sqvc = [[SQTopicTableViewController alloc] init];
-    [self.navigationController pushViewController:sqvc animated:YES];
+    detailsViewController *detailsvc = [[detailsViewController alloc] init];
+    [self.navigationController pushViewController:detailsvc animated:YES];
+//    SQTopicTableViewController *sqvc = [[SQTopicTableViewController alloc] init];
+//    [self.navigationController pushViewController:sqvc animated:YES];
+    
 }
 
 //点赞
@@ -122,6 +129,16 @@ static NSString *newidentfid = @"newidentfid";
     NSIndexPath *index = [self.newtable indexPathForCell:cell];
     
     NSLog(@"333===%ld   回复",index.row);
+}
+
+
+#pragma mark - 浏览大图点击事件
+
+-(void)scanBigImageClick:(UITapGestureRecognizer *)tap{
+    NSLog(@"点击图片");
+    UIImageView *clickedImageView = (UIImageView *)tap.view;
+    [XWScanImage scanBigImageWithImageView:clickedImageView];
+   
 }
 
 @end

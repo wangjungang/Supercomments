@@ -28,5 +28,7 @@
 @property (nonatomic,strong) UIButton *sharebtn;
 @property (nonatomic,strong) thumbView *thumview;
 
+
+@property (nonatomic,strong) UIImageView *headimg;
 @end
 

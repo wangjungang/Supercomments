@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface detailsViewController : UIViewController
+#import "DDRichTextViewController.h"
+@interface detailsViewController : DDRichTextViewController
 
 @end

@@ -48,11 +48,20 @@
     self.titlelab.frame = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-65*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 30*HEIGHT_SCALE);
     
     
-    
-    CGRect rect = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-270*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 200*HEIGHT_SCALE);//创建矩形框
-    self.infoimg.frame = rect;
-    UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491562601265&di=51fbf1320a65a3c5c78945548d3f4543&imgtype=0&src=http%3A%2F%2Fimgcache.mysodao.com%2Fimg1%2FM05%2FAE%2F09%2FCgAPDE9HBDTVnPg5AAhpyG48ies967-dd7e1653.JPG"]]];
-    _infoimg.image=[UIImage imageWithCGImage:CGImageCreateWithImageInRect([img CGImage], rect)];
+    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1491562601265&di=51fbf1320a65a3c5c78945548d3f4543&imgtype=0&src=http%3A%2F%2Fimgcache.mysodao.com%2Fimg1%2FM05%2FAE%2F09%2FCgAPDE9HBDTVnPg5AAhpyG48ies967-dd7e1653.JPG"] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+    } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+        //这边就能拿到图片了
+        
+        CGFloat width = image.size.width;
+        NSLog(@"width======%f",width);
+        CGRect rect = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-270*HEIGHT_SCALE, width, 200*HEIGHT_SCALE);//创建矩形框
+        _infoimg.image = [UIImage imageWithCGImage:CGImageCreateWithImageInRect([image CGImage] ,rect)];
+        
+        self.infoimg.image = image;
+        self.infoimg.frame =CGRectMake(14*WIDTH_SCALE, self.frame.size.height-270*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 200*HEIGHT_SCALE);
+        
+    }];
     
 }
 
@@ -84,12 +93,15 @@
     return _fromlab;
 }
 
+#pragma 行间距 4
+
 -(UILabel *)contentlab
 {
     if(!_contentlab)
     {
         _contentlab = [[UILabel alloc] init];
-        _contentlab.font = [UIFont systemFontOfSize:14*FX];
+        _contentlab.font = [UIFont systemFontOfSize:16*FX];
+        
         _contentlab.textColor = [UIColor wjColorFloat:@"333333"];
     }
     return _contentlab;
