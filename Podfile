@@ -16,5 +16,5 @@ pod 'WechatOpenSDK'
 pod 'SWTableViewCell', '~> 0.3.7'
 pod 'Masonry'
 pod 'YYKit'
-
+pod 'MJRefresh'
 end

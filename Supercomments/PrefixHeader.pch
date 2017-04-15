@@ -50,6 +50,6 @@
 #import "UIImageView+WebCache.h"
 #import "UILabel+MultipleLines.h"
 #import "AFManager.h"
-
+#import "MJRefresh.h"
 #ifdef __OBJC__
 #endif

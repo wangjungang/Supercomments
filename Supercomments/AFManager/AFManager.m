@@ -37,6 +37,7 @@
 +(void)getReqURL:(NSString*)str block:(void(^)(id infor))callBack errorblock:(void(^)(NSError *  error))errorBack
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];// 启动状态栏网络请求指示
+    
     str=[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     AFHTTPSessionManager*manager =[AFHTTPSessionManager manager];

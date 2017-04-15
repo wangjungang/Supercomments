@@ -9,6 +9,6 @@
 #ifndef wangHeader_h
 #define wangHeader_h
 
-#define newVCload  @"http://np.iwenyu.cn/forum/index/index.html"
+#define newVCload  @"http://np.iwenyu.cn/forum/index/index.html?page=%@&type=%@"
 
 #endif /* wangHeader_h */
