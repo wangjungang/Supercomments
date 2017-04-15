@@ -178,7 +178,6 @@ static NSString *newidentfid = @"newidentfid";
     
 }
 
-
 #pragma mark - 浏览大图点击事件
 
 -(void)scanBigImageClick:(UITapGestureRecognizer *)tap{
