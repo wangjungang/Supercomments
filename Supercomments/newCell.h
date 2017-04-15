@@ -23,9 +23,7 @@
 
 
 @interface newCell : SWTableViewCell
-{
-    CGFloat imghei;
-}
+
 @property (nonatomic,strong) UILabel *namelab;
 @property (nonatomic,strong) UILabel *fromlab;
 @property (nonatomic,strong) UILabel *contentlab;
@@ -43,7 +41,7 @@
 
 -(void)setcelldata:(newModel *)model;
 
-- (void)layoutSubviewsWithText:(NSString *)text;
+//- (void)layoutSubviewsWithText:(NSString *)text;
 
 + (CGFloat)cellHeightWithText:(NSString *)text;
 

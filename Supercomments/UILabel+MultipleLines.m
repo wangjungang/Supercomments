@@ -45,7 +45,6 @@
     
     [self setAttributedText:attributedString];
     self.bounds = CGRectMake(0, 0, self.lbTextSize.width, self.lbTextSize.height);
-//    NSLog(@"self.frame.size = %@",NSStringFromCGSize(self.frame.size));
     return self.frame.size;
 }
 

@@ -12,13 +12,21 @@
 #import "SQTopicTableViewController.h"
 #import "XWScanImage.h"
 #import "newModel.h"
+
+
+#import "YYPhotoGroupView.h"
+//#import "YYFPSLabel.h"
 @interface newViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate>
+
+
 @property (nonatomic,strong) UITableView *newtable;
 @property (nonatomic,strong) UIImageView *demoimg;
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic,strong) NSMutableArray *dataarr;
 @property (nonatomic,strong) newModel *nmodel;
 @property (nonatomic,strong) NSMutableArray *heiarr;
+
+
 @end
 static NSString *newidentfid = @"newidentfid";
 @implementation newViewController
@@ -33,7 +41,7 @@ static NSString *newidentfid = @"newidentfid";
     [self loaddatafromweb];
     
     [self.view addSubview:self.newtable];
-    
+
 }
 
 -(void)loaddatafromweb
@@ -48,37 +56,30 @@ static NSString *newidentfid = @"newidentfid";
                 
                 NSDictionary *dicarr = [dit objectAtIndex:i];
                 self.nmodel = [[newModel alloc] init];
-                self.nmodel.contentstr = dicarr[@"content"];
+                //self.nmodel.contentstr = dicarr[@"content"];
+                self.nmodel.contentstr = @"";
                 self.nmodel.timestr = dicarr[@"create_time"];
                 self.nmodel.imgurlstr = dicarr[@"images"];
+                self.nmodel.imgurlstr = @"http://baiduapp.changweibo.net/user_img/2017/0415/14362936404.png";
+                
                 self.nmodel.namestr = dicarr[@"name"];
                 self.nmodel.dianzanstr = dicarr[@"support_num"];
                 self.nmodel.pinglunstr = dicarr[@"reply_num"];
-                if (self.nmodel.imgurlstr!=nil||self.nmodel.imgurlstr!=NULL) {
-                    self.nmodel.hei = @"50";
-                }
-                else
-                {
-                    self.nmodel.hei = @"140";
-                }
+              
                 
-                [self.heiarr addObject:self.nmodel.hei];
+              
                 [self.dataSource addObject:self.nmodel.contentstr];
                 [self.dataarr addObject:self.nmodel];
                 
                 
-                
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.newtable reloadData];
-            });
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.newtable reloadData];
+                });
+         
         }
     } errorblock:^(NSError *error) {
         
     }];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.newtable reloadData];
-    });
 
 }
 
@@ -120,9 +121,18 @@ static NSString *newidentfid = @"newidentfid";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-   // return [self.heiarr[indexPath.row] floatValue];
-    
-    return [newCell cellHeightWithText:self.dataSource[indexPath.row]]+120*HEIGHT_SCALE;
+    if (self.nmodel.imgurlstr.length==0) {
+        return [newCell cellHeightWithText:self.dataSource[indexPath.row]]+(16+14+16+4+20+16+16)*HEIGHT_SCALE;
+    }
+    else if(self.nmodel.contentstr.length==0&&self.nmodel.imgurlstr.length!=0)
+    {
+        return (16+14+16+4+20+16+16+196)*HEIGHT_SCALE;
+    }
+    else
+    {
+         return [newCell cellHeightWithText:self.dataSource[indexPath.row]]+(16+14+16+4+20+16+16+14+196)*HEIGHT_SCALE;
+    }
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -140,11 +150,7 @@ static NSString *newidentfid = @"newidentfid";
     cell.delegate = self;
     
     [cell setcelldata:self.dataarr[indexPath.row]];
-    //为UIImageView1添加点击事件
-    UITapGestureRecognizer *tapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scanBigImageClick:)];
-    [cell.infoimg addGestureRecognizer:tapGestureRecognizer1];
-    //让UIImageView和它的父类开启用户交互属性
-    [cell.infoimg setUserInteractionEnabled:YES];
+    
     return cell;
 }
 
@@ -178,13 +184,6 @@ static NSString *newidentfid = @"newidentfid";
     
 }
 
-#pragma mark - 浏览大图点击事件
 
--(void)scanBigImageClick:(UITapGestureRecognizer *)tap{
-    NSLog(@"点击图片");
-    UIImageView *clickedImageView = (UIImageView *)tap.view;
-    [XWScanImage scanBigImageWithImageView:clickedImageView];
-   
-}
 
 @end

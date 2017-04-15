@@ -48,7 +48,7 @@
     
     [self.headimg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentlab).with.offset(2*WIDTH_SCALE+self.contentlab.frame.size.height*HEIGHT_SCALE);
-        CGFloat hei = 200*WIDTH_SCALE;
+        CGFloat hei = 200*HEIGHT_SCALE;
         make.height.mas_equalTo(hei);
         make.left.equalTo(self).with.offset(14*WIDTH_SCALE);
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
@@ -130,7 +130,7 @@
     {
         _contentlab = [[UILabel alloc] init];
         _contentlab.textColor = [UIColor wjColorFloat:@"333333"];
-        _contentlab.text = @"赵客缦胡缨，吴钩霜雪明。银鞍照白马，飒沓如流星。十步杀一人，千里不留行。事了拂衣去，深藏身与名。闲过信陵饮，脱剑膝前横。将炙啖朱亥，持觞劝侯嬴。三杯吐然诺，五岳倒为轻。眼花耳热后，意气素霓生。救赵挥金槌，邯郸先震惊。千秋二壮士，烜赫大梁城。纵死侠骨香，不惭世上英。谁能书阁下，白首太玄经。";
+        _contentlab.text = @"赵客缦胡缨，吴钩霜雪明。银鞍照白马，飒沓如";
         CGSize textSize = [_contentlab setText:_contentlab.text lines:QSTextDefaultLines andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH - 30,MAXFLOAT)];
         self.contentlab.frame = CGRectMake(14*WIDTH_SCALE,  30*HEIGHT_SCALE, textSize.width, textSize.height);
         height1 = textSize.height;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53314A4B1EA1DE35009773F0 /* YYPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53314A4A1EA1DE35009773F0 /* YYPhotoGroupView.m */; };
 		5337FEE61E9DF268004664D7 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5337FEE51E9DF268004664D7 /* TTTAttributedLabel.m */; };
 		5337FEFB1E9DF29A004664D7 /* SQTopicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5337FEE91E9DF29A004664D7 /* SQTopicTableViewController.m */; };
 		5337FEFC1E9DF29A004664D7 /* SQUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5337FEEB1E9DF29A004664D7 /* SQUserCenterViewController.m */; };
@@ -116,6 +117,8 @@
 
 /* Begin PBXFileReference section */
 		199683D136C99C557085109D /* Pods-Supercomments.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Supercomments.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Supercomments/Pods-Supercomments.debug.xcconfig"; sourceTree = "<group>"; };
+		53314A491EA1DE35009773F0 /* YYPhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPhotoGroupView.h; sourceTree = "<group>"; };
+		53314A4A1EA1DE35009773F0 /* YYPhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPhotoGroupView.m; sourceTree = "<group>"; };
 		5337FEE41E9DF268004664D7 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		5337FEE51E9DF268004664D7 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		5337FEE81E9DF29A004664D7 /* SQTopicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQTopicTableViewController.h; sourceTree = "<group>"; };
@@ -350,6 +353,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53314A481EA1CE02009773F0 /* utlis */ = {
+			isa = PBXGroup;
+			children = (
+				53314A491EA1DE35009773F0 /* YYPhotoGroupView.h */,
+				53314A4A1EA1DE35009773F0 /* YYPhotoGroupView.m */,
+			);
+			name = utlis;
+			sourceTree = "<group>";
+		};
 		5337FEE31E9DF268004664D7 /* TTTAttributedLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -817,6 +829,7 @@
 		53AEBE5D1E94D1F300280F70 /* 最新 */ = {
 			isa = PBXGroup;
 			children = (
+				53314A481EA1CE02009773F0 /* utlis */,
 				53AEBE611E94D80F00280F70 /* model */,
 				53AEBE601E94D80A00280F70 /* view */,
 				53AEBE5F1E94D68D00280F70 /* controller */,
@@ -1176,7 +1189,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		3EBF5C48209E76BF1144A42F /* [CP] Embed Pods Frameworks */ = {
@@ -1241,6 +1254,7 @@
 				53619EC01E976EBB007CC7AC /* UIColor+BgColor.m in Sources */,
 				53AEBE1F1E948A2500280F70 /* AppDelegate.m in Sources */,
 				53E294431E9F49CA0034D4E7 /* YMButton.m in Sources */,
+				53314A4B1EA1DE35009773F0 /* YYPhotoGroupView.m in Sources */,
 				5337FF011E9DF29A004664D7 /* SQCommentCellViewModel.m in Sources */,
 				5337FF001E9DF29A004664D7 /* SQTopicTableViewCell.m in Sources */,
 				53AEBE671E94D8A100280F70 /* newViewController.m in Sources */,

@@ -9,6 +9,7 @@
 #import "newCell.h"
 #import "UILabel+MultipleLines.h"
 #import "newModel.h"
+#import "YYPhotoGroupView.h"
 @interface newCell()
 @property (nonatomic,strong) UIImageView *reimg;
 @property (nonatomic,strong) newModel *nmodel;
@@ -25,12 +26,10 @@
         [self.contentView addSubview:self.fromlab];
         [self.contentView addSubview:self.contentlab];
         [self.contentView addSubview:self.titlelab];
-//        [self.contentView addSubview:self.setbtn];
         [self.contentView addSubview:self.reimg];
         [self.contentView addSubview:self.commbtn];
         [self.contentView addSubview:self.zbtn];
         [self.contentView addSubview:self.timelab];
-        
         [self.contentView addSubview:self.infoimg];
     }
     return self;
@@ -46,7 +45,6 @@
     self.commbtn.frame = CGRectMake(DEVICE_WIDTH-50*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 40*WIDTH_SCALE, 22*HEIGHT_SCALE);
     self.zbtn.frame = CGRectMake(DEVICE_WIDTH-110*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 40*WIDTH_SCALE, 20*HEIGHT_SCALE);
     self.titlelab.frame = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-65*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 30*HEIGHT_SCALE);
-    
     
     
 }
@@ -154,7 +152,9 @@
     if(!_infoimg)
     {
         _infoimg = [[UIImageView alloc] init];
-        
+        _infoimg.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+        [_infoimg addGestureRecognizer:tap];
     }
     return _infoimg;
 }
@@ -163,9 +163,9 @@
     
     CGSize textSize = [UILabel sizeWithText:text
                                       lines:QSTextDefaultLines2
-                                       font:[UIFont systemFontOfSize:QSTextFontSize2]
+                                       font:[UIFont systemFontOfSize:16*FX]
                              andLineSpacing:QSTextLineSpacing
-                          constrainedToSize:CGSizeMake(DEVICE_WIDTH - 30,MAXFLOAT)];
+                          constrainedToSize:CGSizeMake(DEVICE_WIDTH - 28*WIDTH_SCALE,MAXFLOAT)];
     
     return textSize.height;
     
@@ -187,30 +187,63 @@
     self.commbtn.textlab.text = model.pinglunstr;
     self.zbtn.zanlab.text = model.dianzanstr;
     
-    CGSize textSize = [self.contentlab setText:model.contentstr lines:QSTextDefaultLines2 andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH - 30,MAXFLOAT)];
-    self.contentlab.frame = CGRectMake(14*WIDTH_SCALE,  30*HEIGHT_SCALE, textSize.width, textSize.height);
-    self.heightstr = model.hei;
+    CGSize textSize = [self.contentlab setText:model.contentstr lines:QSTextDefaultLines2 andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH,MAXFLOAT)];
     
-        [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:model.imgurlstr] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    self.contentlab.frame = CGRectMake(14*WIDTH_SCALE,  30*HEIGHT_SCALE, DEVICE_WIDTH -28*WIDTH_SCALE, textSize.height);
+    
+    CGFloat hei = textSize.height;
+    
+    
+    
+    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:model.imgurlstr] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             
         } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
             //这边就能拿到图片了
             
-            if (model.imgurlstr!=nil||model.imgurlstr!=NULL) {
+            if (model.imgurlstr.length==0) {
+                
+                 [self.infoimg setHidden:YES];
+            }
+            else if(self.nmodel.contentstr.length==0&&self.nmodel.imgurlstr.length!=0)
+            {
                 CGFloat width = image.size.width;
-                NSLog(@"width======%f",width);
-                CGRect rect = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-270*HEIGHT_SCALE, width, 200*HEIGHT_SCALE);//创建矩形框
+                CGRect rect = CGRectMake(14*WIDTH_SCALE, (16+14+textSize.height+16)*HEIGHT_SCALE, width, 196*HEIGHT_SCALE);//创建矩形框
+                
                 _infoimg.image = [UIImage imageWithCGImage:CGImageCreateWithImageInRect([image CGImage] ,rect)];
                 self.infoimg.image = image;
-                self.infoimg.frame =CGRectMake(14*WIDTH_SCALE, self.frame.size.height-270*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 200*HEIGHT_SCALE);
-                imghei = 200*HEIGHT_SCALE;
+                
+                self.infoimg.frame =CGRectMake(14*WIDTH_SCALE, (16+14)*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 196*HEIGHT_SCALE);
+                
+                [self.infoimg setHidden:NO];
             }
             else
             {
-                imghei = 0;
+                CGFloat width = image.size.width;
+                CGRect rect = CGRectMake(14*WIDTH_SCALE, (16+14+textSize.height+16)*HEIGHT_SCALE, width, 196*HEIGHT_SCALE);//创建矩形框
+                
+                _infoimg.image = [UIImage imageWithCGImage:CGImageCreateWithImageInRect([image CGImage] ,rect)];
+                self.infoimg.image = image;
+                
+                self.infoimg.frame =CGRectMake(14*WIDTH_SCALE, (16+14+hei+14)*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 196*HEIGHT_SCALE);
+                
+                [self.infoimg setHidden:NO];
             }
             
-        }];
+    }];
+    
+}
+
+- (void)tapAction{
+        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+        item.thumbView         = _infoimg;
+        item.largeImageURL     = [NSURL URLWithString:self.nmodel.imgurlstr];
+        YYPhotoGroupView *view = [[YYPhotoGroupView alloc] initWithGroupItems:@[item]];
+        UIView *toView         = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+        [view presentFromImageView:_infoimg
+                       toContainer:toView
+                          animated:YES completion:nil];
+    NSLog(@"122212");
+    
 }
 
 //按钮事件
@@ -219,6 +252,7 @@
 -(void)test:(UIButton *)sender
 {
     [self.delegate myTabVClick1:self];
+    
 }
 
 //回复
