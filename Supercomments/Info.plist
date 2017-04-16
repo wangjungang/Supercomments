@@ -54,5 +54,14 @@
 	<false/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
+	<key>NSExceptionDomains</key>
+	<dict>
+		<key>NSExceptionRequiresForwardSecrecy </key>
+		<false/>
+		<key>NSIncludesSubdomains</key>
+		<true/>
+		<key>NSExceptionAllowInsecureHTTPLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

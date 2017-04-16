@@ -16,7 +16,9 @@
 
 @interface newViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate>
 /** 用于加载下一页的参数(页码) */
-@property (nonatomic,assign) NSInteger pn;
+{
+    int pn;
+}
 
 @property (nonatomic,strong) UITableView *newtable;
 @property (nonatomic,strong) UIImageView *demoimg;
@@ -24,7 +26,7 @@
 @property (nonatomic,strong) NSMutableArray *dataarr;
 @property (nonatomic,strong) newModel *nmodel;
 
-@property (nonatomic,strong) NSMutableArray *newdataarr;
+
 @property (strong, nonatomic) NSMutableArray<newModel *> * menus;
 
 @end
@@ -35,67 +37,61 @@ static NSString *newidentfid = @"newidentfid";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    pn=1;
+    self.dataSource = [NSMutableArray array];
+    self.dataarr = [NSMutableArray array];
+//    // 头部刷新控件
+//    self.newtable.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loaddatafromweb)];
+//    // 尾部刷新控件
+//    self.newtable.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+//    [self.newtable.mj_header beginRefreshing];
     
+    // 3.集成刷新控件
+    // 3.1.下拉刷新
+    [self addHeader];
     
-    self.pn = 0;
-    
+    // 3.2.上拉加载更多
+    [self addFooter];
     
     [self.view addSubview:self.newtable];
-    [self.newtable.mj_header beginRefreshing];
+    
+    
+}
+
+
+- (void)addHeader
+{
+    
     // 头部刷新控件
-    self.newtable.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loaddatafromweb)];
-    // 尾部刷新控件
-    self.newtable.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-}
-
--(void)loaddatafromweb
-{
-    self.pn=1;
-    self.newdataarr = [NSMutableArray array];
-    self.dataarr = [NSMutableArray array];
-    self.dataSource = [NSMutableArray array];
+    self.newtable.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
     
-    [AFManager getReqURL:[NSString stringWithFormat:@"%@%ld%@",newVCload,self.pn,@"1"] block:^(id infor) {
-        NSLog(@"info====%@",infor);
-        
-            NSArray *dit = [infor objectForKey:@"info"];
-            NSLog(@"ddjdjdjdj----%lu",(unsigned long)dit.count);
-            for (int i = 0; i<dit.count; i++) {
-                NSDictionary *dicarr = [dit objectAtIndex:i];
-                self.nmodel = [[newModel alloc] init];
-                self.nmodel.contentstr = dicarr[@"content"];
-                self.nmodel.timestr = dicarr[@"create_time"];
-                self.nmodel.imgurlstr = dicarr[@"images"];
-                self.nmodel.imgurlstr = @"http://baiduapp.changweibo.net/user_img/2017/0415/14362936404.png";
-                self.nmodel.namestr = dicarr[@"name"];
-                self.nmodel.dianzanstr = dicarr[@"support_num"];
-                self.nmodel.pinglunstr = dicarr[@"reply_num"];
-
-                [self.dataSource addObject:self.nmodel.contentstr];
-                [self.dataarr addObject:self.nmodel];
-                
-        }
-        [self.newdataarr addObjectsFromArray:self.dataarr];
-        
-        [self.newtable.mj_header endRefreshing];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.newtable reloadData];
-        });
-    } errorblock:^(NSError *error) {
-             [self.newtable.mj_header endRefreshing];
-    }];
-
-}
-
--(void)loadMoreData
-{
-    self.pn = self.pn+1;
+    [self.newtable.mj_header beginRefreshing];
     
-    [AFManager getReqURL:[NSString stringWithFormat:@"%@%ld%@",newVCload,self.pn,@"1"] block:^(id infor) {
-        NSLog(@"info====%@",infor);
-        
-        
+}
+- (void)addFooter
+{
+    self.newtable.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshLoadMore)];
+}
+- (void)refreshAction {
+    
+    [self headerRefreshEndAction];
+    
+}
+- (void)refreshLoadMore {
+    
+    [self footerRefreshEndAction];
+    
+}
+- (void)headerRefreshEndAction {
+    
+    [self.dataSource removeAllObjects];
+    
+    NSString *strurl = [NSString stringWithFormat:newVCload,@"1",@"1"];
+    [AFManager getReqURL:strurl block:^(id infor) {
+        NSLog(@"infor=====%@",infor);
+        NSLog(@"str====%@",strurl);
         NSArray *dit = [infor objectForKey:@"info"];
+        
         for (int i = 0; i<dit.count; i++) {
             NSDictionary *dicarr = [dit objectAtIndex:i];
             self.nmodel = [[newModel alloc] init];
@@ -110,19 +106,58 @@ static NSString *newidentfid = @"newidentfid";
             [self.dataSource addObject:self.nmodel.contentstr];
             [self.dataarr addObject:self.nmodel];
             
-            
         }
+        [self.newtable.mj_header endRefreshing];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.newtable reloadData];
         });
-        [self.newtable.mj_header endRefreshing];
-        
-        [self.newdataarr addObjectsFromArray:self.dataarr];
     } errorblock:^(NSError *error) {
-        [self.newtable.mj_header endRefreshing];
+        
     }];
     
+    
 }
+- (void)footerRefreshEndAction {
+    pn ++;
+    
+    NSString *pnstr = [NSString stringWithFormat:@"%d",pn];
+    
+    NSString *strurl = [NSString stringWithFormat:newVCload,pnstr,@"1"];
+    
+    [AFManager getReqURL:strurl block:^(id infor) {
+        NSLog(@"infor=====%@",infor);
+        NSLog(@"str====%@",strurl);
+        
+        NSArray *dit = [infor objectForKey:@"info"];
+        NSLog(@"ddjdjdjdj----%lu",(unsigned long)dit.count);
+        for (int i = 0; i<dit.count; i++) {
+            NSDictionary *dicarr = [dit objectAtIndex:i];
+            self.nmodel = [[newModel alloc] init];
+            self.nmodel.contentstr = dicarr[@"content"];
+            self.nmodel.timestr = dicarr[@"create_time"];
+            self.nmodel.imgurlstr = dicarr[@"images"];
+            self.nmodel.imgurlstr = @"http://baiduapp.changweibo.net/user_img/2017/0415/14362936404.png";
+            self.nmodel.namestr = dicarr[@"name"];
+            self.nmodel.dianzanstr = dicarr[@"support_num"];
+            self.nmodel.pinglunstr = dicarr[@"reply_num"];
+            
+            [self.dataSource addObject:self.nmodel.contentstr];
+            [self.dataarr addObject:self.nmodel];
+        
+        }
+        [self.newtable.mj_footer endRefreshing];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.newtable reloadData];
+        });
+    } errorblock:^(NSError *error) {
+        
+    }];
+    
+    
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -190,7 +225,7 @@ static NSString *newidentfid = @"newidentfid";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;
     
-    [cell setcelldata:self.newdataarr[indexPath.row]];
+    [cell setcelldata:self.dataarr[indexPath.row]];
     
     return cell;
 }
