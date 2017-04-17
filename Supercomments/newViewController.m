@@ -37,27 +37,36 @@ static NSString *newidentfid = @"newidentfid";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self islogin];
+    
     pn=1;
     self.dataSource = [NSMutableArray array];
     self.dataarr = [NSMutableArray array];
-//    // 头部刷新控件
-//    self.newtable.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loaddatafromweb)];
-//    // 尾部刷新控件
-//    self.newtable.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-//    [self.newtable.mj_header beginRefreshing];
-    
-    // 3.集成刷新控件
     // 3.1.下拉刷新
     [self addHeader];
-    
     // 3.2.上拉加载更多
     [self addFooter];
-    
     [self.view addSubview:self.newtable];
     
     
 }
 
+-(void)islogin
+{
+    [AFManager getReqURL:[NSString stringWithFormat:loginbool,@""] block:^(id infor) {
+        NSLog(@"infor=%@",infor);
+        if ([[infor objectForKey:@"code"]intValue]==1) {
+            NSLog(@"未登录");
+        }else
+        {
+            NSLog(@"已经登陆");
+        }
+        
+    } errorblock:^(NSError *error) {
+        
+    }];
+}
 
 - (void)addHeader
 {
@@ -85,8 +94,8 @@ static NSString *newidentfid = @"newidentfid";
 - (void)headerRefreshEndAction {
     
     [self.dataSource removeAllObjects];
-    
-    NSString *strurl = [NSString stringWithFormat:newVCload,@"1",@"1"];
+    [self.dataarr removeAllObjects];
+    NSString *strurl = [NSString stringWithFormat:newVCload,@"1",@"1",@""];
     [AFManager getReqURL:strurl block:^(id infor) {
         NSLog(@"infor=====%@",infor);
         NSLog(@"str====%@",strurl);
@@ -98,19 +107,18 @@ static NSString *newidentfid = @"newidentfid";
             self.nmodel.contentstr = dicarr[@"content"];
             self.nmodel.timestr = dicarr[@"create_time"];
             self.nmodel.imgurlstr = dicarr[@"images"];
-            self.nmodel.imgurlstr = @"http://baiduapp.changweibo.net/user_img/2017/0415/14362936404.png";
+            //self.nmodel.imgurlstr = @"http://baiduapp.changweibo.net/user_img/2017/0415/14362936404.png";
             self.nmodel.namestr = dicarr[@"name"];
             self.nmodel.dianzanstr = dicarr[@"support_num"];
             self.nmodel.pinglunstr = dicarr[@"reply_num"];
-            
+            self.nmodel.newidstr = dicarr[@"id"];
             [self.dataSource addObject:self.nmodel.contentstr];
             [self.dataarr addObject:self.nmodel];
-            
         }
         [self.newtable.mj_header endRefreshing];
-        dispatch_async(dispatch_get_main_queue(), ^{
+        
             [self.newtable reloadData];
-        });
+       
     } errorblock:^(NSError *error) {
         
     }];
@@ -120,16 +128,14 @@ static NSString *newidentfid = @"newidentfid";
 - (void)footerRefreshEndAction {
     pn ++;
     
+    
     NSString *pnstr = [NSString stringWithFormat:@"%d",pn];
-    
-    NSString *strurl = [NSString stringWithFormat:newVCload,pnstr,@"1"];
-    
+    NSString *strurl = [NSString stringWithFormat:newVCload,pnstr,@"1",@""];
     [AFManager getReqURL:strurl block:^(id infor) {
         NSLog(@"infor=====%@",infor);
         NSLog(@"str====%@",strurl);
         
         NSArray *dit = [infor objectForKey:@"info"];
-        NSLog(@"ddjdjdjdj----%lu",(unsigned long)dit.count);
         for (int i = 0; i<dit.count; i++) {
             NSDictionary *dicarr = [dit objectAtIndex:i];
             self.nmodel = [[newModel alloc] init];
@@ -140,24 +146,18 @@ static NSString *newidentfid = @"newidentfid";
             self.nmodel.namestr = dicarr[@"name"];
             self.nmodel.dianzanstr = dicarr[@"support_num"];
             self.nmodel.pinglunstr = dicarr[@"reply_num"];
-            
+            self.nmodel.newidstr = dicarr[@"id"];
             [self.dataSource addObject:self.nmodel.contentstr];
             [self.dataarr addObject:self.nmodel];
-        
         }
         [self.newtable.mj_footer endRefreshing];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.newtable reloadData];
-        });
+        
+        [self.newtable reloadData];
+       
     } errorblock:^(NSError *error) {
         
     }];
-    
-    
 }
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -241,6 +241,7 @@ static NSString *newidentfid = @"newidentfid";
     [self.navigationController pushViewController:detailsvc animated:YES];
 //    SQTopicTableViewController *sqvc = [[SQTopicTableViewController alloc] init];
 //    [self.navigationController pushViewController:sqvc animated:YES];
+
     
 }
 

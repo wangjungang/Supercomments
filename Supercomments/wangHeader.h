@@ -9,6 +9,7 @@
 #ifndef wangHeader_h
 #define wangHeader_h
 
-#define newVCload  @"http://np.iwenyu.cn/forum/index/index.html?page=%@&type=%@"
+#define newVCload  @"http://np.iwenyu.cn/forum/index/index.html?page=%@&type=%@&token=%@"
 
+#define loginbool @"http://np.iwenyu.cn/forum/index/userInfo.html?token=%@"
 #endif /* wangHeader_h */

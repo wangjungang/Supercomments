@@ -18,7 +18,6 @@
 
 @property (nonatomic,strong) NSString *dianzanstr;
 @property (nonatomic,strong) NSString *pinglunstr;
+@property (nonatomic,strong) NSString *newidstr;
 
-
-@property (nonatomic,strong) NSString *hei;
 @end
