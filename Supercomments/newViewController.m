@@ -241,7 +241,11 @@ static NSString *newidentfid = @"newidentfid";
     [self.navigationController pushViewController:detailsvc animated:YES];
 //    SQTopicTableViewController *sqvc = [[SQTopicTableViewController alloc] init];
 //    [self.navigationController pushViewController:sqvc animated:YES];
-
+    
+    self.nmodel = [[newModel alloc] init];
+    self.nmodel = self.dataarr[indexPath.row];
+    NSString *str = self.nmodel.newidstr;
+    NSLog(@"str======%@",str);
     
 }
 
