@@ -15,4 +15,6 @@
 @property (nonatomic,strong) NSString *contactstr;
 @property (nonatomic,strong) NSMutableArray *dianzaiarr;
 @property (nonatomic,strong) NSString *fromstr;
+
+@property (nonatomic,strong) NSMutableArray *thumarr;
 @end

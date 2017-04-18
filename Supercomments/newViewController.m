@@ -105,9 +105,10 @@ static NSString *newidentfid = @"newidentfid";
             NSDictionary *dicarr = [dit objectAtIndex:i];
             self.nmodel = [[newModel alloc] init];
             self.nmodel.contentstr = dicarr[@"content"];
+
             self.nmodel.timestr = dicarr[@"create_time"];
             self.nmodel.imgurlstr = dicarr[@"images"];
-            //self.nmodel.imgurlstr = @"http://baiduapp.changweibo.net/user_img/2017/0415/14362936404.png";
+            //self.nmodel.imgurlstr = @"http://pic17.nipic.com/20111018/4132236_105939280314_2.jpg";
             self.nmodel.namestr = dicarr[@"name"];
             self.nmodel.dianzanstr = dicarr[@"support_num"];
             self.nmodel.pinglunstr = dicarr[@"reply_num"];
@@ -224,9 +225,7 @@ static NSString *newidentfid = @"newidentfid";
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;
-    
     [cell setcelldata:self.dataarr[indexPath.row]];
-    
     return cell;
 }
 
@@ -240,14 +239,10 @@ static NSString *newidentfid = @"newidentfid";
     detailsViewController *detailsvc = [[detailsViewController alloc] init];
     [self.navigationController pushViewController:detailsvc animated:YES];
     
-//    SQTopicTableViewController *sqvc = [[SQTopicTableViewController alloc] init];
-//    [self.navigationController pushViewController:sqvc animated:YES];
-    
     self.nmodel = [[newModel alloc] init];
     self.nmodel = self.dataarr[indexPath.row];
     NSString *str = self.nmodel.newidstr;
     NSLog(@"str======%@",str);
-    
 }
 
 //点赞
@@ -255,7 +250,6 @@ static NSString *newidentfid = @"newidentfid";
 {
     NSIndexPath *index = [self.newtable indexPathForCell:cell];
     NSLog(@"333===%ld   点赞",index.row);
-    
 }
 
 //回复
@@ -263,7 +257,6 @@ static NSString *newidentfid = @"newidentfid";
 {
     NSIndexPath *index = [self.newtable indexPathForCell:cell];
     NSLog(@"333===%ld   回复",index.row);
-    
 }
 
 

@@ -35,7 +35,7 @@
 
 
 - (void) initTableview{
-    mainTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStylePlain];
+    mainTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64) style:UITableViewStylePlain];
     mainTable.backgroundColor = [UIColor groupTableViewBackgroundColor];
      mainTable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     mainTable.delegate = self;
@@ -43,13 +43,13 @@
     [self.view addSubview:mainTable];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return  0;
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+//    return 0;
+//}
+//
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return  0;
+//}
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return  [[self dataSource] numberOfRowsInDDRichText];
@@ -66,10 +66,10 @@
     CGFloat height = TableHeader + kLocationToBottom + ym.replyHeight + ym.showImageHeight  + kDistance + (ym.islessLimit?0:30) + (unfold?ym.shuoshuoHeight:ym.unFoldShuoHeight) ;
 	if ([self.delegate respondsToSelector:NSSelectorFromString(@"hideReplyButtonForIndex:")]) {
 		if ([[self delegate] hideReplyButtonForIndex:indexPath.section]) {
-			height -= 40;
+			height -= 20;
 		}
 	}
-    return  height;
+    return  height+25*HEIGHT_SCALE;
 }
 
 
@@ -148,7 +148,6 @@
     replyView.replyTag = sender.tag;
     [self.view addSubview:replyView];
 }
-
 
 #pragma mark -移除评论按钮
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

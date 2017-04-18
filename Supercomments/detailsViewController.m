@@ -19,7 +19,6 @@
 
 @property (nonatomic,strong) NSIndexPath *selectedIndexPath;
 
-@property (nonatomic,strong) UITableView *detailsTable;
 @property (nonatomic,strong) detailsheadView *headview;
 @property (nonatomic,strong) YMReplyInputView *replyView;
 
@@ -56,19 +55,22 @@ NSMutableArray * ymDataArray;
     NSMutableArray *_imageDataSource = [NSMutableArray arrayWithCapacity:0];
     
     NSMutableArray *_replyDataSource = [[NSMutableArray alloc] init];//回复数据来源
-    [_replyDataSource addObject:@"@Della:@戴伟来 DDRichText棒棒哒！ @daiweilai： @daiweilai @戴伟来:I am Della，这是一个IOS库[em:01:][em:02:][em:03:]"];
-    [_replyDataSource addObject:@"这是一个IOS库[em:01:][em:02:][em:03:]"];
+    [_replyDataSource addObject:@"支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！"];
+    
+    //[_replyDataSource addObject:@"这是一个IOS库[em:01:][em:02:][em:03:]"];
     ymDataArray =[[NSMutableArray alloc]init];
     
     YMTextData *ymData = [[YMTextData alloc] init];
     ymData.showImageArray = _imageDataSource;
     ymData.foldOrNot = YES;
-    ymData.showShuoShuo = @"这是DDRichText！！支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！！，这是一个电话号码13800138000，我是@戴伟来 @daiweilai： @daiweilai @戴伟来:支持自定义表情[em:01:] [em:02:] [em:03:] 这是一个网址https://github.com/daiweilai 也支持自定义位置的富文本点击！";
+    ymData.showShuoShuo = @"这是DDRichText支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！";
+    
     ymData.replyDataSource = _replyDataSource;
     ymData.name = @"David";
     ymData.intro = @"2015-2-8";
     ymData.headPicURL = @"https://octodex.github.com/images/mummytocat.gif";
     [ymDataArray addObject:ymData];
+    
     self.delegate = self;
     self.dataSource = self;
     
@@ -82,14 +84,18 @@ NSMutableArray * ymDataArray;
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-   
+
 }
 
 -(void)loadhead
 {
     self.headm = [[headModel alloc] init];
     self.headm.namestr = @"1211111";
-    self.headm.contactstr = @"12dsjakdlkjdfhajsklfd";
+    self.headm.contactstr = @"赵客缦胡缨⑵，吴钩霜雪明⑶。银鞍照白马，飒沓如流星⑷。十步杀一人，千里不留行⑸。事了拂衣去，深藏身与名。闲过信陵饮⑹，脱剑膝前横。将炙啖朱亥，持觞劝侯嬴⑺。三杯吐然诺，五岳倒为轻⑻。眼花耳热后，意气素霓生⑼。救赵挥金锤，邯郸先震惊⑽。千秋二壮士，烜赫大梁城。纵死侠骨香，不惭世上英。谁能书阁下，白首太玄经⑾";
+    //self.headm.contactstr = @"";
+    self.headm.fromstr = @"来自网易老司机的评论";
+    self.headm.thumarr = [NSMutableArray arrayWithObjects:@"我都快",@"看电视了",@"敌我诶",@"大爱额外",@"带饿哦 i 绝望",@"但是看见企鹅温柔",@"第五额",@"isaudfj", nil];
+    self.headm.imgurlstr = @"123";
     
 }
 
@@ -99,15 +105,27 @@ NSMutableArray * ymDataArray;
 {
     if(!_headview)
     {
-        _headview = [[detailsheadView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 450)];
+        _headview = [[detailsheadView alloc] init];
         _headview.layer.masksToBounds = YES;
         _headview.layer.borderWidth = 1;
         [_headview.sharebtn addTarget:self action:@selector(shareclick) forControlEvents:UIControlEventTouchUpInside];
         [_headview.dianzanbtn addTarget:self action:@selector(dianzanclick) forControlEvents:UIControlEventTouchUpInside];
         [_headview.combtn addTarget:self action:@selector(pinglunclick) forControlEvents:UIControlEventTouchUpInside];
-        
         [_headview setheadmodel:_headm];
+        CGFloat hei =  [_headview setheadmodel:_headm];
+        if (_headm.imgurlstr.length==0) {
+            _headview.frame = CGRectMake(0, 0, DEVICE_WIDTH, hei+180*HEIGHT_SCALE);
+        }
+        else if(_headm.imgurlstr.length!=0&&_headm.contactstr.length==0)
+        {
+            _headview.frame = CGRectMake(0, 0, DEVICE_WIDTH, hei+380*HEIGHT_SCALE);
+        }
+        else
+        {
+             _headview.frame = CGRectMake(0, 0, DEVICE_WIDTH, hei+380*HEIGHT_SCALE);
+        }
     }
+    
     return _headview;
 }
 
@@ -116,11 +134,13 @@ NSMutableArray * ymDataArray;
 }
 
 -(NSInteger)numberOfRowsInDDRichText{
-    return 5;
+    //return ymDataArray.count;
+    return 2;
 }
 
 -(YMTextData *)dataForRowAtIndex:(NSInteger)index{
-    return [ymDataArray objectAtIndex:0];
+    return  [ymDataArray objectAtIndex:0];
+//    return [ymDataArray objectAtIndex:0];
 }
 
 -(BOOL)hideReplyButtonForIndex:(NSInteger)index{

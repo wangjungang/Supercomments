@@ -110,7 +110,10 @@
     
 	sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [sendButton setTitle:@"发表" forState:0];
-    [sendButton setBackgroundImage:[[UIImage imageNamed:@"button_send_comment.png"] stretchableImageWithLeftCapWidth:3 topCapHeight:22] forState:UIControlStateNormal];
+    sendButton.backgroundColor = [UIColor wjColorFloat:@"008CCF"];
+    sendButton.layer.masksToBounds = YES;
+    sendButton.layer.cornerRadius = 5;
+   // [sendButton setBackgroundImage:[[UIImage imageNamed:@"button_send_comment.png"] stretchableImageWithLeftCapWidth:3 topCapHeight:22] forState:UIControlStateNormal];
 	sendButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
     [sendButton addTarget:self action:@selector(sendButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     sendButton.titleLabel.font = [UIFont systemFontOfSize:15.0f];

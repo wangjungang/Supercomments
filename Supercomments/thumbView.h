@@ -13,4 +13,5 @@
 
 @property (nonatomic,strong) UILabel *thumblab;
 
+@property (nonatomic,strong) NSMutableArray *thumarr;
 @end
