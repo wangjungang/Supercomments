@@ -69,7 +69,7 @@
 			height -= 20;
 		}
 	}
-    return  height+25*HEIGHT_SCALE;
+    return  height+25*HEIGHT_SCALE*ym.replyDataSource.count;
 }
 
 

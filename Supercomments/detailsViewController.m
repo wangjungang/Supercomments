@@ -53,11 +53,14 @@ NSMutableArray * ymDataArray;
     
     //图片支持网络异步加载
     NSMutableArray *_imageDataSource = [NSMutableArray arrayWithCapacity:0];
-    
     NSMutableArray *_replyDataSource = [[NSMutableArray alloc] init];//回复数据来源
+    
+    
+    [_replyDataSource addObject:@"支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！"];
+    [_replyDataSource addObject:@"支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！"];
+    [_replyDataSource addObject:@"支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！"];
     [_replyDataSource addObject:@"支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！"];
     
-    //[_replyDataSource addObject:@"这是一个IOS库[em:01:][em:02:][em:03:]"];
     ymDataArray =[[NSMutableArray alloc]init];
     
     YMTextData *ymData = [[YMTextData alloc] init];
