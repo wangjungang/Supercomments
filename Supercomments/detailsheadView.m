@@ -7,9 +7,9 @@
 //
 
 #import "detailsheadView.h"
-
+#import "headModel.h"
 @interface detailsheadView()
-
+@property (nonatomic,strong) headModel *hmodel;
 @end
 
 @implementation detailsheadView
@@ -18,6 +18,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.namelab];
         [self addSubview:self.contentlab];
         [self addSubview:self.fromlab];
@@ -36,12 +37,13 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+    
     self.namelab.frame = CGRectMake(14*WIDTH_SCALE, 16*HEIGHT_SCALE, 100*WIDTH_SCALE, 14*HEIGHT_SCALE);
     self.fromlab.frame = CGRectMake(DEVICE_WIDTH-200*WIDTH_SCALE, 18*WIDTH_SCALE, 185*WIDTH_SCALE, 12*HEIGHT_SCALE);
     self.numberlab.frame = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-18*HEIGHT_SCALE-14*HEIGHT_SCALE, 100*WIDTH_SCALE, 14*HEIGHT_SCALE);
     
     [self.contentlab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.namelab).with.offset(14*HEIGHT_SCALE+30*HEIGHT_SCALE);
+        make.top.equalTo(self.namelab).with.offset(14*HEIGHT_SCALE+14*HEIGHT_SCALE);
         make.left.equalTo(self).with.offset(14*WIDTH_SCALE);
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
     }];
@@ -55,7 +57,7 @@
     }];
     
     [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.headimg).with.offset(2*WIDTH_SCALE+self.contentlab.frame.size.height*HEIGHT_SCALE);
+        make.top.equalTo(self.headimg).with.offset(2*WIDTH_SCALE+200*HEIGHT_SCALE);
         CGFloat hei = 15*WIDTH_SCALE;
         make.height.mas_equalTo(hei);
         make.left.equalTo(self).with.offset(14*WIDTH_SCALE);
@@ -92,7 +94,19 @@
         make.right.equalTo(self).with.offset(-14*WIDTH_SCALE);
         make.top.equalTo(self.timelab).with.offset(33*HEIGHT_SCALE);
     }];
+}
+
+-(void)setheadmodel:(headModel*)model
+{
+    self.hmodel = model;
+    self.contentlab.text = model.contactstr;
+    self.namelab.text = model.namestr;
+    [self.headimg sd_setImageWithURL:[NSURL URLWithString:model.imgurlstr]];
+    self.fromlab.text = model.fromstr;
     
+    CGSize textSize = [_contentlab setText:_contentlab.text lines:QSTextDefaultLines andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH - 30,MAXFLOAT)];
+    self.contentlab.frame = CGRectMake(14*WIDTH_SCALE,  30*HEIGHT_SCALE, textSize.width, textSize.height);
+    height1 = textSize.height;
     
 }
 
@@ -103,9 +117,10 @@
     if(!_namelab)
     {
         _namelab = [[UILabel alloc] init];
+        _namelab.backgroundColor = [UIColor redColor];
         _namelab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
         _namelab.font = [UIFont systemFontOfSize:14*FX];
-        _namelab.text = @"评论名字";
+        
     }
     return _namelab;
 }
@@ -118,7 +133,7 @@
         _fromlab.textColor = [UIColor wjColorFloat:@"C7C7CD"];
         _fromlab.font = [UIFont systemFontOfSize:12*FX];
         _fromlab.text = @"来自网易老司机的评论";
-        _fromlab.backgroundColor = [UIColor redColor];
+        
         _fromlab.textAlignment = NSTextAlignmentRight;
     }
     return _fromlab;
@@ -130,11 +145,6 @@
     {
         _contentlab = [[UILabel alloc] init];
         _contentlab.textColor = [UIColor wjColorFloat:@"333333"];
-        _contentlab.text = @"赵客缦胡缨，吴钩霜雪明。银鞍照白马，飒沓如";
-        CGSize textSize = [_contentlab setText:_contentlab.text lines:QSTextDefaultLines andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH - 30,MAXFLOAT)];
-        self.contentlab.frame = CGRectMake(14*WIDTH_SCALE,  30*HEIGHT_SCALE, textSize.width, textSize.height);
-        height1 = textSize.height;
-        
     }
     return _contentlab;
 }

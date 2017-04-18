@@ -10,5 +10,5 @@
 
 #import "DDRichTextViewController.h"
 @interface detailsViewController : DDRichTextViewController
-
+@property (nonatomic,strong) NSString *detalisidstr;
 @end

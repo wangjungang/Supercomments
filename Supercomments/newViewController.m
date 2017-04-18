@@ -142,7 +142,7 @@ static NSString *newidentfid = @"newidentfid";
             self.nmodel.contentstr = dicarr[@"content"];
             self.nmodel.timestr = dicarr[@"create_time"];
             self.nmodel.imgurlstr = dicarr[@"images"];
-            self.nmodel.imgurlstr = @"http://baiduapp.changweibo.net/user_img/2017/0415/14362936404.png";
+            //self.nmodel.imgurlstr = @"http://baiduapp.changweibo.net/user_img/2017/0415/14362936404.png";
             self.nmodel.namestr = dicarr[@"name"];
             self.nmodel.dianzanstr = dicarr[@"support_num"];
             self.nmodel.pinglunstr = dicarr[@"reply_num"];
@@ -239,6 +239,7 @@ static NSString *newidentfid = @"newidentfid";
 {
     detailsViewController *detailsvc = [[detailsViewController alloc] init];
     [self.navigationController pushViewController:detailsvc animated:YES];
+    
 //    SQTopicTableViewController *sqvc = [[SQTopicTableViewController alloc] init];
 //    [self.navigationController pushViewController:sqvc animated:YES];
     

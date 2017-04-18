@@ -11,6 +11,8 @@
 #import "zanBtn.h"
 #import "commentsBtn.h"
 #import "thumbView.h"
+@class headModel;
+
 @interface detailsheadView : UIView
 {
     CGFloat height1;
@@ -27,8 +29,10 @@
 @property (nonatomic,strong) commentsBtn *combtn;
 @property (nonatomic,strong) UIButton *sharebtn;
 @property (nonatomic,strong) thumbView *thumview;
-
-
 @property (nonatomic,strong) UIImageView *headimg;
+
+
+
+-(void)setheadmodel:(headModel*)model;
 @end
 

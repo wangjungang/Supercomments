@@ -69,6 +69,7 @@
 		53AEBE6A1E94D96A00280F70 /* hotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE691E94D96A00280F70 /* hotViewController.m */; };
 		53AEBE6F1E94F80400280F70 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE6E1E94F80400280F70 /* loginViewController.m */; };
 		53AEBE721E95014B00280F70 /* infoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AEBE711E95014B00280F70 /* infoCell.m */; };
+		53D48A831EA4D52F00E5ADA3 /* headModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D48A821EA4D52F00E5ADA3 /* headModel.m */; };
 		53E2942C1E9F49CA0034D4E7 /* DDRichTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E293F21E9F49C90034D4E7 /* DDRichTextViewController.m */; };
 		53E2942D1E9F49CA0034D4E7 /* ILRegularExpressionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E293F41E9F49C90034D4E7 /* ILRegularExpressionManager.m */; };
 		53E2942E1E9F49CA0034D4E7 /* NSArray+NSArray_ILExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E293F61E9F49C90034D4E7 /* NSArray+NSArray_ILExtension.m */; };
@@ -244,6 +245,8 @@
 		53AEBE6E1E94F80400280F70 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		53AEBE701E95014B00280F70 /* infoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoCell.h; sourceTree = "<group>"; };
 		53AEBE711E95014B00280F70 /* infoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell.m; sourceTree = "<group>"; };
+		53D48A811EA4D52F00E5ADA3 /* headModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = headModel.h; sourceTree = "<group>"; };
+		53D48A821EA4D52F00E5ADA3 /* headModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = headModel.m; sourceTree = "<group>"; };
 		53E293F01E9F49C90034D4E7 /* ContantHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContantHead.h; sourceTree = "<group>"; };
 		53E293F11E9F49C90034D4E7 /* DDRichTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRichTextViewController.h; sourceTree = "<group>"; };
 		53E293F21E9F49C90034D4E7 /* DDRichTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRichTextViewController.m; sourceTree = "<group>"; };
@@ -624,6 +627,8 @@
 		53619EDB1E98D25C007CC7AC /* model */ = {
 			isa = PBXGroup;
 			children = (
+				53D48A811EA4D52F00E5ADA3 /* headModel.h */,
+				53D48A821EA4D52F00E5ADA3 /* headModel.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1232,6 +1237,7 @@
 				53E2942C1E9F49CA0034D4E7 /* DDRichTextViewController.m in Sources */,
 				53E294441E9F49CA0034D4E7 /* YMReplyInputView.m in Sources */,
 				53619EE41E98E0C7007CC7AC /* detailsheadView.m in Sources */,
+				53D48A831EA4D52F00E5ADA3 /* headModel.m in Sources */,
 				53619EC51E9778E9007CC7AC /* newCell.m in Sources */,
 				53619EA61E963508007CC7AC /* nicknameViewController.m in Sources */,
 				53AEBE551E94C9FF00280F70 /* LGSegment.m in Sources */,

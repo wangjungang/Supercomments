@@ -13,15 +13,17 @@
 
 #include "YMTextData.h"
 #import "YMReplyInputView.h"
+
+#import "headModel.h"
 @interface detailsViewController ()<UITableViewDataSource,UITableViewDelegate,DDRichTextViewDataSource,DDRichTextViewDelegate,InputDelegate>
 
 @property (nonatomic,strong) NSIndexPath *selectedIndexPath;
 
 @property (nonatomic,strong) UITableView *detailsTable;
 @property (nonatomic,strong) detailsheadView *headview;
-
-
 @property (nonatomic,strong) YMReplyInputView *replyView;
+
+@property (nonatomic,strong) headModel *headm;
 @end
 static NSString *detailsidentfid = @"detailsidentfid";
 NSMutableArray * ymDataArray;
@@ -45,20 +47,13 @@ NSMutableArray * ymDataArray;
     self.navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"F5F5F5"];
 
     
-//    [self.view addSubview:self.detailsTable];
+    [self loadhead];
+    
     
     mainTable.tableHeaderView = self.headview;
     
-    
     //图片支持网络异步加载
     NSMutableArray *_imageDataSource = [NSMutableArray arrayWithCapacity:0];
-//    [_imageDataSource addObject:@"https://octodex.github.com/images/privateinvestocat.jpg"];
-//    [_imageDataSource addObject:@"https://octodex.github.com/images/gracehoppertocat.jpg"];
-//    [_imageDataSource addObject:@"https://octodex.github.com/images/jetpacktocat.png"];
-//    [_imageDataSource addObject:@"https://octodex.github.com/images/minertocat.png"];
-//    [_imageDataSource addObject:@"https://octodex.github.com/images/luchadortocat.png"];
-//    [_imageDataSource addObject:@"https://octodex.github.com/images/saritocat.png"];
-//    [_imageDataSource addObject:@"https://octodex.github.com/images/steroidtocat.png"];
     
     NSMutableArray *_replyDataSource = [[NSMutableArray alloc] init];//回复数据来源
     [_replyDataSource addObject:@"@Della:@戴伟来 DDRichText棒棒哒！ @daiweilai： @daiweilai @戴伟来:I am Della，这是一个IOS库[em:01:][em:02:][em:03:]"];
@@ -76,8 +71,7 @@ NSMutableArray * ymDataArray;
     [ymDataArray addObject:ymData];
     self.delegate = self;
     self.dataSource = self;
-
-  
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,6 +82,14 @@ NSMutableArray * ymDataArray;
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+   
+}
+
+-(void)loadhead
+{
+    self.headm = [[headModel alloc] init];
+    self.headm.namestr = @"1211111";
+    self.headm.contactstr = @"12dsjakdlkjdfhajsklfd";
     
 }
 
@@ -97,13 +99,14 @@ NSMutableArray * ymDataArray;
 {
     if(!_headview)
     {
-        _headview = [[detailsheadView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 650)];
+        _headview = [[detailsheadView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 450)];
         _headview.layer.masksToBounds = YES;
-        //_headview.layer.borderWidth = 1;
+        _headview.layer.borderWidth = 1;
         [_headview.sharebtn addTarget:self action:@selector(shareclick) forControlEvents:UIControlEventTouchUpInside];
         [_headview.dianzanbtn addTarget:self action:@selector(dianzanclick) forControlEvents:UIControlEventTouchUpInside];
         [_headview.combtn addTarget:self action:@selector(pinglunclick) forControlEvents:UIControlEventTouchUpInside];
-        _headview.backgroundColor = [UIColor whiteColor];
+        
+        [_headview setheadmodel:_headm];
     }
     return _headview;
 }
