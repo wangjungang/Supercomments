@@ -11,7 +11,7 @@
 #import "WXApi.h"
 #import "AFNetworking.h"
 #import "AppDelegate.h"
-@interface loginViewController ()<YBAttributeTapActionDelegate>
+@interface loginViewController ()<YBAttributeTapActionDelegate,WXApiDelegate>
 @property (nonatomic,strong) UIImageView *logoimg;
 @property (nonatomic,strong) UILabel *namelab;
 @property (nonatomic,strong) UIButton *gobackbtn;
@@ -32,6 +32,9 @@
     [self.view addSubview:self.loginbtn];
     [self.view addSubview:self.zhijiebtn];
     [self.view addSubview:self.aggrentlab];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WXLogin:) name:WXLoginSuccess object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -157,12 +160,12 @@
 
 -(void)loginbtnclick
 {
-
+    
     [self weixinLogin];
     
-//    [self dismissViewControllerAnimated:YES completion:^{
-//        
-//    }];
+    //    [self dismissViewControllerAnimated:YES completion:^{
+    //
+    //    }];
 }
 
 
@@ -178,11 +181,75 @@
         SendAuthReq *req = [[SendAuthReq alloc]init];
         req.scope = WX_SCOPE;
         req.state = WX_STATE; //可省，不影响功能
+        
         [WXApi sendReq:req];
+        
         
     }else{
         [self noLoginAlertController];
     }
+}
+
+
+
+////登陆成功之后获取token
+//- (void)WXLogin:(NSNotification *)notifi
+//{
+//    AFHTTPSessionManager *manage = [AFHTTPSessionManager manager];
+//    manage.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    
+//    [manage GET:@"https://api.weixin.qq.com/sns/oauth2/access_token" parameters:@{@"appid":WXPatient_App_ID, @"secret":WXPatient_App_Secret, @"code":notifi.object[@"code"], @"grant_type":@"authorization_code"} progress:^(NSProgress * _Nonnull downloadProgress) {
+//        
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//        /*"access_token" = "OezXcEiiBSKSxW0eoylIeBPKSgTfwua1QABCnleka9CqGYr9J4wP2NHLDEFTP0vqsiS4DFDyXNQmYSaM6dW1s8MrQi6NSC9dV6ZqqjazKWQv3kfeozrm-fbZTXU80vLaWYflw07nkDhmX3KJHsEVxQ";
+//         "expires_in" = 7200;
+//         openid = xxxxxxxxxxxxxxxxxxxxxxxxxx;
+//         "refresh_token" = "OezXcEiiBSKSxW0eoylIeBPKSgTfwua1QABCnleka9CqGYr9J4wP2NHLDEFTP0vq6O1ZVOcyb8uL5dLrcuRaydRmY9BcYgJeOLqRjlLyp5HpBlYc2Ikja-RFm6ghGQ32r_iZfQfAQhtEqwk9ibf8vA";
+//         scope = "snsapi_userinfo";
+//         unionid = o4bo2vzI0vCvGTa11GBMkx0SbcwQ;*/
+//       
+//        [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"savetoken"];
+//        
+//        [self saveTokenAndRequireWXInfo];
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"access_token error-->%@", error.localizedDescription);
+//
+//    }];
+//}
+//
+- (void)saveTokenAndRequireWXInfo
+{
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"savetoken"];
+    AFHTTPSessionManager *manage = [AFHTTPSessionManager manager];
+    manage.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+ 
+    
+    [manage GET:@"https://api.weixin.qq.com/sns/userinfo" parameters:@{@"openid":dict[@"openid"], @"access_token":dict[@"access_token"]} progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        //        NSLog(@"%@",dict);
+        //        {
+        //            city = "xxx";
+        //            country = xxx;
+        //            headimgurl = “http://wx.qlogo.cn/mmopen/xxxxxxx/0”;
+        //            language = "zh_CN";
+        //            nickname = xxx;
+        //            openid = xxxxxxxxxxxxxxxxxxx; //授权用户唯一标识
+        //            privilege =     (
+        //            );
+        //            province = "xxx";
+        //            sex = 0;
+        //            unionid = xxxxxxxxxxxxxxxxxx;
+        //        }
+        
+        [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"userinfo"];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         NSLog(@"userinfo error-->%@", error.localizedDescription);
+    }];
 }
 
 #pragma mark - 设置弹出提示语

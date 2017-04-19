@@ -15,16 +15,24 @@
 #import "YMReplyInputView.h"
 
 #import "headModel.h"
-@interface detailsViewController ()<UITableViewDataSource,UITableViewDelegate,DDRichTextViewDataSource,DDRichTextViewDelegate,InputDelegate>
-
+#import "pinglunCell.h"
+#import "detailcellmodel.h"
+@interface detailsViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,assign) CGFloat height01;
+@property (nonatomic,assign) CGFloat pinglunhei;
 @property (nonatomic,strong) NSIndexPath *selectedIndexPath;
-
 @property (nonatomic,strong) detailsheadView *headview;
 @property (nonatomic,strong) YMReplyInputView *replyView;
-
 @property (nonatomic,strong) headModel *headm;
+
+@property (nonatomic,strong) UITableView *maintable;
+
+@property (nonatomic,strong) NSMutableArray *detalisarr;
+@property (nonatomic,strong) detailcellmodel *detailsmodel;
+
 @end
 static NSString *detailsidentfid = @"detailsidentfid";
+static NSString *pinglunidentfid = @"pinglunidentfid";
 NSMutableArray * ymDataArray;
 
 @implementation detailsViewController
@@ -44,38 +52,15 @@ NSMutableArray * ymDataArray;
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"F5F5F5"];
-
+    
+    [self loaddetals];
     
     [self loadhead];
     
     
-    mainTable.tableHeaderView = self.headview;
-    
-    //图片支持网络异步加载
-    NSMutableArray *_imageDataSource = [NSMutableArray arrayWithCapacity:0];
-    NSMutableArray *_replyDataSource = [[NSMutableArray alloc] init];//回复数据来源
-    
-    
-    [_replyDataSource addObject:@"支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！"];
-    [_replyDataSource addObject:@"支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！"];
-    [_replyDataSource addObject:@"支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！"];
-    [_replyDataSource addObject:@"支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！"];
-    
-    ymDataArray =[[NSMutableArray alloc]init];
-    
-    YMTextData *ymData = [[YMTextData alloc] init];
-    ymData.showImageArray = _imageDataSource;
-    ymData.foldOrNot = YES;
-    ymData.showShuoShuo = @"这是DDRichText支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！支持富文本并且文本能够收缩和伸展，支持图片，支持图片预览，能够回复，使用非常简单！";
-    
-    ymData.replyDataSource = _replyDataSource;
-    ymData.name = @"David";
-    ymData.intro = @"2015-2-8";
-    ymData.headPicURL = @"https://octodex.github.com/images/mummytocat.gif";
-    [ymDataArray addObject:ymData];
-    
-    self.delegate = self;
-    self.dataSource = self;
+    self.maintable.tableHeaderView = self.headview;
+    [self.view addSubview:self.maintable];
+
     
 }
 
@@ -88,6 +73,22 @@ NSMutableArray * ymDataArray;
 {
     [super viewWillAppear:animated];
 
+}
+
+-(void)loaddetals
+{
+    self.detalisarr = [NSMutableArray array];
+    self.detailsmodel = [[detailcellmodel alloc] init];
+    for (int i = 0; i<2; i++) {
+        self.detailsmodel.namestr = @"1221111";
+        self.detailsmodel.timestr = @"22111";
+        self.detailsmodel.contstr = @"赵客缦胡缨⑵，吴钩霜雪明⑶。银鞍照白马，飒沓如流星⑷。十步杀一人，千里不留行⑸。事了拂衣去，深藏身与名。闲过信陵饮⑹，脱剑膝前横。将炙啖朱亥，持觞劝侯嬴⑺。";
+        self.detailsmodel.pingarr = [NSMutableArray arrayWithObjects:@"其实想直接写 UIScrollView 和 UIView 的 extension 能适应所有视图的才是王道",@"其实想直接写 UIScrollView 和 UIView 的 extension 能适应所有视图的才是王道",@"其实想直接写 UIScrollView 和 UIView 的 extension 能适应所有视图的才是王道", nil];
+        
+        
+        [self.detalisarr addObject:self.detailsmodel];
+    }
+    [self.maintable reloadData];
 }
 
 -(void)loadhead
@@ -132,51 +133,86 @@ NSMutableArray * ymDataArray;
     return _headview;
 }
 
--(NSString *)senderName{
-    return @"David";
+
+-(UITableView *)maintable
+{
+    if(!_maintable)
+    {
+        _maintable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT-64)];
+        _maintable.dataSource = self;
+        _maintable.delegate = self;
+        
+    }
+    return _maintable;
 }
 
--(NSInteger)numberOfRowsInDDRichText{
-    //return ymDataArray.count;
-    return 2;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView==self.maintable) {
+        return 2;
+    }
+    else
+    {
+        return 3;
+    }
+    return 0;
 }
 
--(YMTextData *)dataForRowAtIndex:(NSInteger)index{
-    return  [ymDataArray objectAtIndex:0];
-//    return [ymDataArray objectAtIndex:0];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView==self.maintable) {
+        detaolsCell *cell = [tableView dequeueReusableCellWithIdentifier:detailsidentfid];
+        if (!cell) {
+            cell = [[detaolsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:detailsidentfid];
+        }
+        cell.pingluntable.dataSource = self;
+        cell.pingluntable.delegate = self;
+        [cell setcelldata:self.detalisarr[indexPath.row]];
+        _height01 = cell.hei;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }else
+    {
+        pinglunCell *cell = [tableView dequeueReusableCellWithIdentifier:pinglunidentfid];
+        if (!cell) {
+            cell = [[pinglunCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:pinglunidentfid];
+            cell.backgroundColor = [UIColor wjColorFloat:@"F4F5F6"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+//        cell.textLabel.text = @"赵客缦胡缨⑵，吴钩霜雪明⑶。银鞍照白马，飒沓如流星⑷。赵客缦胡缨⑵，吴钩霜雪明⑶。银鞍照白马，飒沓如流星⑷赵客缦胡缨⑵，吴钩霜雪明⑶。银鞍照白马，飒沓如流星⑷赵客缦胡缨⑵，吴钩霜雪明⑶。银鞍照白马，飒沓如流星⑷";
+        cell.textLabel.text = self.detailsmodel.pingarr[indexPath.row];
+        cell.textLabel.numberOfLines = 0;
+        cell.textLabel.font = [UIFont systemFontOfSize:14*FX];
+        CGSize textSize = [cell.textLabel setText:cell.textLabel.text lines:QSTextDefaultLines andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH-64,MAXFLOAT)];
+        cell.textLabel.frame = CGRectMake(0, 0, textSize.width, textSize.height);
+        _pinglunhei = textSize.height;
+        return cell;
+    }
+    return nil;
 }
 
--(BOOL)hideReplyButtonForIndex:(NSInteger)index{
-    return NO;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView==self.maintable) {
+        
+        return 400;
+    }
+    else
+    {
+        return _pinglunhei;
+    }
+    return 0;
 }
 
--(void)didPromulgatorNameOrHeadPicPressedForIndex:(NSInteger)index name:(NSString *)name{
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"发布者回调" message:[NSString stringWithFormat:@"姓名：%@\n index：%d",name,index] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
- //   [alert show];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView==self.maintable) {
+        
+    }else
+    {
+        NSLog(@"跳转评论");
+    }
 }
-
--(void)didRichTextPressedFromText:(NSString*)text index:(NSInteger)index{
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"正文富文本点击回调" message:[NSString stringWithFormat:@"点击的内容：%@\n index：%d",text,index] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//    [alert show];
-}
-
--(void)didRichTextPressedFromText:(NSString *)text index:(NSInteger)index replyIndex:(NSInteger)replyIndex{
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"评论的富文本点击回调" message:[NSString stringWithFormat:@"点击的内容：%@\n index：%d \n replyIndex:%d",text,index,replyIndex] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//    [alert show];
-    NSLog(@"评论");
-    _replyView = [[YMReplyInputView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 44, screenWidth,44) andAboveView:self.view];
-    _replyView.delegate = self;
-   // _replyView.replyTag = sender.tag;
-    [self.view addSubview:_replyView];
-}
-
--(void)replyForIndex:(NSInteger)index replyText:(NSString*)text{
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"回复的回调" message:[NSString stringWithFormat:@"回复的内容：%@\n index：%d",text,index] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//    [alert show];
-    
-}
-
-
 
 #pragma mark - 实现方法
 

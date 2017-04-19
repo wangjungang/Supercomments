@@ -19,7 +19,7 @@
 #define WX_SCOPE                         @"snsapi_userinfo"
 #define WX_STATE                         @"APP"
 
-
+#define WXLoginSuccess                   @"WXLoginSuccess"
 
 
 #define newVCload  @"http://np.iwenyu.cn/forum/index/index.html?page=%@&type=%@&token=%@"

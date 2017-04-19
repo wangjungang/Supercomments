@@ -28,9 +28,9 @@
 #import "AFNetworking.h"
 
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WXApiDelegate>
 ///声明微信代理属性
-@property (nonatomic,assign)id<WXApiDelegate>wxDelegate;
+//@property (nonatomic,assign)id<WXApiDelegate>wxDelegate;
 @end
 
 @implementation AppDelegate
@@ -51,80 +51,123 @@
     navigationController.navigationBar.tintColor = [UIColor whiteColor];
     //navigationController.navigationBar.barTintColor = [UIColor wjColorFloat:@"008CCF"];
     [self.window makeKeyAndVisible];
-
+    
     
     //向微信注册应用。
-     //[WXApi registerApp:WXPatient_App_ID withDescription:@"Wechat"];
+    //[WXApi registerApp:WXPatient_App_ID withDescription:@"Wechat"];
     [WXApi registerApp:@"wx133ee2b8bd5d3c7d"];
+    
+    
+    
+    
     
     return YES;
     
-//    /**
-//     可以在这里进行一个判断的设置，如果是app第一次启动就加载启动页，如果不是，则直接进入首页
-//     **/
-//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
-//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
-//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
-//    }
-//    else{
-//        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
-//    }
-//    
-//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
-//        // 这里判断是否第一次
-//        
-//        hDisplayView *hvc = [[hDisplayView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
-//        
-//        [self.window.rootViewController.view addSubview:hvc];
-//        
-//        [UIView animateWithDuration:0.25 animations:^{
-//            hvc.frame = CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT);
-//            
-//        }];
-//        
-//    }
-      // 启动图片延时: 2秒
+    //    /**
+    //     可以在这里进行一个判断的设置，如果是app第一次启动就加载启动页，如果不是，则直接进入首页
+    //     **/
+    //    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
+    //        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+    //        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+    //    }
+    //    else{
+    //        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+    //    }
+    //
+    //    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+    //        // 这里判断是否第一次
+    //
+    //        hDisplayView *hvc = [[hDisplayView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
+    //
+    //        [self.window.rootViewController.view addSubview:hvc];
+    //
+    //        [UIView animateWithDuration:0.25 animations:^{
+    //            hvc.frame = CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT);
+    //
+    //        }];
+    //
+    //    }
+    // 启动图片延时: 2秒
     //[NSThread sleepForTimeInterval:2];
     return YES;
 }
 
-
+-(void)onReq:(BaseReq *)req{
+    
+    NSLog(@"huidiao");
+}
 
 //微信代理方法
 - (void)onResp:(BaseResp *)resp
 {
     
     SendAuthResp *aresp = (SendAuthResp *)resp;
-    if(aresp.errCode== 0 && [aresp.state isEqualToString:WXPatient_App_Secret])
+    if(aresp.errCode== 0 ||aresp.errCode==nil)
     {
         NSString *code = aresp.code;
         [self getWeiXinOpenId:code];
+        
+//           [[NSNotificationCenter defaultCenter] postNotificationName:WXLoginSuccess object:@{@"code":aresp.code}];
+        
     }
 }
 
 //通过code获取access_token，openid，unionid
 
 - (void)getWeiXinOpenId:(NSString *)code{
-    NSString *url =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",WXPatient_App_ID,WXPatient_App_Secret,@""];
+    NSString *url =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",WXPatient_App_ID,WXPatient_App_Secret,code];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURL *zoneUrl = [NSURL URLWithString:url];
         NSString *zoneStr = [NSString stringWithContentsOfURL:zoneUrl encoding:NSUTF8StringEncoding error:nil];
         NSData *data = [zoneStr dataUsingEncoding:NSUTF8StringEncoding];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (data){
-                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                NSString *openID = dic[@"openid"];
-                NSString *unionid = dic[@"unionid"];
-                NSLog(@"openid---------%@",openID);
-                NSLog(@"unid===========%@",unionid);
-            }
-        });
+        if (data){
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            NSString *openID = dic[@"openid"];
+            NSString *unionid = dic[@"unionid"];
+            NSLog(@"openid---------%@",openID);
+            NSLog(@"unid===========%@",unionid);
+            
+            NSString *access_token = dic[@"access_token"];
+            
+            AFHTTPSessionManager *manage = [AFHTTPSessionManager manager];
+            manage.responseSerializer = [AFHTTPResponseSerializer serializer];
+            
+            [manage GET:@"https://api.weixin.qq.com/sns/userinfo" parameters:@{@"openid":openID, @"access_token":access_token} progress:^(NSProgress * _Nonnull downloadProgress) {
+                
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                        NSLog(@"%@",dict);
+                //        {
+                //            city = "xxx";
+                //            country = xxx;
+                //            headimgurl = “http://wx.qlogo.cn/mmopen/xxxxxxx/0”;
+                //            language = "zh_CN";
+                //            nickname = xxx;
+                //            openid = xxxxxxxxxxxxxxxxxxx; //授权用户唯一标识
+                //            privilege =     (
+                //            );
+                //            province = "xxx";
+                //            sex = 0;
+                //            unionid = xxxxxxxxxxxxxxxxxx;
+                //        }
+                
+ 
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                NSLog(@"userinfo error-->%@", error.localizedDescription);
+            }];
+        }
     });
     
 }
 
 
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary*)options{
+    
+    [WXApi handleOpenURL:url delegate:self];
+    return true;
+}
 // 这个方法是用于从微信返回第三方App
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     

@@ -83,6 +83,8 @@
 		53E294471E9F49CA0034D4E7 /* YMTapGestureRecongnizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E294281E9F49CA0034D4E7 /* YMTapGestureRecongnizer.m */; };
 		53E294481E9F49CA0034D4E7 /* YMTextData.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E2942A1E9F49CA0034D4E7 /* YMTextData.m */; };
 		53E2944C1E9F72930034D4E7 /* XWScanImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E2944B1E9F72930034D4E7 /* XWScanImage.m */; };
+		53E587841EA7651D004CB302 /* detailcellmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E587831EA7651D004CB302 /* detailcellmodel.m */; };
+		53E587871EA7672A004CB302 /* pinglunCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E587861EA7672A004CB302 /* pinglunCell.m */; };
 		53EC944A1E9DC1C400E03E07 /* hDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EC94491E9DC1C400E03E07 /* hDisplayView.m */; };
 		53EC944E1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EC944D1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.m */; };
 		53F9CB631E9B53B200C1F3A7 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F9CB3A1E9B53B200C1F3A7 /* ShareSDK.framework */; };
@@ -273,6 +275,10 @@
 		53E2942A1E9F49CA0034D4E7 /* YMTextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTextData.m; sourceTree = "<group>"; };
 		53E2944A1E9F72930034D4E7 /* XWScanImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWScanImage.h; sourceTree = "<group>"; };
 		53E2944B1E9F72930034D4E7 /* XWScanImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWScanImage.m; sourceTree = "<group>"; };
+		53E587821EA7651D004CB302 /* detailcellmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailcellmodel.h; sourceTree = "<group>"; };
+		53E587831EA7651D004CB302 /* detailcellmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailcellmodel.m; sourceTree = "<group>"; };
+		53E587851EA7672A004CB302 /* pinglunCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinglunCell.h; sourceTree = "<group>"; };
+		53E587861EA7672A004CB302 /* pinglunCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pinglunCell.m; sourceTree = "<group>"; };
 		53EC94481E9DC1C400E03E07 /* hDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hDisplayView.h; sourceTree = "<group>"; };
 		53EC94491E9DC1C400E03E07 /* hDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hDisplayView.m; sourceTree = "<group>"; };
 		53EC944C1E9DC6DE00E03E07 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
@@ -612,6 +618,8 @@
 			children = (
 				53619EDF1E98D8DA007CC7AC /* detaolsCell.h */,
 				53619EE01E98D8DA007CC7AC /* detaolsCell.m */,
+				53E587851EA7672A004CB302 /* pinglunCell.h */,
+				53E587861EA7672A004CB302 /* pinglunCell.m */,
 				53619EE21E98E0C7007CC7AC /* detailsheadView.h */,
 				53619EE31E98E0C7007CC7AC /* detailsheadView.m */,
 				53F9CB821E9B7F1A00C1F3A7 /* thumbView.h */,
@@ -629,6 +637,8 @@
 			children = (
 				53D48A811EA4D52F00E5ADA3 /* headModel.h */,
 				53D48A821EA4D52F00E5ADA3 /* headModel.m */,
+				53E587821EA7651D004CB302 /* detailcellmodel.h */,
+				53E587831EA7651D004CB302 /* detailcellmodel.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1137,7 +1147,7 @@
 				TargetAttributes = {
 					53AEBE161E948A2500280F70 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 23GQX4X34D;
+						DevelopmentTeam = GZJLNU22Y5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1238,6 +1248,7 @@
 				53E294441E9F49CA0034D4E7 /* YMReplyInputView.m in Sources */,
 				53619EE41E98E0C7007CC7AC /* detailsheadView.m in Sources */,
 				53D48A831EA4D52F00E5ADA3 /* headModel.m in Sources */,
+				53E587871EA7672A004CB302 /* pinglunCell.m in Sources */,
 				53619EC51E9778E9007CC7AC /* newCell.m in Sources */,
 				53619EA61E963508007CC7AC /* nicknameViewController.m in Sources */,
 				53AEBE551E94C9FF00280F70 /* LGSegment.m in Sources */,
@@ -1272,6 +1283,7 @@
 				53AEBE6A1E94D96A00280F70 /* hotViewController.m in Sources */,
 				53619E5F1E96055E007CC7AC /* myinfoViewController.m in Sources */,
 				53AEBE6F1E94F80400280F70 /* loginViewController.m in Sources */,
+				53E587841EA7651D004CB302 /* detailcellmodel.m in Sources */,
 				53E2942D1E9F49CA0034D4E7 /* ILRegularExpressionManager.m in Sources */,
 				5337FEE61E9DF268004664D7 /* TTTAttributedLabel.m in Sources */,
 				53AEBE491E94910700280F70 /* UIView+ViewController.m in Sources */,
@@ -1437,7 +1449,7 @@
 			baseConfigurationReference = 199683D136C99C557085109D /* Pods-Supercomments.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 23GQX4X34D;
+				DEVELOPMENT_TEAM = GZJLNU22Y5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1472,7 +1484,7 @@
 			baseConfigurationReference = D994A0AB886A394927602D3A /* Pods-Supercomments.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 23GQX4X34D;
+				DEVELOPMENT_TEAM = GZJLNU22Y5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

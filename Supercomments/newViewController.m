@@ -95,36 +95,54 @@ static NSString *newidentfid = @"newidentfid";
     
     [self.dataSource removeAllObjects];
     [self.dataarr removeAllObjects];
-    NSString *strurl = [NSString stringWithFormat:newVCload,@"1",@"1",@""];
-    [AFManager getReqURL:strurl block:^(id infor) {
-        NSLog(@"infor=====%@",infor);
-        NSLog(@"str====%@",strurl);
-        NSArray *dit = [infor objectForKey:@"info"];
+ //   NSString *strurl = [NSString stringWithFormat:newVCload,@"1",@"1",@""];
+//    [AFManager getReqURL:strurl block:^(id infor) {
+//        NSLog(@"infor=====%@",infor);
+//        NSLog(@"str====%@",strurl);
+//        NSArray *dit = [infor objectForKey:@"info"];
+//        
+//        for (int i = 0; i<dit.count; i++) {
+//            NSDictionary *dicarr = [dit objectAtIndex:i];
+//            self.nmodel = [[newModel alloc] init];
+//            self.nmodel.contentstr = dicarr[@"content"];
+//
+//            self.nmodel.timestr = dicarr[@"create_time"];
+//            self.nmodel.imgurlstr = dicarr[@"images"];
+//            //self.nmodel.imgurlstr = @"http://pic17.nipic.com/20111018/4132236_105939280314_2.jpg";
+//            self.nmodel.namestr = dicarr[@"name"];
+//            self.nmodel.dianzanstr = dicarr[@"support_num"];
+//            self.nmodel.pinglunstr = dicarr[@"reply_num"];
+//            self.nmodel.newidstr = dicarr[@"id"];
+//            self.nmodel.titlestr = dicarr[@"title"];
+//            [self.dataSource addObject:self.nmodel.contentstr];
+//            [self.dataarr addObject:self.nmodel];
+//        }
+//    
+//    
+//
+//    
+//        [self.newtable.mj_header endRefreshing];
+//        
+//        [self.newtable reloadData];
+//       
+//    } errorblock:^(NSError *error) {
+//        
+//    }];
+//
+    for (int i = 0; i<10; i++) {
+        self.nmodel = [[newModel alloc] init];
+        self.nmodel.contentstr = @"对空射击诶积极的司法解释";
         
-        for (int i = 0; i<dit.count; i++) {
-            NSDictionary *dicarr = [dit objectAtIndex:i];
-            self.nmodel = [[newModel alloc] init];
-            self.nmodel.contentstr = dicarr[@"content"];
-
-            self.nmodel.timestr = dicarr[@"create_time"];
-            self.nmodel.imgurlstr = dicarr[@"images"];
-            //self.nmodel.imgurlstr = @"http://pic17.nipic.com/20111018/4132236_105939280314_2.jpg";
-            self.nmodel.namestr = dicarr[@"name"];
-            self.nmodel.dianzanstr = dicarr[@"support_num"];
-            self.nmodel.pinglunstr = dicarr[@"reply_num"];
-            self.nmodel.newidstr = dicarr[@"id"];
-            self.nmodel.titlestr = dicarr[@"title"];
-            [self.dataSource addObject:self.nmodel.contentstr];
-            [self.dataarr addObject:self.nmodel];
-        }
-        [self.newtable.mj_header endRefreshing];
-        
-            [self.newtable reloadData];
-       
-    } errorblock:^(NSError *error) {
-        
-    }];
+        self.nmodel.timestr = @"12999291992";
+        self.nmodel.imgurlstr = @"http://pic17.nipic.com/20111018/4132236_105939280314_2.jpg";
+        self.nmodel.namestr = @"name";
+        self.nmodel.titlestr = @"title";
+        [self.dataSource addObject:self.nmodel.contentstr];
+        [self.dataarr addObject:self.nmodel];
+    }
+    [self.newtable.mj_header endRefreshing];
     
+    [self.newtable reloadData];
     
 }
 - (void)footerRefreshEndAction {

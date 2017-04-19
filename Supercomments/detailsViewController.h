@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 #import "DDRichTextViewController.h"
-@interface detailsViewController : DDRichTextViewController
+@interface detailsViewController : UIViewController
 @property (nonatomic,strong) NSString *detalisidstr;
 @end

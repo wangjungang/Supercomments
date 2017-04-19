@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class detailcellmodel;
 
 @interface detaolsCell : UITableViewCell
 @property (nonatomic,assign) CGFloat hei;
@@ -17,5 +18,8 @@
 @property (nonatomic,strong) UILabel *timelab;
 @property (nonatomic,strong) UILabel *contentlab;
 
-@property (nonatomic,strong) UILabel *pinglunlab;
+
+@property (nonatomic,strong) UITableView *pingluntable;
+
+-(void)setcelldata:(detailcellmodel*)model;
 @end
