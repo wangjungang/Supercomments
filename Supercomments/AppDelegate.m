@@ -25,7 +25,8 @@
 
 #import "hDisplayView.h"
 
-#define URL_APPID @"app id"
+#import "AFNetworking.h"
+
 
 @interface AppDelegate ()
 ///声明微信代理属性
@@ -53,7 +54,9 @@
 
     
     //向微信注册应用。
-    [WXApi registerApp:URL_APPID withDescription:@"wechat"];
+     //[WXApi registerApp:WXPatient_App_ID withDescription:@"Wechat"];
+    [WXApi registerApp:@"wx133ee2b8bd5d3c7d"];
+    
     return YES;
     
 //    /**
@@ -81,56 +84,59 @@
 //        
 //    }
       // 启动图片延时: 2秒
-    [NSThread sleepForTimeInterval:2];
+    //[NSThread sleepForTimeInterval:2];
     return YES;
 }
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return  [WXApi handleOpenURL:url delegate:self];
+
+
+
+//微信代理方法
+- (void)onResp:(BaseResp *)resp
+{
+    
+    SendAuthResp *aresp = (SendAuthResp *)resp;
+    if(aresp.errCode== 0 && [aresp.state isEqualToString:WXPatient_App_Secret])
+    {
+        NSString *code = aresp.code;
+        [self getWeiXinOpenId:code];
+    }
 }
+
+//通过code获取access_token，openid，unionid
+
+- (void)getWeiXinOpenId:(NSString *)code{
+    NSString *url =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",WXPatient_App_ID,WXPatient_App_Secret,@""];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURL *zoneUrl = [NSURL URLWithString:url];
+        NSString *zoneStr = [NSString stringWithContentsOfURL:zoneUrl encoding:NSUTF8StringEncoding error:nil];
+        NSData *data = [zoneStr dataUsingEncoding:NSUTF8StringEncoding];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (data){
+                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                NSString *openID = dic[@"openid"];
+                NSString *unionid = dic[@"unionid"];
+                NSLog(@"openid---------%@",openID);
+                NSLog(@"unid===========%@",unionid);
+            }
+        });
+    });
+    
+}
+
+
+// 这个方法是用于从微信返回第三方App
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [WXApi handleOpenURL:url delegate:self];
 }
 
-//-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
-//    
-//    /*! @brief 处理微信通过URL启动App时传递的数据
-//     *
-//     * 需要在 application:openURL:sourceApplication:annotation:或者application:handleOpenURL中调用。
-//     * @param url 微信启动第三方应用时传递过来的URL
-//     * @param delegate  WXApiDelegate对象，用来接收微信触发的消息。
-//     * @return 成功返回YES，失败返回NO。
-//     */
-//    return [WXApi handleOpenURL:url delegate:self];
-//}
-//
-//-(void) onResp:(BaseResp*)resp{
-//    NSLog(@"resp %d",resp.errCode);
-//    
-//    /*
-//     enum  WXErrCode {
-//     WXSuccess           = 0,    成功
-//     WXErrCodeCommon     = -1,  普通错误类型
-//     WXErrCodeUserCancel = -2,    用户点击取消并返回
-//     WXErrCodeSentFail   = -3,   发送失败
-//     WXErrCodeAuthDeny   = -4,    授权失败
-//     WXErrCodeUnsupport  = -5,   微信不支持
-//     };
-//     */
-//    if ([resp isKindOfClass:[SendAuthResp class]]) {   //授权登录的类。
-//        if (resp.errCode == 0) {  //成功。
-//            //这里处理回调的方法 。 通过代理吧对应的登录消息传送过去。
-//            if ([_wxDelegate respondsToSelector:@selector(loginSuccessByCode:)]) {
-//                SendAuthResp *resp2 = (SendAuthResp *)resp;
-//                //[_wxDelegate loginSuccessByCode:resp2.code];
-//            }
-//        }else{ //失败
-//            NSLog(@"error %@",resp.errStr);
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"登录失败" message:[NSString stringWithFormat:@"reason : %@",resp.errStr] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-//            [alert show];
-//        }
-//    }
-//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -156,7 +162,86 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self saveContext];
+}
+
+#pragma mark - Core Data stack
+
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
+- (NSURL *)applicationDocumentsDirectory {
+    // The directory the application uses to store the Core Data store file. This code uses a directory named "edu.weixinLoginDemo" in the application's documents directory.
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+- (NSManagedObjectModel *)managedObjectModel {
+    // The managed object model for the application. It is a fatal error for the application not to be able to find and load its model.
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
+    }
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"weixinLoginDemo" withExtension:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return _managedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+    // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it.
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
+    }
+    
+    // Create the coordinator and store
+    
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"weixinLoginDemo.sqlite"];
+    NSError *error = nil;
+    NSString *failureReason = @"There was an error creating or loading the application's saved data.";
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+        // Report any error we got.
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
+        dict[NSLocalizedFailureReasonErrorKey] = failureReason;
+        dict[NSUnderlyingErrorKey] = error;
+        error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
+        // Replace this with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    return _persistentStoreCoordinator;
 }
 
 
+- (NSManagedObjectContext *)managedObjectContext {
+    // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (!coordinator) {
+        return nil;
+    }
+    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    return _managedObjectContext;
+}
+
+#pragma mark - Core Data Saving support
+
+- (void)saveContext {
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil) {
+        NSError *error = nil;
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
 @end

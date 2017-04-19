@@ -8,6 +8,9 @@
 
 #import "loginViewController.h"
 #import "UILabel+YBAttributeTextTapAction.h"
+#import "WXApi.h"
+#import "AFNetworking.h"
+#import "AppDelegate.h"
 @interface loginViewController ()<YBAttributeTapActionDelegate>
 @property (nonatomic,strong) UIImageView *logoimg;
 @property (nonatomic,strong) UILabel *namelab;
@@ -154,10 +157,14 @@
 
 -(void)loginbtnclick
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+
+    [self weixinLogin];
+    
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        
+//    }];
 }
+
 
 -(void)gobackbtnclick
 {
@@ -166,6 +173,32 @@
     }];
 }
 
+-(void)weixinLogin{
+    if([WXApi isWXAppInstalled]){
+        SendAuthReq *req = [[SendAuthReq alloc]init];
+        req.scope = WX_SCOPE;
+        req.state = WX_STATE; //可省，不影响功能
+        [WXApi sendReq:req];
+        
+    }else{
+        [self noLoginAlertController];
+    }
+}
+
+#pragma mark - 设置弹出提示语
+- (void)noLoginAlertController {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"请先安装微信客户端" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:actionConfirm];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)isLoginedAlertController{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"您已经登陆了，请先退出登录" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:actionConfirm];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 
 @end
