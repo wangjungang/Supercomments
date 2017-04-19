@@ -25,7 +25,7 @@
         [self.contentView addSubview:self.namelab];
         [self.contentView addSubview:self.fromlab];
         [self.contentView addSubview:self.contentlab];
-        [self.contentView addSubview:self.titlelab];
+        [self.contentView addSubview:self.tiview];
         [self.contentView addSubview:self.reimg];
         [self.contentView addSubview:self.commbtn];
         [self.contentView addSubview:self.zbtn];
@@ -44,7 +44,7 @@
     self.timelab.frame = CGRectMake(14*WIDTH_SCALE+30*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 50*WIDTH_SCALE, 18*HEIGHT_SCALE);
     self.commbtn.frame = CGRectMake(DEVICE_WIDTH-50*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 40*WIDTH_SCALE, 22*HEIGHT_SCALE);
     self.zbtn.frame = CGRectMake(DEVICE_WIDTH-110*WIDTH_SCALE, self.frame.size.height-30*HEIGHT_SCALE, 40*WIDTH_SCALE, 20*HEIGHT_SCALE);
-    self.titlelab.frame = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-65*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 30*HEIGHT_SCALE);
+    self.tiview.frame = CGRectMake(14*WIDTH_SCALE, self.frame.size.height-65*HEIGHT_SCALE, DEVICE_WIDTH-28*WIDTH_SCALE, 30*HEIGHT_SCALE);
     
     
 }
@@ -136,14 +136,15 @@
 }
 
 
--(titleView *)titlelab
+-(titleView *)tiview
 {
-    if(!_titlelab)
+    if(!_tiview)
     {
-        _titlelab = [[titleView alloc] init];
-        
+        _tiview = [[titleView alloc] init];
+       // _titlelab.titlelab.backgroundColor = [UIColor redColor];
+        _tiview.titlelab.text = @"这是标题";
     }
-    return _titlelab;
+    return _tiview;
 }
 
 
@@ -183,12 +184,14 @@
     self.namelab.text = model.namestr;
     self.fromlab.text = model.fromstr;
     self.contentlab.text = model.contentstr;
-    self.titlelab.titlelab.text = model.titlestr;
+    self.tiview.titlelab.text = model.titlestr;
     self.commbtn.textlab.text = model.pinglunstr;
     self.zbtn.zanlab.text = model.dianzanstr;
+   
+    NSString *str=model.timestr;//时间戳
+    [self datetime:str];
     
     CGSize textSize = [self.contentlab setText:model.contentstr lines:QSTextDefaultLines2 andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH,MAXFLOAT)];
-    
     self.contentlab.frame = CGRectMake(14*WIDTH_SCALE,  30*HEIGHT_SCALE, DEVICE_WIDTH -28*WIDTH_SCALE, textSize.height);
     
     CGFloat hei = textSize.height;
@@ -261,6 +264,29 @@
 {
 
     [self.delegate myTabVClick2:self];
+}
+
+-(void)datetime:(NSString *)datestr
+{
+    NSTimeInterval time=[datestr doubleValue]+28800;//因为时差问题要加8小时 == 28800 sec
+    NSDate *detaildate=[NSDate dateWithTimeIntervalSince1970:time];
+    NSLog(@"date:%@",[detaildate description]);
+    //实例化一个NSDateFormatter对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    //NSString *currentDateStr = [dateFormatter stringFromDate: detaildate];
+    NSDate *date = [NSDate date];
+    //计算时间间隔（单位是秒）
+    NSTimeInterval time2 = [date timeIntervalSinceDate:detaildate];
+    //计算天数、时、分、秒
+    int days = ((int)time2)/(3600*24);
+    int hours = ((int)time2)%(3600*24)/3600;
+    int minutes = ((int)time2)%(3600*24)%3600/60;
+    int seconds = ((int)time2)%(3600*24)%3600%60;
+    NSString *dateContent = [[NSString alloc] initWithFormat:@"过去%i天%i小时%i分%i秒",days,hours,minutes,seconds];
+    NSLog(@"datacunt=====%@",dateContent);
 }
 
 @end

@@ -15,7 +15,6 @@
 @property (nonatomic,strong) NSString *titlestr;
 @property (nonatomic,strong) NSString *timestr;
 @property (nonatomic,strong) NSString *imgurlstr;
-
 @property (nonatomic,strong) NSString *dianzanstr;
 @property (nonatomic,strong) NSString *pinglunstr;
 @property (nonatomic,strong) NSString *newidstr;

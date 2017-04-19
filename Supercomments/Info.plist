@@ -18,6 +18,19 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>weixinjinriniupin</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -29,6 +42,15 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>App需要您的同意,才能访问相机</string>
+	<key>NSExceptionDomains</key>
+	<dict>
+		<key>NSExceptionAllowInsecureHTTPLoads</key>
+		<true/>
+		<key>NSExceptionRequiresForwardSecrecy </key>
+		<false/>
+		<key>NSIncludesSubdomains</key>
+		<true/>
+	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>App需要您的同意,才能访问相册</string>
 	<key>UILaunchStoryboardName</key>
@@ -39,6 +61,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -52,16 +76,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleLightContent</string>
-	<key>NSExceptionDomains</key>
-	<dict>
-		<key>NSExceptionRequiresForwardSecrecy </key>
-		<false/>
-		<key>NSIncludesSubdomains</key>
-		<true/>
-		<key>NSExceptionAllowInsecureHTTPLoads</key>
-		<true/>
-	</dict>
 </dict>
 </plist>

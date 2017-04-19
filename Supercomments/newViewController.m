@@ -113,6 +113,7 @@ static NSString *newidentfid = @"newidentfid";
             self.nmodel.dianzanstr = dicarr[@"support_num"];
             self.nmodel.pinglunstr = dicarr[@"reply_num"];
             self.nmodel.newidstr = dicarr[@"id"];
+            self.nmodel.titlestr = dicarr[@"title"];
             [self.dataSource addObject:self.nmodel.contentstr];
             [self.dataarr addObject:self.nmodel];
         }
@@ -148,6 +149,7 @@ static NSString *newidentfid = @"newidentfid";
             self.nmodel.dianzanstr = dicarr[@"support_num"];
             self.nmodel.pinglunstr = dicarr[@"reply_num"];
             self.nmodel.newidstr = dicarr[@"id"];
+            self.nmodel.titlestr = dicarr[@"title"];
             [self.dataSource addObject:self.nmodel.contentstr];
             [self.dataarr addObject:self.nmodel];
         }
