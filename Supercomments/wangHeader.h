@@ -25,4 +25,6 @@
 #define newVCload  @"http://np.iwenyu.cn/forum/index/index.html?page=%@&type=%@&token=%@"
 
 #define loginbool @"http://np.iwenyu.cn/forum/index/userInfo.html?token=%@"
+
+#define xiangqin @"http://np.iwenyu.cn/forum/index/detail.html?id=%@&page=%@&token=%@"
 #endif /* wangHeader_h */

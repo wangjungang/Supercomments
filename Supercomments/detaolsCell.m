@@ -8,8 +8,12 @@
 
 #import "detaolsCell.h"
 #import "detailcellmodel.h"
-@interface detaolsCell()
+#import "pinglunCell.h"
+static NSString *pinglunidentfid = @"pinglunidentfid";
+@interface detaolsCell()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) detailcellmodel *detalmodel;
+
+@property (nonatomic,strong) NSMutableArray *pinglunindexarr;
 @end
 
 @implementation detaolsCell
@@ -19,6 +23,7 @@
     self =  [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self)
     {
+        self.pinglunindexarr = [NSMutableArray array];
         [self.contentView addSubview:self.picimg];
         [self.contentView addSubview:self.namelab];
         [self.contentView addSubview:self.timelab];
@@ -46,10 +51,12 @@
     self.namelab.text = model.namestr;
     self.timelab.text = model.timestr;
     self.contentlab.text = model.contstr;
+    
     CGSize textSize = [_contentlab setText:_contentlab.text lines:QSTextDefaultLines andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH - 94*WIDTH_SCALE-14*WIDTH_SCALE,MAXFLOAT)];
     self.contentlab.frame = CGRectMake(14*WIDTH_SCALE+32*WIDTH_SCALE+14*WIDTH_SCALE,  60*HEIGHT_SCALE, textSize.width, textSize.height);
     _hei = textSize.height;
     
+    self.pinglunindexarr = model.pingluncontarr;
 }
 
 #pragma mark - getters
@@ -97,8 +104,7 @@
         _contentlab = [[UILabel alloc] init];
         _contentlab.numberOfLines = 0;
         _contentlab.textColor = [UIColor wjColorFloat:@"333333"];
-        _contentlab.font = [UIFont systemFontOfSize:16*FX];
-        //_contentlab.text = @"赵客缦胡缨，吴钩霜雪明。银鞍照白马，飒沓如流星。十步杀一人，千里不留行。事了拂衣去，深藏身与名。";
+        _contentlab.font = [UIFont systemFontOfSize:17*FX];
        
     }
     return _contentlab;
@@ -111,8 +117,40 @@
     {
         _pingluntable = [[UITableView alloc] init];
         _pingluntable.scrollEnabled = NO;
+        _pingluntable.dataSource = self;
+        _pingluntable.delegate = self;
     }
     return _pingluntable;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    pinglunCell *cell = [tableView dequeueReusableCellWithIdentifier:pinglunidentfid];
+    if (!cell) {
+        cell = [[pinglunCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:pinglunidentfid];
+    }
+    cell.backgroundColor = [UIColor wjColorFloat:@"F4F5F6"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.textLabel.text = @"赵客缦胡缨⑵，吴钩霜雪明⑶。银鞍照白马，飒沓如流星⑷。赵客缦胡缨⑵，吴钩霜雪明⑶。银鞍照白马，飒沓如流星⑷赵客缦胡缨⑵，吴钩霜雪明⑶。银鞍照白马，飒沓如流星⑷赵客缦胡缨⑵，吴钩霜雪明⑶。银鞍照白马，飒沓如流星⑷";
+    
+    // cell.textLabel.text = self.detailsmodel.pingarr[indexPath.row];
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.font = [UIFont systemFontOfSize:14*FX];
+    CGSize textSize = [cell.textLabel setText:cell.textLabel.text lines:QSTextDefaultLines andLineSpacing:QSTextLineSpacing constrainedToSize:CGSizeMake(DEVICE_WIDTH-64,MAXFLOAT)];
+    cell.textLabel.frame = CGRectMake(0, 0, textSize.width, textSize.height);
+    //_pinglunhei = textSize.height;
+    return cell;
+
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 20;
+}
 @end

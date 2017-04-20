@@ -15,4 +15,5 @@
 
 @property (nonatomic,strong) NSMutableArray *pingarr;
 
+@property (nonatomic,strong) NSMutableArray *pingluncontarr;
 @end

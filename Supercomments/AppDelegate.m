@@ -130,9 +130,11 @@
             
             NSString *access_token = dic[@"access_token"];
             
+            [[NSUserDefaults standardUserDefaults] setObject:access_token forKey:@"access_token"];
+            
+            
             AFHTTPSessionManager *manage = [AFHTTPSessionManager manager];
             manage.responseSerializer = [AFHTTPResponseSerializer serializer];
-            
             [manage GET:@"https://api.weixin.qq.com/sns/userinfo" parameters:@{@"openid":openID, @"access_token":access_token} progress:^(NSProgress * _Nonnull downloadProgress) {
                 
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -151,7 +153,7 @@
                 //            sex = 0;
                 //            unionid = xxxxxxxxxxxxxxxxxx;
                 //        }
-                
+                 [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"userinfo"];
  
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 NSLog(@"userinfo error-->%@", error.localizedDescription);

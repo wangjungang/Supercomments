@@ -252,13 +252,15 @@ static NSString *newidentfid = @"newidentfid";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    detailsViewController *detailsvc = [[detailsViewController alloc] init];
-    [self.navigationController pushViewController:detailsvc animated:YES];
-    
     self.nmodel = [[newModel alloc] init];
     self.nmodel = self.dataarr[indexPath.row];
     NSString *str = self.nmodel.newidstr;
     NSLog(@"str======%@",str);
+
+    detailsViewController *detailsvc = [[detailsViewController alloc] init];
+    detailsvc.detalisidstr = str;
+    [self.navigationController pushViewController:detailsvc animated:YES];
+    
 }
 
 //点赞

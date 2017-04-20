@@ -7,6 +7,11 @@
 //
 
 #import "pinglunCell.h"
+#import "detailcellmodel.h"
+
+@interface pinglunCell()
+@property (nonatomic,strong) detailcellmodel *detalmodel;
+@end
 
 @implementation pinglunCell
 
@@ -25,6 +30,13 @@
 {
     [super layoutSubviews];
     
+    
+    
+}
+
+-(void)pingluncelldata:(detailcellmodel *)model
+{
+    self.detalmodel = model;
     
     
 }
