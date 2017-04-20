@@ -38,7 +38,7 @@ static NSString *newidentfid = @"newidentfid";
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self islogin];
+
     
     pn=1;
     self.dataSource = [NSMutableArray array];
@@ -51,21 +51,7 @@ static NSString *newidentfid = @"newidentfid";
     
 }
 
--(void)islogin
-{
-    [AFManager getReqURL:[NSString stringWithFormat:loginbool,@""] block:^(id infor) {
-        NSLog(@"infor=%@",infor);
-        if ([[infor objectForKey:@"code"]intValue]==1) {
-            NSLog(@"未登录");
-        }else
-        {
-            NSLog(@"已经登陆");
-        }
-        
-    } errorblock:^(NSError *error) {
-        
-    }];
-}
+
 
 - (void)addHeader
 {

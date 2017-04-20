@@ -13,6 +13,7 @@
 @interface myinfoViewController ()<UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UITableView *myinfotable;
 
+
 @end
 
 static NSString *myinfoidentfid0 = @"myidentfid0";
@@ -28,6 +29,11 @@ static NSString *myinfoidentfid1 = @"myidentfid1";
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     
     self.title = @"个人中心";
+    
+    
+    
+    
+    
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor wjColorFloat:@"333333"]}];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
@@ -36,7 +42,7 @@ static NSString *myinfoidentfid1 = @"myidentfid1";
     self.myinfotable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
     [self.view addSubview:self.myinfotable];
-      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(nameasd:) name:@"username" object:nil];
+      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(nameasd:) name:@"usernamexiugai" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,7 +98,13 @@ static NSString *myinfoidentfid1 = @"myidentfid1";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setSeparatorInset:UIEdgeInsetsZero];
         cell.infoimage.tag = 200;
+        
+        NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+        NSString *path = [userdefat objectForKey:@"pathurlstr"];
+
+        [cell.infoimage sd_setImageWithURL:[NSURL URLWithString:path] placeholderImage:[UIImage imageNamed:@"头像默认图"]];
         return cell;
+        
     }
     if (indexPath.row==1) {
         myinfoCell1 *cell = [tableView dequeueReusableCellWithIdentifier:myinfoidentfid1];
@@ -103,6 +115,9 @@ static NSString *myinfoidentfid1 = @"myidentfid1";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setSeparatorInset:UIEdgeInsetsZero];
         cell.rightlab.tag = 201;
+        NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+        NSString *nickname = [userdefat objectForKey:@"namestr"];
+        cell.rightlab.text = nickname;
         return cell;
     }
     return  nil;

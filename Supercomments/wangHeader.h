@@ -27,4 +27,6 @@
 #define loginbool @"http://np.iwenyu.cn/forum/index/userInfo.html?token=%@"
 
 #define xiangqin @"http://np.iwenyu.cn/forum/index/detail.html?id=%@&page=%@&token=%@"
+
+#define denglu @"http://np.iwenyu.cn/ucenter/member/login.html"
 #endif /* wangHeader_h */

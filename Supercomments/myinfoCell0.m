@@ -30,7 +30,6 @@
 
 #pragma mark - getters
 
-
 -(UILabel *)leftlab
 {
     if(!_leftlab)
@@ -49,7 +48,7 @@
         _infoimage = [[UIImageView alloc] init];
         _infoimage.layer.masksToBounds = YES;
         _infoimage.layer.cornerRadius = 18*WIDTH_SCALE;
-        _infoimage.backgroundColor = [UIColor orangeColor];
+       // _infoimage.backgroundColor = [UIColor orangeColor];
     }
     return _infoimage;
 }

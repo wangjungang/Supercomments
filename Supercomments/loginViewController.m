@@ -163,9 +163,7 @@
     
     [self weixinLogin];
     
-    //    [self dismissViewControllerAnimated:YES completion:^{
-    //
-    //    }];
+
 }
 
 
@@ -190,9 +188,46 @@
     }
 }
 
-
+-(void)WXLogin:(NSNotificationCenter *)center
+{
+    
+    
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    
+    NSString *tokenkey = [userdefat objectForKey:@"access_token"];
+    NSDictionary *dic = [userdefat objectForKey:@"userinfo"];
+    NSString *nickname = [dic objectForKey:@"nickname"];
+    NSString *path = [dic objectForKey:@"headimgurl"];
+    NSString *openid = [dic objectForKey:@"openid"];
+    
+    
+    NSLog(@"openid---------%@",openid);
+    NSDictionary *para = @{@"login_type":@"quickLogin",@"openid":openid,@"token_key":tokenkey,@"nickname":nickname,@"type":@"4",@"path":path};
+    
+    
+    [AFManager postReqURL:denglu reqBody:para block:^(id infor) {
+        NSLog(@"infor---------%@",infor);
+        if ([[infor objectForKey:@"code"] intValue]==1) {
+            NSString *token = [infor objectForKey:@"token"];
+            NSString *uid = [infor objectForKey:@"uid"];
+            NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+            [userdefat setObject:token forKey:@"tokenuser"];
+            [userdefat setObject:uid forKey:@"uid"];
+            NSLog(@"tolen-------------%@",token);
+            [userdefat synchronize];
+        }
+        else
+        {
+            NSLog(@"状态异常，请稍后再试");
+        }
+    }];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
 
 #pragma mark - 设置弹出提示语
+
 - (void)noLoginAlertController {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"请先安装微信客户端" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *actionConfirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];

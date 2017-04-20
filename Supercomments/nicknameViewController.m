@@ -21,7 +21,11 @@ static NSString *nickcellidentfid = @"nickidentfid";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"返回.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
     self.title = @"昵称";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightaction)];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightaction1)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor wjColorFloat:@"333333"];
+    
+    
     UITapGestureRecognizer *TapGestureTecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide)];
     TapGestureTecognizer.cancelsTouchesInView=NO;
     [self.nicktable addGestureRecognizer:TapGestureTecognizer];
@@ -108,12 +112,15 @@ static NSString *nickcellidentfid = @"nickidentfid";
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)rightaction
+-(void)rightaction1
 {
     NSLog(@"保存");
     //保存修改的用户名
-      UITextField *text = [self.nicktable viewWithTag:100];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"username" object:text.text];
+    UITextField *text = [self.nicktable viewWithTag:100];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"usernamexiugai" object:text.text];
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    [userdefat setObject:text.text forKey:@"namestr"];
+    [userdefat synchronize];
 }
 
 -(void)keyboardHide

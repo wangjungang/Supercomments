@@ -13,7 +13,7 @@
 #import "newViewController.h"
 #import "hotViewController.h"
 #import "loginViewController.h"
-
+#import <SDWebImage/UIButton+WebCache.h>
 //Segment高度
 
 #define LG_segmentH 44
@@ -27,6 +27,9 @@
 @property (nonatomic,strong) UIButton *searchbtn;
 
 @property (nonatomic,strong) UIImageView *bgimg;
+
+@property (nonatomic,strong) NSString *denglustr;
+
 @end
 
 @implementation homeViewController
@@ -41,12 +44,45 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
+    
+    [self islogin];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self.navigationController.navigationBar setHidden:NO];
+
+}
+
+-(void)islogin
+{
+    
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *tokenkey = [userdefat objectForKey:@"tokenuser"];
+    NSLog(@"tokenkey===========%@",tokenkey);
+    
+    [AFManager getReqURL:[NSString stringWithFormat:loginbool,tokenkey] block:^(id infor) {
+        NSLog(@"infor=%@",infor);
+        if ([[infor objectForKey:@"code"]intValue]==0) {
+            NSLog(@"未登录");
+            self.denglustr = @"";
+            [self.infobtn sd_setImageWithURL:[NSURL URLWithString:@""] forState:normal placeholderImage:[UIImage imageNamed:@"未登录"]];
+        }else
+        {
+            NSLog(@"已经登陆");
+            self.denglustr = @"denglu";
+            NSDictionary *dic = [infor objectForKey:@"info"];
+            //NSString *urlstr = [dic objectForKey:@"headPath"];
+            NSString *urlstr = @"http://www.qqbody.com/uploads/allimg/201401/09-045302_580.jpg";
+
+            [self.infobtn sd_setImageWithURL:[NSURL URLWithString:urlstr] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"未登录"]];
+            //[self.infobtn sd_setImageWithURL:[NSURL URLWithString:urlstr] forState:normal];
+        }
+        
+    } errorblock:^(NSError *error) {
+        
+    }];
 }
 
 - (NSMutableArray *)buttonList
@@ -151,9 +187,10 @@
     if(!_infobtn)
     {
         _infobtn = [[UIButton alloc] initWithFrame:CGRectMake(15, 25, 30, 30)];
-        _infobtn.backgroundColor = [UIColor greenColor];
+        //_infobtn.backgroundColor = [UIColor greenColor];
         _infobtn.layer.masksToBounds = YES;
         _infobtn.layer.cornerRadius = 15;
+        
         [_infobtn addTarget:self action:@selector(infoclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _infobtn;
@@ -181,13 +218,20 @@
 
 -(void)infoclick
 {
-//    infoViewController *infovc = [[infoViewController alloc] init];
-//    [self.navigationController pushViewController:infovc animated:YES];
-    loginViewController *loginvc = [[loginViewController alloc] init];
-    
-    [self presentViewController:loginvc animated:YES completion:^{
+    if (self.denglustr.length!=0) {
+        infoViewController *infovc = [[infoViewController alloc] init];
+        [self.navigationController pushViewController:infovc animated:YES];
+
+    }else
+    {
+        loginViewController *loginvc = [[loginViewController alloc] init];
         
-    }];
+        [self presentViewController:loginvc animated:YES completion:^{
+            
+        }];
+    }
+
+
 }
 
 @end

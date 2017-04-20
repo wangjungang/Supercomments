@@ -105,6 +105,11 @@ static NSString *infocellidentfid = @"infocellidentfid";
         //初始化一个手势
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
         //为图片添加手势
+        NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+        NSDictionary *dic = [userdefat objectForKey:@"userinfo"];
+        // NSString *nickname = [dic objectForKey:@"nickname"];
+        NSString *path = [dic objectForKey:@"headimgurl"];
+        [_headview.infoimg sd_setImageWithURL:[NSURL URLWithString:path] placeholderImage:[UIImage imageNamed:@"头像默认图"]];
         [ _headview.infoimg addGestureRecognizer:singleTap];
     }
     return _headview;

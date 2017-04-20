@@ -107,7 +107,7 @@
         NSString *code = aresp.code;
         [self getWeiXinOpenId:code];
         
-//           [[NSNotificationCenter defaultCenter] postNotificationName:WXLoginSuccess object:@{@"code":aresp.code}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:WXLoginSuccess object:@{@"code":aresp.code}];
         
     }
 }
@@ -129,8 +129,13 @@
             NSLog(@"unid===========%@",unionid);
             
             NSString *access_token = dic[@"access_token"];
+            NSLog(@"token---------------%@",access_token);
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:access_token forKey:@"access_token"];
+            [defaults setObject:openID forKey:@"openid"];
+            [defaults synchronize];
             
-            [[NSUserDefaults standardUserDefaults] setObject:access_token forKey:@"access_token"];
+            NSLog(@"%@",[defaults objectForKey:@"access_token"]);
             
             
             AFHTTPSessionManager *manage = [AFHTTPSessionManager manager];
@@ -139,7 +144,7 @@
                 
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-                        NSLog(@"%@",dict);
+                NSLog(@"%@",dict);
                 //        {
                 //            city = "xxx";
                 //            country = xxx;
@@ -153,8 +158,16 @@
                 //            sex = 0;
                 //            unionid = xxxxxxxxxxxxxxxxxx;
                 //        }
-                 [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"userinfo"];
- 
+                NSString *namestr = [dict objectForKey:@"nickname"];
+                NSString *pathurlstr = [dict objectForKey:@"pathurlstr"];
+                
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                [defaults setObject:dict forKey:@"userinfo"];
+                [defaults setObject:namestr forKey:@"namestr"];
+                [defaults setObject:pathurlstr forKey:@"pathurlstr"];
+                
+                [defaults synchronize];
+                
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 NSLog(@"userinfo error-->%@", error.localizedDescription);
             }];

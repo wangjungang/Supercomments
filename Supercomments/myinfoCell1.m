@@ -25,7 +25,7 @@
 {
     [super layoutSubviews];
     self.leftlab.frame = CGRectMake(14*WIDTH_SCALE, 15*HEIGHT_SCALE, 80*WIDTH_SCALE, 30*HEIGHT_SCALE);
-    self.rightlab.frame = CGRectMake(DEVICE_WIDTH-100*WIDTH_SCALE, 15*HEIGHT_SCALE, 80*WIDTH_SCALE, 30*HEIGHT_SCALE);
+    self.rightlab.frame = CGRectMake(DEVICE_WIDTH/2, 15*HEIGHT_SCALE, DEVICE_WIDTH/2-34*WIDTH_SCALE, 30*HEIGHT_SCALE);
 }
 
 #pragma mark - getters
@@ -47,8 +47,8 @@
     {
         _rightlab = [[UILabel alloc] init];
         _rightlab.textColor =[UIColor wjColorFloat:@"5D5E5F"];
-        _rightlab.text = @"两袖清风";
-        
+        //_rightlab.text = @"两袖清风";
+        _rightlab.textAlignment = NSTextAlignmentRight;
     }
     return _rightlab;
 }
